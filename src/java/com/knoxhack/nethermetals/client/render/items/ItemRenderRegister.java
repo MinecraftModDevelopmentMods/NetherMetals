@@ -12,6 +12,7 @@ public final class ItemRenderRegister {
 
 	public static void registerItemRenderer() {
 		reg(ModItems.nethersword);
+		reg(ModItems.netherpickaxe);
 	}
 
 	//==========================================================================
