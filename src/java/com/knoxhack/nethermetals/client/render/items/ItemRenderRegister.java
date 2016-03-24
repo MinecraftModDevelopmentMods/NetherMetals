@@ -13,6 +13,13 @@ public final class ItemRenderRegister {
 	public static void registerItemRenderer() {
 		reg(ModItems.nethersword);
 		reg(ModItems.netherpickaxe);
+		reg(ModItems.netherhoe);
+		reg(ModItems.netheraxe);
+		reg(ModItems.netherspade);
+		reg(ModItems.netherhelmet);
+		reg(ModItems.netherchestplate);
+		reg(ModItems.netherleggings);
+		reg(ModItems.netherboots);
 	}
 
 	//==========================================================================
