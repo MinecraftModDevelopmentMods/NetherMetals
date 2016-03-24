@@ -5,10 +5,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public final class ModItems {
 
-	public static Item tutorialItem;
+	public static Item nethersword;
 
 	public static void createItems() {
-		GameRegistry.registerItem(tutorialItem = new BasicItem("tutorial_item"), "tutorial_item");
+		GameRegistry.registerItem(nethersword = new SwordItem("Nether_Sword"), "Nether_Sword");
 	}
 
 }
