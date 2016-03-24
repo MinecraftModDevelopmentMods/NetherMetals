@@ -1,6 +1,7 @@
 package com.knoxhack.nethermetals;
 
 import com.knoxhack.nethermetals.blocks.ModBlocks;
+import com.knoxhack.nethermetals.crafting.ModCrafting;
 import com.knoxhack.nethermetals.items.ModItems;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -15,10 +16,13 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
-
+        ModCrafting.initCrafting();
     }
 
     public void postInit(FMLPostInitializationEvent e) {
 
     }
+    
+    
+    
 }

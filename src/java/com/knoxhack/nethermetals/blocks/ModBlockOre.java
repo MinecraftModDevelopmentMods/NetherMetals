@@ -15,25 +15,29 @@ public class ModBlockOre extends Block {
 	private int least_quantity;
 	private int most_quantity;
 
-	protected ModBlockOre(String unlocalizedName, Material mat, Item drop, int meta, int least_quantity, int most_quantity) {
+	public ModBlockOre(String unlocalizedName, Material mat, Item drop, int meta, int least_quantity, int most_quantity) {
 		super(mat);
 		this.drop = drop;
 		this.meta = meta;
 		this.least_quantity = least_quantity;
 		this.most_quantity = most_quantity;
 		this.setHarvestLevel("pickaxe", 1);
-		this.setHardness(7.0f);
+		this.setHardness(10.0f);
 		this.setResistance(15.0f);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 
-	protected ModBlockOre(String unlocalizedName, Material mat, Item drop, int least_quantity, int most_quantity) {
+	public ModBlockOre(String unlocalizedName, Material mat, Item drop, int least_quantity, int most_quantity) {
 		this(unlocalizedName, mat, drop, 0, least_quantity, most_quantity);
 	}
 
-	protected ModBlockOre(String unlocalizedName, Material mat, Item drop) {
+	public ModBlockOre(String unlocalizedName, Material mat, Item drop) {
 		this(unlocalizedName, mat, drop, 1, 1);
+	}
+
+	public void ModBlockOre2(String string, Material rock, Block ironOre, int i, int j) {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
