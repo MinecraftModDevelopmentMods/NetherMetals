@@ -67,5 +67,6 @@
 	<classpathentry kind="lib" path="C:/Users/knox/.gradle/caches/minecraft/deobfedDeps/compileDummy.jar"/>
 	<classpathentry kind="lib" path="C:/Users/knox/.gradle/caches/minecraft/deobfedDeps/providedDummy.jar"/>
 	<classpathentry kind="lib" path="C:/Users/knox/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1794/start"/>
+	<classpathentry kind="lib" path="C:/Users/knox/Desktop/workplace2/eclipse/Nether-Metals/libs/BaseMetals-API-1.7.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

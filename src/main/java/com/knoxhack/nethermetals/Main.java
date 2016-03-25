@@ -8,13 +8,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
+@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION, dependencies = "required-after:Base Metals")
 public class Main {
 
     public static final String MODID = "nethermetals";
     public static final String MODNAME = "Nether Metals";
     public static final String VERSION = "1.0.0";
-
     @Instance
     public static Main instance = new Main();
 
