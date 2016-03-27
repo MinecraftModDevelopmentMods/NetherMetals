@@ -23,8 +23,9 @@
 
 ####已实现 ( Implemented ):
 
-    Array shuffle
-    Prime test(trial division)
+    Vanilla Ore:
+    
+    Nether Copper Ore
     Prime test(Miller-Rabin's method)
     2D Array
     Arbitrary Integer
