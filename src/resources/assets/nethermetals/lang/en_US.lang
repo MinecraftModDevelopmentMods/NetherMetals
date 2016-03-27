@@ -1,0 +1,23 @@
+<en_US.lang - English localization file for the mod "Tutorial">
+
+tile.nether_copper_ore.name=Nether Copper Ore
+tile.nether_tin_ore.name=Nether Tin Ore
+tile.nether_lead_ore.name=Nether Lead Ore
+tile.nether_silver_ore.name=Nether Silver Ore
+tile.nether_zinc_ore.name=Nether Zinc Ore
+tile.nether_nickel_ore.name=Nether Nickel Ore
+item.nether_sword.name=Nether Sword
+item.nether_pickaxe.name=Nether Pickaxe
+item.nether_axe.name=Nether Axe
+item.nether_hoe.name=Nether How
+item.nether_spade.name=Nether Shovel
+item.nether_helmet.name=Nether Helmet
+item.nether_chestplate.name=Nether Chestplate
+item.nether_leggings.name=Nether Leggings
+item.nether_boots.name=Nether Boots
+tile.nether_iron_ore.name=Nether Iron Ore
+tile.nether_diamond_ore.name=Nether Diamond Ore
+tile.nether_redstone_ore.name=Nether Redstone Ore
+tile.nether_lapis_ore.name=Nether Lapis Ore
+tile.nether_gold_ore.name=Nether Gold Ore
+tile.nether_coal_ore.name=Nether Coal Ore
