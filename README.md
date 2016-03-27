@@ -1,64 +1,102 @@
-# Nether-Metals (Base Metals Addon)
-Nether Metals is an Addon for the mod Base Metals, it expand it to bring its ores to the Nether dimension.
+###Nether Methals
 
-It can fit perfectly in skyblock modpacks
+####目标 ( Ores ) :
 
- 
+   1. 经典的算法实现      
+      (classical algorithms implementations)      
+   2. 服务器端       
+      (based on linux/gcc)       
+   3. 正确，易于使用和改造, 一个头文件一个算法，并附带一个demo.       
+      (correct! and ease of use, one .header file per algorithm)        
 
- 
+####约定 ( Convention ):
 
-Ores: 
+   1.  一个算法用一个.h文件表示放到include下. ( one .header file per algorithm. )
+   2.  算法演示的demo程序放到src下.  ( one demo per algorithm.  )
+   3.  程序正确通过后，请发起Pull Requests，代码被验证后入库，并在README中发布新算法实现。
+       (Please Use Fork+Pull Requests !!! Correctness is the most important!)
+   4.  TAB = 4 space.  set ts=4 in vim
+   5.  Graph的输出格式为 [Graphviz](http://www.graphviz.org/) Dot格式.
+   	(the output format of the graph is in dot of graphviz.)
+   	eg:
+   	![demograph](demo_graph.png)
 
-Nether Copper Ore
-Nether Tin Ore
-Nether Lead Ore
-Nether Silver Ore
-Nether Zinc Ore
-Nether Nickel Ore
-Ores (Vanilla): (To be implemented)
+####已实现 ( Implemented ):
 
-Nether Iron Ore
-Nether Redstone Ore
-Nether Gold Ore
-Nether Diamond Ore
-Tools: (To be implemented)
+    Array shuffle
+    Prime test(trial division)
+    Prime test(Miller-Rabin's method)
+    2D Array
+    Arbitrary Integer
+    Linear congruential generator
+    Maximum subarray problem
 
-Nether Sword
-Nether Pickaxe
-Nether Axe
-Nether Hoe
-Nether Shovel
-Armor: (To be implemented)
+    Bit-Set
+    Queue
+    Stack
+    Binary Heap
+    Fibonacci Heap
+    Priority Queue (list based)
 
-Nether Helmet
-Nether Chestplate
-Nether Leggings
-Nether Boots
- 
+    Bubble sort
+    Selection sort
+    Insertion sort
+    Radix sort
+    Quick sort
+    Merge sort
+    Double linked list
+    Skip list
+    Self-organized linked-list ops (move-to-front, move-ahead-one)
+    Largest common sequence
 
-Extras (To be implemented)
+    Binary search tree
+    AVL tree
+    Dynamic order statistics
+    Red-black tree
+    Interval tree
+    Prefix Tree(Trie)
+    Suffix Tree
+    B-Tree
+    Suffix Array
 
-White Glowstone
-Green Glowstone
-Blue Glowstone
-Yellow Glowstone
-Purple Glowstone
-Pink Glowstone
- 
+    Hash by multiplication
+    Hash table
+    Universal hash function
+    Perfect hash
+    Java's string hash
+    FNV-1a string hash
+    SimHash
+    Bloom Filter
+    SHA-1 Message Digest Algorithm
+    MD5
+    Base64
 
-World
+    Graph data structure
+    Strongly Connected Components(SCC)
+    Prim's minimum spanning tree
+    Kruskal MST
+    Directed/Undirected graph ops
+    Breadth First Search
+    Depth First Search
+    Dijkstra's algorithm
+    Bellman-Ford algorithm
+    Edmonds-Karp Maximal Flow
+    Push–Relabel algorithm
 
-Nether Ores spawn only in the Nether
-Github:
+    Huffman Coding
+    Word segementation(CHN/GB18030) using HMM and viterbi algorithm.
+    A* algorithm
+    K-Means
+    Knuth–Morris–Pratt algorithm
+    Disjoint-Set
+    8-Queue Problem
+    Palindrome
 
- 
-
-Check us on Github: https://github.com/nfinit-gaming/Nether-Metals
-
- 
-
-Discord:
-
- 
-
-We have a Discord server!  You can join with the following invite link: https://discord.gg/0eXbwPGyRiqemwip
+####贡献者 ( Contributors ) :  
+    Samana:  for heavy work of MSVC compatability
+    wycg1984: for K-Means
+    xmuliang: for HeapSort, Kruskal MST
+    wyh267: for base64, LRU, bubble sort, selection sort
+    ZhangYou0122: Push-Relabel algorithm, Suffix Tree           
+    UsingtcNower: Suffix Array
+    afernandez90: AVL trees
