@@ -10,35 +10,25 @@ It can fit perfectly in skyblock modpacks
 
 This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/projects/base-metals
 
-####约定 ( Convention ):
+#### ( Ores ):
 
-   1.  一个算法用一个.h文件表示放到include下. ( one .header file per algorithm. )
-   2.  算法演示的demo程序放到src下.  ( one demo per algorithm.  )
-   3.  程序正确通过后，请发起Pull Requests，代码被验证后入库，并在README中发布新算法实现。
-       (Please Use Fork+Pull Requests !!! Correctness is the most important!)
-   4.  TAB = 4 space.  set ts=4 in vim
-   5.  Graph的输出格式为 [Graphviz](http://www.graphviz.org/) Dot格式.
-   	(the output format of the graph is in dot of graphviz.)
-   	eg:
-   	![demograph](demo_graph.png)
+   1.  Nether Copper ore
+   2.  Nether Tin ore
+   3.  Nether Lead ore
+   4.  Nether Silver ore
+   5.  Nether Zinc ore
+   6.  Nether Nickel ore
 
-####已实现 ( Implemented ):
+#### ( Vanilla Ores ):
 
-    Vanilla Ore:
-    
-    Nether Copper Ore
-    Prime test(Miller-Rabin's method)
-    2D Array
-    Arbitrary Integer
-    Linear congruential generator
-    Maximum subarray problem
+   1.  Nether Iron ore
+   2.  Nether Lapis ore
+   3.  Nether Redstone ore
+   4.  Nether Coal ore
+   5.  Nether Gold ore
+   6.  Nether Diamond ore
 
-    Bit-Set
-    Queue
-    Stack
-    Binary Heap
-    Fibonacci Heap
-    Priority Queue (list based)
+
 
     Bubble sort
     Selection sort
