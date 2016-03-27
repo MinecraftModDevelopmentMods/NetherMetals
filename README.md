@@ -28,30 +28,17 @@ This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/proj
    5.  Nether Gold ore
    6.  Nether Diamond ore
 
-####贡献者 ( Contributors ) :  
-World
 
+#### ( World ):
 Nether Ores spawn only in the Nether
-Github:
 
- 
-
+#### ( Github ):
 Check us on Github: https://github.com/nfinit-gaming/Nether-Metals
 
- 
-
-Discord:
-
- 
-
+#### ( Discord ):
 We have a Discord server!  You can join with the following invite link: https://discord.gg/0eXbwPGyRiqemwip
 
  
-
-Modpacks:
-
- 
-
+#### ( Modpacks ):
 Feel free to use it as long as you give credits and a link to this page.
-
 Optional: Let me know about it so I can check it out
