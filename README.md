@@ -1,13 +1,14 @@
 ###Nether Methals
 
-####目标 ( Ores ) :
+#### ( Info ) :
 
-   1. 经典的算法实现      
-      (classical algorithms implementations)      
-   2. 服务器端       
-      (based on linux/gcc)       
-   3. 正确，易于使用和改造, 一个头文件一个算法，并附带一个demo.       
-      (correct! and ease of use, one .header file per algorithm)        
+Nether Metals is an Addon for the mod Base Metals, it expands it to bring its ores to the Nether dimension.
+
+It can fit perfectly in skyblock modpacks
+
+ 
+
+This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/projects/base-metals
 
 ####约定 ( Convention ):
 
