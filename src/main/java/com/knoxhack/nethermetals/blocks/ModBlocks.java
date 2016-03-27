@@ -22,7 +22,7 @@ public final class ModBlocks {
     public static Block netherredstoneOre;
     public static Block netherdiamondOre;
     public static Block nethergoldOre;
-
+    public static Block nethercoalOre;
     
     
     
@@ -41,6 +41,7 @@ public final class ModBlocks {
 		GameRegistry.registerBlock(netherredstoneOre = new ModBlockOre("nether_redstone_ore", Material.rock, ModBlocks.netherredstoneOre, 1, 1), "nether_redstone_ore");
 		GameRegistry.registerBlock(netherdiamondOre = new ModBlockOre3("nether_diamond_ore", Material.rock, ModBlocks.netherdiamondOre, 1, 1), "nether_diamond_ore");
 		GameRegistry.registerBlock(nethergoldOre = new ModBlockOre2("nether_gold_ore", Material.rock, ModBlocks.nethergoldOre, 1, 1), "nether_gold_ore");
+		GameRegistry.registerBlock(nethercoalOre = new ModBlockOre("nether_coal_ore", Material.rock, ModBlocks.nethercoalOre, 1, 1), "nether_coal_ore");
 
     
     

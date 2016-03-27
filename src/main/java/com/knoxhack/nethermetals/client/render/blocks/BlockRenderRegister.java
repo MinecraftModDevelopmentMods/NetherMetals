@@ -23,7 +23,7 @@ public final class BlockRenderRegister {
 		reg(ModBlocks.netherredstoneOre);
 		reg(ModBlocks.netherdiamondOre);
 		reg(ModBlocks.nethergoldOre);
-
+		reg(ModBlocks.nethercoalOre);
 	}
 
 	public static String modid = Main.MODID;

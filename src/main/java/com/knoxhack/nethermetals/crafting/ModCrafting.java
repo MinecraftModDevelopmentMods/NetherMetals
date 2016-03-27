@@ -25,6 +25,7 @@ public final class ModCrafting {
 		GameRegistry.addSmelting(ModBlocks.netherdiamondOre, new ItemStack(Blocks.diamond_ore, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.netherlapisOre, new ItemStack(Blocks.lapis_ore, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.nethergoldOre, new ItemStack(Blocks.gold_ore, 2), 1.0f);
+		GameRegistry.addSmelting(ModBlocks.nethercoalOre, new ItemStack(Blocks.coal_ore, 2), 1.0f);
 
 		
 		

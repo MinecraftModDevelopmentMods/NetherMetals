@@ -2,7 +2,7 @@ package com.knoxhack.nethermetals;
 
 import com.knoxhack.nethermetals.blocks.ModBlocks;
 import com.knoxhack.nethermetals.crafting.ModCrafting;
-import com.knoxhack.nethermetals.items.ModItems;
+
 import com.knoxhack.nethermetals.world.WorldGen;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
-        ModItems.createItems();
+
         ModBlocks.createBlocks();
     }
 

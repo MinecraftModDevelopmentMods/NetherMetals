@@ -29,6 +29,7 @@ public class WorldGen implements IWorldGenerator {
 	private WorldGenerator gen_nether_lapis_ore;		// Generates Cobblestone (used in End)
 	private WorldGenerator gen_nether_gold_ore;		// Generates Cobblestone (used in End)
 	private WorldGenerator gen_nether_diamond_ore;		// Generates Cobblestone (used in End)
+	private WorldGenerator gen_nether_coal_ore;		// Generates Cobblestone (used in End)
 
 	
 	
@@ -39,21 +40,22 @@ public class WorldGen implements IWorldGenerator {
 
 	public WorldGen() {
 
-	    this.gen_nether_copper_ore = new WorldGenMinable(ModBlocks.nethercopperOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
-	    this.gen_nether_tin_ore = new WorldGenMinable(ModBlocks.nethertinOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
-	    this.gen_nether_lead_ore = new WorldGenMinable(ModBlocks.netherleadOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
-	    this.gen_nether_silver_ore = new WorldGenMinable(ModBlocks.nethersilverOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
-	    this.gen_nether_zinc_ore = new WorldGenMinable(ModBlocks.netherzincOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
-	    this.gen_nether_nickel_ore = new WorldGenMinable(ModBlocks.nethernickelOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_copper_ore = new WorldGenMinable(ModBlocks.nethercopperOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_tin_ore = new WorldGenMinable(ModBlocks.nethertinOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_lead_ore = new WorldGenMinable(ModBlocks.netherleadOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_silver_ore = new WorldGenMinable(ModBlocks.nethersilverOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_zinc_ore = new WorldGenMinable(ModBlocks.netherzincOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_nickel_ore = new WorldGenMinable(ModBlocks.nethernickelOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
 	
 	    
 	    //@vanilla ores
 	    
-	    this.gen_nether_iron_ore = new WorldGenMinable(ModBlocks.netherironOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
-	    this.gen_nether_redstone_ore = new WorldGenMinable(ModBlocks.netherredstoneOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_iron_ore = new WorldGenMinable(ModBlocks.netherironOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_redstone_ore = new WorldGenMinable(ModBlocks.netherredstoneOre.getDefaultState(), 12, BlockHelper.forBlock(Blocks.netherrack));
 	    this.gen_nether_lapis_ore = new WorldGenMinable(ModBlocks.netherlapisOre.getDefaultState(), 8, BlockHelper.forBlock(Blocks.netherrack));
 	    this.gen_nether_gold_ore = new WorldGenMinable(ModBlocks.nethergoldOre.getDefaultState(), 8, BlockHelper.forBlock(Blocks.netherrack));
-	    this.gen_nether_diamond_ore = new WorldGenMinable(ModBlocks.netherdiamondOre.getDefaultState(), 3, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_diamond_ore = new WorldGenMinable(ModBlocks.netherdiamondOre.getDefaultState(), 5, BlockHelper.forBlock(Blocks.netherrack));
+	    this.gen_nether_coal_ore = new WorldGenMinable(ModBlocks.nethercoalOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
 
 	    
 	}
@@ -64,18 +66,19 @@ public class WorldGen implements IWorldGenerator {
 		case 0: // Overworld
 			break;
 		case -1: // Nether
-			this.runGenerator(this.gen_nether_copper_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_lead_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_tin_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_silver_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_zinc_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_nickel_ore, world, random, chunkX, chunkZ, 20, 0, 200);
+			this.runGenerator(this.gen_nether_copper_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_lead_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_tin_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_silver_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_zinc_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_nickel_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 
-			this.runGenerator(this.gen_nether_iron_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_redstone_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_lapis_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_gold_ore, world, random, chunkX, chunkZ, 20, 0, 200);
-			this.runGenerator(this.gen_nether_diamond_ore, world, random, chunkX, chunkZ, 20, 0, 200);
+			this.runGenerator(this.gen_nether_iron_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_redstone_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_lapis_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_gold_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_diamond_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_nether_coal_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 
 			
 			
