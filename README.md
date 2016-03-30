@@ -1,4 +1,4 @@
-###Nether Methals
+###Nether Methals https://travis-ci.org/nfinit-gaming/Nether-Metals.svg?branch=master
 
 #### ( Info ) :
 
