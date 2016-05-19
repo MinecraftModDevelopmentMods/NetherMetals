@@ -18,19 +18,11 @@ public final class ModCrafting {
 		GameRegistry.addSmelting(ModBlocks.nethernickelOre, new ItemStack(cyanoBlocks.nickel_ore, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.netherleadOre, new ItemStack(cyanoBlocks.lead_ore, 2), 1.0f);
 
-		
-		
-		GameRegistry.addSmelting(ModBlocks.netherironOre, new ItemStack(Blocks.iron_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.netherredstoneOre, new ItemStack(Blocks.redstone_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.netherdiamondOre, new ItemStack(Blocks.diamond_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.netherlapisOre, new ItemStack(Blocks.lapis_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.nethergoldOre, new ItemStack(Blocks.gold_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.nethercoalOre, new ItemStack(Blocks.coal_ore, 2), 1.0f);
-
-		
-		
-		
-		
-		
+		GameRegistry.addSmelting(ModBlocks.netherironOre, new ItemStack(Blocks.IRON_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(ModBlocks.netherredstoneOre, new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(ModBlocks.netherdiamondOre, new ItemStack(Blocks.DIAMOND_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(ModBlocks.netherlapisOre, new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(ModBlocks.nethergoldOre, new ItemStack(Blocks.GOLD_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(ModBlocks.nethercoalOre, new ItemStack(Blocks.COAL_ORE, 2), 1.0f);
 	}
 }
