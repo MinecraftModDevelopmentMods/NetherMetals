@@ -15,7 +15,7 @@ This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/proj
    1.  Nether Iron ore
    2.  Nether Lapis ore
    3.  Nether Redstone ore
-   4.  Nether Coal ore (No Texture)
+   4.  Nether Coal ore
    5.  Nether Gold ore
    6.  Nether Diamond ore
    7.  Nether Emerald Ore (No Texture)
