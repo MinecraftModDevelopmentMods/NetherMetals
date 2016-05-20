@@ -11,19 +11,26 @@ import net.minecraft.item.Item;
 public final class BlockRenderRegister {
 
 	public static void registerBlockRenderer() {
-		reg(ModBlocks.nethercopperOre);
-		reg(ModBlocks.nethertinOre);
-		reg(ModBlocks.netherleadOre);
-		reg(ModBlocks.nethersilverOre);
-		reg(ModBlocks.nethernickelOre);
-		reg(ModBlocks.netherzincOre);
-		
+		// Vanilla
 		reg(ModBlocks.netherironOre);
 		reg(ModBlocks.netherlapisOre);
 		reg(ModBlocks.netherredstoneOre);
 		reg(ModBlocks.netherdiamondOre);
 		reg(ModBlocks.nethergoldOre);
 		reg(ModBlocks.nethercoalOre);
+		reg(ModBlocks.netheremeraldOre);
+
+		// Base Metals
+		reg(ModBlocks.nethercopperOre);
+		reg(ModBlocks.nethertinOre);
+		reg(ModBlocks.netherleadOre);
+		reg(ModBlocks.nethersilverOre);
+		reg(ModBlocks.nethernickelOre);
+		reg(ModBlocks.netherzincOre);
+		reg(ModBlocks.nethermercuryOre);
+		reg(ModBlocks.netherplatinumOre);
+
+		// TODO: Modern Metals
 	}
 
 	public static String modid = Main.MODID;
@@ -31,5 +38,4 @@ public final class BlockRenderRegister {
 	public static void reg(Block block) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(modid + ":" + block.getUnlocalizedName().substring(5), "inventory"));
 	}
-
 }

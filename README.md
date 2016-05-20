@@ -1,4 +1,4 @@
-###Nether Methals [![Build Status](https://travis-ci.org/nfinit-gaming/Nether-Metals.svg?branch=master)](https://travis-ci.org/nfinit-gaming/Nether-Metals)
+###Nether Metals [![Build Status](https://travis-ci.org/nfinit-gaming/Nether-Metals.svg?branch=master)](https://travis-ci.org/nfinit-gaming/Nether-Metals)
 
 #### ( Info ) :
 
@@ -6,18 +6,7 @@ Nether Metals is an Addon for the mod Base Metals, it expands it to bring its or
 
 It can fit perfectly in skyblock modpacks
 
- 
-
 This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/projects/base-metals
-
-#### ( Ores ):
-
-   1.  Nether Copper ore
-   2.  Nether Tin ore
-   3.  Nether Lead ore
-   4.  Nether Silver ore
-   5.  Nether Zinc ore
-   6.  Nether Nickel ore
 
 #### ( Vanilla Ores ):
 
@@ -27,7 +16,18 @@ This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/proj
    4.  Nether Coal ore
    5.  Nether Gold ore
    6.  Nether Diamond ore
+   7.  Nether Emerald Ore (No Texture Yet)
 
+#### ( Ores ):
+
+   1.  Nether Copper ore
+   2.  Nether Tin ore
+   3.  Nether Lead ore
+   4.  Nether Silver ore
+   5.  Nether Zinc ore
+   6.  Nether Nickel ore
+   7.  Nether Mercury ore (No Texture Yet)
+   8.  Nether Platinum ore (No Texture Yet)
 
 #### ( World ):
 Nether Ores spawn only in the Nether
@@ -37,7 +37,6 @@ Check us on Github: https://github.com/nfinit-gaming/Nether-Metals
 
 #### ( Discord ):
 We have a Discord server!  You can join with the following invite link: https://discord.gg/0eXbwPGyRiqemwip
-
  
 #### ( Modpacks ):
 Feel free to use it as long as you give credits and a link to this page.

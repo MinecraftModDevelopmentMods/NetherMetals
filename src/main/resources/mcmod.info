@@ -8,9 +8,10 @@
    "url": "http://nfinit-gaming.com/",
    "updateUrl": "",
    "authorList": ["Knoxhack"],
-  "credits": "The Forge and FML guys, for making this example",
+   "credits": "The Forge and FML guys, for making this example",
    "logoFile": "",
    "screenshots": [],
-   "dependencies": [base metals]
+   "dependencies": []
  }
- ]
+]
+ 
