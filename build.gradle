@@ -92,6 +92,7 @@ artifacts {
   archives javadocJar
 }
 
+/*
 curseforge {
 	project {
 		apiKey = '' // Curse API Key goes here, DO NOT COMMIT IT TO REPO.
@@ -109,3 +110,4 @@ curseforge {
 		}
 	}
 }
+*/
