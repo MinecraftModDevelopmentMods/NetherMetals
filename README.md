@@ -1,64 +1,46 @@
-# Nether-Metals (Base Metals Addon)
-Nether Metals is an Addon for the mod Base Metals, it expand it to bring its ores to the Nether dimension.
+###Nether Metals [![Build Status](https://travis-ci.org/nfinit-gaming/Nether-Metals.svg?branch=master)](https://travis-ci.org/nfinit-gaming/Nether-Metals)
+
+#### ( Info ) :
+
+Nether Metals is an Addon for the mod Base Metals, it expands it to bring its ores to the Nether dimension.
 
 It can fit perfectly in skyblock modpacks
 
  
 
- 
+This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/projects/base-metals
 
-Ores: 
+#### ( Vanilla Ores ):
 
-Nether Copper Ore
-Nether Tin Ore
-Nether Lead Ore
-Nether Silver Ore
-Nether Zinc Ore
-Nether Nickel Ore
-Ores (Vanilla): (To be implemented)
+   1.  Nether Iron ore
+   2.  Nether Lapis ore
+   3.  Nether Redstone ore
+   4.  Nether Coal ore
+   5.  Nether Gold ore
+   6.  Nether Diamond ore
+   7.  Nether Emerald Ore (No Texture)
 
-Nether Iron Ore
-Nether Redstone Ore
-Nether Gold Ore
-Nether Diamond Ore
-Tools: (To be implemented)
+#### ( Ores ):
 
-Nether Sword
-Nether Pickaxe
-Nether Axe
-Nether Hoe
-Nether Shovel
-Armor: (To be implemented)
+   1.  Nether Copper ore
+   2.  Nether Tin ore
+   3.  Nether Lead ore
+   4.  Nether Silver ore
+   5.  Nether Zinc ore
+   6.  Nether Nickel ore
+   7.  Nether Mercury Ore (No Texture)
+   8.  Nether Platinum Ore (No Texture)
 
-Nether Helmet
-Nether Chestplate
-Nether Leggings
-Nether Boots
- 
-
-Extras (To be implemented)
-
-White Glowstone
-Green Glowstone
-Blue Glowstone
-Yellow Glowstone
-Purple Glowstone
-Pink Glowstone
- 
-
-World
-
+#### ( World ):
 Nether Ores spawn only in the Nether
-Github:
 
- 
-
+#### ( Github ):
 Check us on Github: https://github.com/nfinit-gaming/Nether-Metals
 
- 
-
-Discord:
-
- 
-
+#### ( Discord ):
 We have a Discord server!  You can join with the following invite link: https://discord.gg/0eXbwPGyRiqemwip
+
+ 
+#### ( Modpacks ):
+Feel free to use it as long as you give credits and a link to this page.
+Optional: Let me know about it so I can check it out
