@@ -4,6 +4,7 @@ import com.knoxhack.nethermetals.blocks.ModBlocks;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
@@ -21,13 +22,17 @@ public final class ModCrafting {
 		GameRegistry.addSmelting(ModBlocks.netheremeraldOre, new ItemStack(Blocks.EMERALD_ORE, 2), 1.0f);
 
 		// Base Metals
-		GameRegistry.addSmelting(ModBlocks.nethercopperOre, new ItemStack(cyanoBlocks.copper_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.nethertinOre, new ItemStack(cyanoBlocks.tin_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.nethersilverOre, new ItemStack(cyanoBlocks.silver_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.netherzincOre, new ItemStack(cyanoBlocks.zinc_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.nethernickelOre, new ItemStack(cyanoBlocks.nickel_ore, 2), 1.0f);
-		GameRegistry.addSmelting(ModBlocks.netherleadOre, new ItemStack(cyanoBlocks.lead_ore, 2), 1.0f);
+		if(Loader.isModLoaded("basemetals")) {
+			GameRegistry.addSmelting(ModBlocks.nethercopperOre, new ItemStack(cyanoBlocks.copper_ore, 2), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.nethertinOre, new ItemStack(cyanoBlocks.tin_ore, 2), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.nethersilverOre, new ItemStack(cyanoBlocks.silver_ore, 2), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.netherzincOre, new ItemStack(cyanoBlocks.zinc_ore, 2), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.nethernickelOre, new ItemStack(cyanoBlocks.nickel_ore, 2), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.netherleadOre, new ItemStack(cyanoBlocks.lead_ore, 2), 1.0f);
+		}
 		
 		// TODO: Modernmetals
+		if(Loader.isModLoaded("modernmetals")) {
+		}
 	}
 }
