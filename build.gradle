@@ -92,11 +92,10 @@ artifacts {
   archives javadocJar
 }
 
-/*
 curseforge {
 	project {
 		apiKey = '' // Curse API Key goes here, DO NOT COMMIT IT TO REPO.
-		id = '' // Curse Project ID goes here, Perfectly fine and infact safe to commit to repo.
+		id = '243277' // Curse Project ID goes here, Perfectly fine and infact safe to commit to repo.
 		changelog = file('CHANGELOG.txt')
 		releaseType = 'beta'
 		mainArtifact(jar) {
@@ -110,4 +109,3 @@ curseforge {
 		}
 	}
 }
-*/
