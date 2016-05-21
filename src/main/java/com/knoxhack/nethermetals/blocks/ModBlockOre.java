@@ -1,9 +1,5 @@
 package com.knoxhack.nethermetals.blocks;
 
-
-
-
-
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -11,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-
 
 public class ModBlockOre extends Block {
 
@@ -41,9 +36,6 @@ public class ModBlockOre extends Block {
 		this(unlocalizedName, mat, drop, 1, 1);
 	}
 
-
-
-
 	@Override
 	public int damageDropped(IBlockState blockstate) {
 		return this.meta;
@@ -56,4 +48,3 @@ public class ModBlockOre extends Block {
 		return this.least_quantity + random.nextInt(this.most_quantity - this.least_quantity + fortune + 1);
 	}
 }
-
