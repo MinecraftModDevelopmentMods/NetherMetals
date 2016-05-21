@@ -1,0 +1,7 @@
+Added missing ores:
+1. Added Emerald Nether Ore
+2. Added Mercury Nether Ore
+3. Added Platinum Nether Ore
+Internal code refactor:
+1. Added a configuration file (inside the orespawn folder)  to manage ore spawning
+2. Added support for Modern Metals
