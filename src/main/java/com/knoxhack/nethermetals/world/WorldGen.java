@@ -47,7 +47,7 @@ public class WorldGen implements IWorldGenerator {
 	    this.gen_nether_gold_ore = new WorldGenMinable(ModBlocks.nethergoldOre.getDefaultState(), 8, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	    this.gen_nether_diamond_ore = new WorldGenMinable(ModBlocks.netherdiamondOre.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	    this.gen_nether_coal_ore = new WorldGenMinable(ModBlocks.nethercoalOre.getDefaultState(), 16, BlockMatcher.forBlock(Blocks.NETHERRACK));
-	    this.gen_nether_emerald_ore = new WorldGenMinable(ModBlocks.netheremeraldOre.getDefaultState(), 16, BlockMatcher.forBlock(Blocks.NETHERRACK));
+	    this.gen_nether_emerald_ore = new WorldGenMinable(ModBlocks.netheremeraldOre.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	    
 		//@Nether Ores
 /*
