@@ -1,0 +1,8 @@
+Added missing ores:
+1. Added Emerald Nether Ore
+2. Added Mercury Nether Ore
+3. Added Platinum Nether Ore
+Internal code refactor:
+1. Base Metals is no longer required (But if not installed only Vanilla Nether Ores will generate)
+2. Added a configuration file (inside the orespawn folder) to manage ore spawning
+3. Added support for Modern Metals

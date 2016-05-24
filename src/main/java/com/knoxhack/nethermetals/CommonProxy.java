@@ -12,16 +12,16 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
-    public void preInit(FMLPreInitializationEvent e) {
-        ModBlocks.createBlocks();
-    }
+	public void preInit(FMLPreInitializationEvent event) {
+		ModBlocks.createBlocks();
+	}
 
-    public void init(FMLInitializationEvent e) {
-        ModCrafting.initCrafting();
-        GameRegistry.registerWorldGenerator(new WorldGen(), 0);
-    }
+	public void init(FMLInitializationEvent event) {
+		ModCrafting.initCrafting();
+		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
+	}
 
-    public void postInit(FMLPostInitializationEvent e) {
+	public void postInit(FMLPostInitializationEvent event) {
 
-    }
+	}
 }

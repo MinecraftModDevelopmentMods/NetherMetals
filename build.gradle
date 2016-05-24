@@ -11,11 +11,11 @@ buildscript {
 			name = "sonatype"
 			url = 'https://oss.sonatype.org/content/groups/public'
 		}
-	}
+    }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
-		classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT' 
-	}
+		classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT'
+    }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -36,7 +36,7 @@ allprojects {
 
 version = "1.1.0"
 group= "com.knoxhack.nethermetals" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "NetherMetals"
+archivesBaseName = "NetherMetals_1.8.9"
 
 minecraft {
     version = "1.8.9-11.15.1.1902-1.8.9"
@@ -48,7 +48,8 @@ minecraft {
 
 dependencies {
     compile files(
-        'lib/BaseMetals/BaseMetals_1.8.9-1.8.0.jar',
+        'libs/BaseMetals/BaseMetals_1.8.9-1.8.0.jar',
+        'libs/ModernMetals/ModernMetals_1.8.9-0.10.1.jar',
     )
 }
 
@@ -94,11 +95,10 @@ artifacts {
   archives javadocJar
 }
 
-/*
 curseforge {
 	project {
 		apiKey = '' // Curse API Key goes here, DO NOT COMMIT IT TO REPO.
-		id = '' // Curse Project ID goes here, Perfectly fine and infact safe to commit to repo.
+		id = '243277'
 		changelog = file('CHANGELOG.txt')
 		releaseType = 'beta'
 		mainArtifact(jar) {
@@ -112,4 +112,3 @@ curseforge {
 		}
 	}
 }
-*/
