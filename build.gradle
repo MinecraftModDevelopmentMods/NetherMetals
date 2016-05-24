@@ -17,6 +17,7 @@ buildscript {
 		classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'com.matthewprenger.cursegradle'
 
@@ -35,18 +36,20 @@ allprojects {
 
 version = "1.1.0"
 group= "com.knoxhack.nethermetals" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "NetherMetals"
+archivesBaseName = "NetherMetals_1.8.9"
 
 minecraft {
-    version = "1.9-12.16.1.1907"
+    version = "1.8.9-11.15.1.1902-1.8.9"
     runDir = "run"
-    mappings = "stable_24"
+    
+    mappings = "stable_22"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 dependencies {
     compile files(
-        'lib/BaseMetals/BaseMetals_1.9-API-2.2.1.jar',
+        'libs/BaseMetals/BaseMetals_1.8.9-1.8.0.jar',
+        'libs/ModernMetals/ModernMetals_1.8.9-0.10.1.jar',
     )
 }
 
@@ -95,7 +98,7 @@ artifacts {
 curseforge {
 	project {
 		apiKey = '' // Curse API Key goes here, DO NOT COMMIT IT TO REPO.
-		id = '243277' // Curse Project ID goes here, Perfectly fine and infact safe to commit to repo.
+		id = '243277'
 		changelog = file('CHANGELOG.txt')
 		releaseType = 'beta'
 		mainArtifact(jar) {

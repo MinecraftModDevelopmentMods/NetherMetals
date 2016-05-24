@@ -25,7 +25,7 @@ public class ModBlockOre2 extends Block {
 		this.setHardness(10.0f);
 		this.setResistance(15.0f);
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 
 	protected ModBlockOre2(String unlocalizedName, Material mat, Block nethernickelOre, int least_quantity, int most_quantity) {
