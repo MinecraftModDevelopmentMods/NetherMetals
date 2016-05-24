@@ -5,7 +5,7 @@ import com.knoxhack.nethermetals.blocks.ModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
 public final class BlockRenderRegister {
