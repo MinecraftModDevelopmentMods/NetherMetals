@@ -11,26 +11,43 @@ import net.minecraft.item.Item;
 public final class BlockRenderRegister {
 
 	public static void registerBlockRenderer() {
+
 		// Vanilla
+		reg(ModBlocks.nethercoalOre);
+		reg(ModBlocks.netherdiamondOre);
+		reg(ModBlocks.netheremeraldOre);
+		reg(ModBlocks.nethergoldOre);
 		reg(ModBlocks.netherironOre);
 		reg(ModBlocks.netherlapisOre);
 		reg(ModBlocks.netherredstoneOre);
-		reg(ModBlocks.netherdiamondOre);
-		reg(ModBlocks.nethergoldOre);
-		reg(ModBlocks.nethercoalOre);
-		reg(ModBlocks.netheremeraldOre);
 
 		// Base Metals
+		reg(ModBlocks.netherantimonyOre);
+		reg(ModBlocks.netherbismuthOre);
 		reg(ModBlocks.nethercopperOre);
-		reg(ModBlocks.nethertinOre);
 		reg(ModBlocks.netherleadOre);
-		reg(ModBlocks.nethersilverOre);
-		reg(ModBlocks.nethernickelOre);
-		reg(ModBlocks.netherzincOre);
 		reg(ModBlocks.nethermercuryOre);
+		reg(ModBlocks.nethernickelOre);
 		reg(ModBlocks.netherplatinumOre);
+		reg(ModBlocks.nethersilverOre);
+		reg(ModBlocks.nethertinOre);
+		reg(ModBlocks.netherzincOre);
 
-		// TODO: Modern Metals
+		// Modern Metals
+		reg(ModBlocks.netheraluminumOre);
+		reg(ModBlocks.nethercadmiumOre);
+		reg(ModBlocks.netherchromiumOre);
+		reg(ModBlocks.netheriridiumOre);
+		reg(ModBlocks.nethermagnesiumOre);
+		reg(ModBlocks.nethermanganeseOre);
+		reg(ModBlocks.netherosmiumOre);
+		reg(ModBlocks.netherplutoniumOre);
+		reg(ModBlocks.netherrutileOre);
+		reg(ModBlocks.nethertantalumOre);
+		reg(ModBlocks.nethertitaniumOre);
+		reg(ModBlocks.nethertungstenOre);
+		reg(ModBlocks.netheruraniumOre);
+		reg(ModBlocks.netherzirconiumOre);
 	}
 
 	public static String modid = Main.MODID;

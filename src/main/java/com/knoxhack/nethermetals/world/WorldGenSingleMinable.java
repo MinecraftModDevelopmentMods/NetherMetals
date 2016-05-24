@@ -26,9 +26,9 @@ public class WorldGenSingleMinable extends WorldGenerator {
 	}
 
 	@Override
-	public boolean generate(World world, Random rand, BlockPos pos) {
-		if (world.getBlockState(pos).getBlock().isReplaceableOreGen(world, pos, (com.google.common.base.Predicate<IBlockState>) this.target))
-			world.setBlockState(pos, this.block);
+	public boolean generate(World worldIn, Random rand, BlockPos position) {
+		if (worldIn.getBlockState(position).getBlock().isReplaceableOreGen(worldIn, position, (com.google.common.base.Predicate<IBlockState>) this.target))
+			worldIn.setBlockState(position, this.block);
 		return true;
 	}
 }

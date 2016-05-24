@@ -10,24 +10,43 @@ This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/proj
 
 #### ( Vanilla Ores ):
 
-   1.  Nether Iron ore
-   2.  Nether Lapis ore
-   3.  Nether Redstone ore
-   4.  Nether Coal ore
-   5.  Nether Gold ore
-   6.  Nether Diamond ore
-   7.  Nether Emerald Ore (No Texture Yet)
+   1.  Nether Iron Ore
+   2.  Nether Lapis Ore
+   3.  Nether Redstone Ore
+   4.  Nether Coal Ore
+   5.  Nether Gold Ore
+   6.  Nether Diamond Ore
+   7.  Nether Emerald Ore
 
-#### ( Ores ):
+#### ( Base Metals Ores ):
 
-   1.  Nether Copper ore
-   2.  Nether Tin ore
-   3.  Nether Lead ore
-   4.  Nether Silver ore
-   5.  Nether Zinc ore
-   6.  Nether Nickel ore
-   7.  Nether Mercury ore (No Texture Yet)
-   8.  Nether Platinum ore (No Texture Yet)
+   1.  Nether Copper Ore
+   2.  Nether Tin Ore
+   3.  Nether Lead Ore
+   4.  Nether Silver Ore
+   5.  Nether Zinc Ore
+   6.  Nether Nickel Ore
+   7.  Nether Mercury Ore
+   8.  Nether Platinum Ore
+   9.  Nether Antimony Ore
+   10.  Nether Bismuth Ore
+   
+#### ( Modern Metals Ores ):
+
+   1.  Nether Aluminum Ore
+   2.  Nether Cadmium Ore
+   3.  Nether Chromium Ore
+   4.  Nether Iridium Ore
+   5.  Nether Magnesium Ore
+   6.  Nether Manganese Ore
+   7.  Nether Osmium Ore
+   8.  Nether Plutonium Ore
+   9.  Nether Rutile Ore
+   10.  Nether Tantalum Ore
+   11.  Nether Titanium Ore
+   12.  Nether Tungsten Ore
+   13.  Nether Uranium Ore
+   14.  Nether Zirconium Ore
 
 #### ( World ):
 Nether Ores spawn only in the Nether
