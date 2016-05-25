@@ -202,6 +202,7 @@ public class DataConstants {
 + "\n				{"
 + "\n					\"blockID\":\"nethermetals:nether_uranium_ore\","
 + "\n					\"size\":8,"
++ "\n					\"variation\":4,"
 + "\n					\"frequency\":10,"
 + "\n					\"minHeight\":0,"
 + "\n					\"maxHeight\":96"
