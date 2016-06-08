@@ -10,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.knoxhack.nethermetals.data.DataConstants;
+
+import com.knoxhack.nethermetals.ConfigHandler;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Loader;
@@ -48,7 +50,19 @@ public class Main {
 	public void preInit(FMLPreInitializationEvent event) {
 		INSTANCE = this;
 
+		
+		
+		//load vanilla config handler 
+        ConfigHandler.startConfig(event);
+
+		
+		
+		
+		
 		// load config
+		
+	
+		
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 

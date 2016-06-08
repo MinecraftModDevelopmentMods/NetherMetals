@@ -2,7 +2,9 @@ package com.knoxhack.nethermetals.world;
 
 import java.util.Random;
 
+import com.knoxhack.nethermetals.ConfigHandler;
 import com.knoxhack.nethermetals.blocks.ModBlocks;
+
 
 import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
@@ -23,74 +25,20 @@ public class WorldGen implements IWorldGenerator {
 	private WorldGenerator gen_nether_lapis_ore;		// Generates Lapis Ore (used in Nether)
 	private WorldGenerator gen_nether_redstone_ore;		// Generates Redstone Ore (used in Nether)
 
-/*
-	private WorldGenerator gen_nether_antimony_ore;		// Generates Antimony Ore (used in Nether), Not supported in BM 1.8.0
-	private WorldGenerator gen_nether_bismuth_ore;		// Generates Bismuth Ore (used in Nether), Not supported in BM 1.8.0
-	private WorldGenerator gen_nether_copper_ore; 		// Generates Copper Ore (used in Nether)
-	private WorldGenerator gen_nether_lead_ore;			// Generates Lead Ore (used in Nether)
-	private WorldGenerator gen_nether_mercury_ore;		// Generates Mercury Ore (used in Nether)
-	private WorldGenerator gen_nether_nickel_ore;		// Generates Nickel Ore (used in Nether)
-	private WorldGenerator gen_nether_platinum_ore;		// Generates Platinum Ore (used in Nether), Not supported in BM 1.8.0
-	private WorldGenerator gen_nether_silver_ore;		// Generates Silver Ore (used in Nether)
-	private WorldGenerator gen_nether_tin_ore;			// Generates Tin Ore (used in Nether)
-	private WorldGenerator gen_nether_zinc_ore;			// Generates Zinc Ore (used in Nether)
 
-	private WorldGenerator gen_nether_aluminum_ore;		// Generates Aluminum Ore (used in Nether)
-	private WorldGenerator gen_nether_cadmium_ore;		// Generates Cadmium Ore (used in Nether)
-	private WorldGenerator gen_nether_chromium_ore;		// Generates Chromium Ore (used in Nether)
-	private WorldGenerator gen_nether_iridium_ore;		// Generates Iridium Ore (used in Nether)
-	private WorldGenerator gen_nether_magnesium_ore;	// Generates Magnesium Ore (used in Nether)
-	private WorldGenerator gen_nether_manganese_ore;	// Generates Manganese Ore (used in Nether)
-	private WorldGenerator gen_nether_osmium_ore;		// Generates Osmium Ore (used in Nether)
-	private WorldGenerator gen_nether_plutonium_ore;	// Generates Plutonium Ore (used in Nether)
-	private WorldGenerator gen_nether_rutile_ore;		// Generates Rutile Ore (used in Nether)
-	private WorldGenerator gen_nether_tantalum_ore;		// Generates Tantalum Ore (used in Nether)
-	private WorldGenerator gen_nether_titanium_ore;		// Generates Titanium Ore (used in Nether)
-	private WorldGenerator gen_nether_tungsten_ore;		// Generates Tungsten Ore (used in Nether)
-	private WorldGenerator gen_nether_uranium_ore;		// Generates Uranium Ore (used in Nether)
-	private WorldGenerator gen_nether_zirconium_ore;	// Generates Zirconium Ore (used in Nether)
-*/
 
 	public WorldGen() {
 
 		//@Vanilla Ores
-		this.gen_nether_coal_ore = new WorldGenMinable(ModBlocks.nethercoalOre.getDefaultState(), 16, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_diamond_ore = new WorldGenMinable(ModBlocks.netherdiamondOre.getDefaultState(), 5, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_emerald_ore = new WorldGenMinable(ModBlocks.netheremeraldOre.getDefaultState(), 5, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_gold_ore = new WorldGenMinable(ModBlocks.nethergoldOre.getDefaultState(), 8, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_iron_ore = new WorldGenMinable(ModBlocks.netherironOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_lapis_ore = new WorldGenMinable(ModBlocks.netherlapisOre.getDefaultState(), 8, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_redstone_ore = new WorldGenMinable(ModBlocks.netherredstoneOre.getDefaultState(), 12, BlockHelper.forBlock(Blocks.netherrack));
+		this.gen_nether_coal_ore = new WorldGenMinable(ModBlocks.nethercoalOre.getDefaultState(), ConfigHandler.getNetherCoalOreSpawnProb(), BlockHelper.forBlock(Blocks.netherrack));
+		this.gen_nether_diamond_ore = new WorldGenMinable(ModBlocks.netherdiamondOre.getDefaultState(), ConfigHandler.getNetherDiamondOreSpawnProb(), BlockHelper.forBlock(Blocks.netherrack));
+		this.gen_nether_emerald_ore = new WorldGenMinable(ModBlocks.netheremeraldOre.getDefaultState(), ConfigHandler.getNetherEmeraldOreSpawnProb(), BlockHelper.forBlock(Blocks.netherrack));
+		this.gen_nether_gold_ore = new WorldGenMinable(ModBlocks.nethergoldOre.getDefaultState(), ConfigHandler.getNetherGoldOreSpawnProb(), BlockHelper.forBlock(Blocks.netherrack));
+		this.gen_nether_iron_ore = new WorldGenMinable(ModBlocks.netherironOre.getDefaultState(), ConfigHandler.getNetherIronOreSpawnProb(), BlockHelper.forBlock(Blocks.netherrack));
+		this.gen_nether_lapis_ore = new WorldGenMinable(ModBlocks.netherlapisOre.getDefaultState(), ConfigHandler.getNetherLapisOreSpawnProb(), BlockHelper.forBlock(Blocks.netherrack));
+		this.gen_nether_redstone_ore = new WorldGenMinable(ModBlocks.netherredstoneOre.getDefaultState(), ConfigHandler.getNetherRedstoneOreSpawnProb(), BlockHelper.forBlock(Blocks.netherrack));
 	    
-/*
-		// Base Metals
-		this.gen_nether_antimony_ore = new WorldGenMinable(ModBlocks.netherantimonyOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));	// Not supported in BM 1.8.0
-		this.gen_nether_bismuth_ore = new WorldGenMinable(ModBlocks.netherbismuthOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));	// Not supported in BM 1.8.0
-		this.gen_nether_copper_ore = new WorldGenMinable(ModBlocks.nethercopperOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_lead_ore = new WorldGenMinable(ModBlocks.netherleadOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_mercury_ore = new WorldGenMinable(ModBlocks.nethermercuryOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_nickel_ore = new WorldGenMinable(ModBlocks.nethernickelOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_platinum_ore = new WorldGenMinable(ModBlocks.netherplatinumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));	// Not supported in BM 1.8.0
-		this.gen_nether_silver_ore = new WorldGenMinable(ModBlocks.nethersilverOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_tin_ore = new WorldGenMinable(ModBlocks.nethertinOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_zinc_ore = new WorldGenMinable(ModBlocks.netherzincOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
 
-		// Modern Metals
-		this.gen_nether_aluminum_ore = new WorldGenMinable(ModBlocks.netheraluminumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_cadmium_ore = new WorldGenMinable(ModBlocks.nethercadmiumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_chromium_ore = new WorldGenMinable(ModBlocks.netherchromiumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_iridium_ore = new WorldGenMinable(ModBlocks.netheriridiumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_magnesium_ore = new WorldGenMinable(ModBlocks.nethermagnesiumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_manganese_ore = new WorldGenMinable(ModBlocks.nethermanganeseOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_osmium_ore = new WorldGenMinable(ModBlocks.netherosmiumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_plutonium_ore = new WorldGenMinable(ModBlocks.netherplutoniumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_rutile_ore = new WorldGenMinable(ModBlocks.netherrutileOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_tantalum_ore = new WorldGenMinable(ModBlocks.nethertantalumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_titanium_ore = new WorldGenMinable(ModBlocks.nethertitaniumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_tungsten_ore = new WorldGenMinable(ModBlocks.nethertungstenOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_uranium_ore = new WorldGenMinable(ModBlocks.netheruraniumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-		this.gen_nether_zirconium_ore = new WorldGenMinable(ModBlocks.netherzirconiumOre.getDefaultState(), 14, BlockHelper.forBlock(Blocks.netherrack));
-*/
 	}
 
 	@Override
@@ -109,35 +57,7 @@ public class WorldGen implements IWorldGenerator {
 			this.runGenerator(this.gen_nether_lapis_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 			this.runGenerator(this.gen_nether_redstone_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 
-/*
-			// Base Metals
-			this.runGenerator(this.gen_nether_antimony_ore, world, random, chunkX, chunkZ, 5, 0, 200);	// Not supported in BM 1.8.0
-			this.runGenerator(this.gen_nether_bismuth_ore, world, random, chunkX, chunkZ, 5, 0, 200);	// Not supported in BM 1.8.0
-			this.runGenerator(this.gen_nether_copper_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_lead_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_mercury_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_nickel_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_platinum_ore, world, random, chunkX, chunkZ, 5, 0, 200);	// Not supported in BM 1.8.0
-			this.runGenerator(this.gen_nether_silver_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_tin_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_zinc_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 
-			// Modern Metals
-			this.runGenerator(this.gen_nether_aluminum_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_cadmium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_chromium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_iridium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_magnesium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_manganese_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_osmium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_plutonium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_rutile_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_tantalum_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_titanium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_tungsten_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_uranium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_nether_zirconium_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-*/			
 
 			break;
 		case 1: // End
