@@ -43,12 +43,12 @@ public class ConfigHandler {
 
 
 			netherironoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherIronOreSpawnProb", 14, orespawnProbComment).getInt();
-			netherdiamondoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherDIamondOreSpawnProb", 5, orespawnProbComment).getInt();
+			netherdiamondoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherDiamondOreSpawnProb", 5, orespawnProbComment).getInt();
 			netherredstoneoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherRedstoneOreSpawnProb", 12, orespawnProbComment).getInt();
 			netherlapisoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherLapisOreSpawnProb", 8, orespawnProbComment).getInt();
 			netheremeraldoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherEmeraldOreSpawnProb", 5, orespawnProbComment).getInt();
 			nethergoldoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherGoldOreSpawnProb", 8, orespawnProbComment).getInt();
-			nethercoaloreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherICoalOreSpawnProb", 16, orespawnProbComment).getInt();
+			nethercoaloreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherCoalOreSpawnProb", 16, orespawnProbComment).getInt();
 
 			
 
