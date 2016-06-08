@@ -3,10 +3,10 @@
   "promos": {
     "1.9.4-latest": "1.1.0",
     "1.9-latest": "1.1.0",
-    "1.8.9-latest": "1.1.0",
+    "1.8.9-latest": "1.1.1",
     "1.9.4-recommended": "1.1.0",
     "1.9-recommended": "1.1.0",
-    "1.8.9-recommended": "1.1.0"
+    "1.8.9-recommended": "1.1.1"
 
     
   },
@@ -14,7 +14,7 @@
     "1.1.0": "Add missing ores, Internal code refactor",
   },
   "1.8.9": {
-    "1.1.0": "Add missing ores, Internal code refactor"
+    "1.1.1": "Added a config for vanilla ores"
   }, 
    "1.9.4": {
     "1.1.0": "Add missing ores, Internal code refactor"
