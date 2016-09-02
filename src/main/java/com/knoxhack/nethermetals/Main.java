@@ -25,7 +25,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		modid = Main.MODID,
 		name = Main.MODNAME,
 		version = Main.VERSION,
-		dependencies = "required-after:Forge;after:basemetals;after:modernmetals",
+		dependencies = "required-after:Forge;after:modularity;after:modernmetals;after:basemetals",
 		acceptedMinecraftVersions = "1.8.9,)",
 		updateJSON = "https://raw.githubusercontent.com/nfinit-gaming/Nether-Metals/master/update.json")
 
@@ -36,17 +36,22 @@ public class Main {
 
 	public static final String MODID = "nethermetals";
 	public static final String MODNAME = "Nether Metals";
-	public static final String VERSION = "1.1.1";
+	public static final String VERSION = "1.2";
 
 	/** All ore-spawn files discovered in the ore-spawn folder */
 	public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
-
+	public static Configuration config;
+	
+	
 	/** location of ore-spawn files */
 	public static Path oreSpawnFolder = null;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		INSTANCE = this;
+		
+
+		
         ConfigHandler.startConfig(event);
 		// load config
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
@@ -78,6 +83,8 @@ public class Main {
 				}
 			}
 		}
+	
+	
 		config.save();
 
 		Main.proxy.preInit(event);

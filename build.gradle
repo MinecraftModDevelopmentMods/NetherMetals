@@ -34,12 +34,12 @@ allprojects {
     targetCompatibility = 1.8
 }
 
-version = "1.1.0"
+version = "1.2"
 group= "com.knoxhack.nethermetals" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "NetherMetals_1.9"
+archivesBaseName = "NetherMetals-1.10.2"
 
 minecraft {
-    version = "1.9-12.16.1.1907"
+    version = "1.10.2-12.18.1.2065"
     runDir = "run"
     
     mappings = "stable_24"
@@ -48,8 +48,9 @@ minecraft {
 
 dependencies {
     compile files(
-        'libs/BaseMetals/BaseMetals_1.9-2.2.2.jar',
-        'libs/ModernMetals/ModernMetals_1.9-0.9.2.3.jar',
+        'libs/BaseMetals_1.10.2-2.4.0.11.jar',
+        'libs/ModernMetals-0.11.0.jar',
+        'libs/Modularity-[1.10.2]-0.1.0-pre-release-9-beta-of-the-pulverizers',
     )
 }
 
