@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class ModBlockOre2 extends Block {
+public class ModBlockOre2 extends ExplosiveBlock {
 
 	private Block drop;
 	private int meta;

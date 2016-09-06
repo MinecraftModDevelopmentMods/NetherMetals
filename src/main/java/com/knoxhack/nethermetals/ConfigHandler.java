@@ -20,6 +20,9 @@ public class ConfigHandler {
 	private static  int netheremeraldoreSpawnProb = 0;
 	private static  int nethercoaloreSpawnProb = 0;
 	private static  int netherlapisoreSpawnProb = 0;
+	private static  int explosionChance = 0;
+	private static  int angerPigmenRange = 0;
+	private static  boolean angerPigmen = false;
 
 
 	public static void startConfig(FMLPreInitializationEvent event)
@@ -34,14 +37,6 @@ public class ConfigHandler {
 		try {
 			config.addCustomCategoryComment(Configuration.CATEGORY_GENERAL, comments);
 
-
-			
-			
-			
-
-
-
-
 			netherironoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherIronOreSpawnProb", 14, orespawnProbComment).getInt();
 			netherdiamondoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherDIamondOreSpawnProb", 5, orespawnProbComment).getInt();
 			netherredstoneoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherRedstoneOreSpawnProb", 12, orespawnProbComment).getInt();
@@ -50,7 +45,9 @@ public class ConfigHandler {
 			nethergoldoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherGoldOreSpawnProb", 8, orespawnProbComment).getInt();
 			nethercoaloreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "NetherICoalOreSpawnProb", 16, orespawnProbComment).getInt();
 
-			
+			explosionChance = config.get("mean","OreExplosionChance",2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt();
+			angerPigmenRange = config.get("mean","PigmenAngerRange",20, "Anger Pigmen Range\nRequires PigmenAnger").getInt();
+			angerPigmen = config.get("mean","PigmenAnger",true, "Anger Pigmen When Ores Explode\nSet to false to not anger").getBoolean();
 
 			config.get(Configuration.CATEGORY_GENERAL, "NetherIronOreSpawnProb", 14, orespawnProbComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "NetherDiamondOreSpawnProb", 5, orespawnProbComment).getInt();
@@ -60,13 +57,6 @@ public class ConfigHandler {
 			config.get(Configuration.CATEGORY_GENERAL, "NetherLapisOreSpawnProb", 8, orespawnProbComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "NetherCoalOreSpawnProb", 16, orespawnProbComment).getInt();
 
-			
-			
-			
-			
-			
-			
-			
 
 		} catch (Exception e) {
 			Main.proxy.info("failed to load or read the config file");
@@ -122,34 +112,15 @@ public class ConfigHandler {
 		
 	}
 
+	public static int getExplosionChance() {
+		return explosionChance;
+	}
 
+	public static boolean isAngerPigmen() {
+		return angerPigmen;
+	}
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-	
+	public static int getAngerPigmenRange() {
+		return angerPigmenRange;
+	}
 }

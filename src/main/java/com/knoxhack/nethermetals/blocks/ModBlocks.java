@@ -46,7 +46,7 @@ public final class ModBlocks {
 
 		// Vanilla
 		GameRegistry.registerBlock(nethercoalOre = new ModBlockOre("nether_coal_ore", Material.ROCK, ModBlocks.nethercoalOre, 1, 1), "nether_coal_ore");
-		GameRegistry.registerBlock(netherdiamondOre = new ModBlockOre3("nether_diamond_ore", Material.ROCK, ModBlocks.netherdiamondOre, 1, 1), "nether_diamond_ore");
+		GameRegistry.registerBlock(netherdiamondOre = new ModBlockOre3("nether_diamond_ore", Material.ROCK, ModBlocks.netherdiamondOre, 1, 1).explode(), "nether_diamond_ore");
 		GameRegistry.registerBlock(netheremeraldOre = new ModBlockOre("nether_emerald_ore", Material.ROCK, ModBlocks.netheremeraldOre, 1, 1), "nether_emerald_ore");
 		GameRegistry.registerBlock(nethergoldOre = new ModBlockOre2("nether_gold_ore", Material.ROCK, ModBlocks.nethergoldOre, 1, 1), "nether_gold_ore");
 		GameRegistry.registerBlock(netherironOre = new ModBlockOre("nether_iron_ore", Material.ROCK, ModBlocks.netherironOre, 1, 1), "nether_iron_ore");

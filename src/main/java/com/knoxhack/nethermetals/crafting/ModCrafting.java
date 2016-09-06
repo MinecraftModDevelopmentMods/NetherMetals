@@ -1,13 +1,11 @@
 package com.knoxhack.nethermetals.crafting;
 
 import com.knoxhack.nethermetals.blocks.ModBlocks;
-
-import net.minecraft.block.Block;
+import dank.modularity.framework.common.init.FrameworkContent;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import dank.modularity.framework.common.init.FrameworkContent;
 public final class ModCrafting {
 
 
@@ -22,15 +20,14 @@ public final class ModCrafting {
 		GameRegistry.addSmelting(ModBlocks.netherlapisOre, new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.netherredstoneOre, new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
 
-		// Base Metals
 		if(Loader.isModLoaded("modularity")) {
 			GameRegistry.addSmelting(ModBlocks.nethercopperOre, new ItemStack(FrameworkContent.resourceOre, 2 , 0), 1.0f);
 			GameRegistry.addSmelting(ModBlocks.netherleadOre, new ItemStack(FrameworkContent.resourceOre, 2 , 3), 1.0f);
 			GameRegistry.addSmelting(ModBlocks.nethersilverOre, new ItemStack(FrameworkContent.resourceOre, 2 , 2), 1.0f);
 			GameRegistry.addSmelting(ModBlocks.nethertinOre, new ItemStack(FrameworkContent.resourceOre, 2 , 1), 1.0f);
+		}
 
-			}
-
+		// Base Metals
 		if(Loader.isModLoaded("basemetals")) {
 //			GameRegistry.addSmelting(ModBlocks.netherantimonyOre, new ItemStack(BmBlocks.antimony_ore, 2), 1.0f);	// Not supported in BM 2.2.2
 //			GameRegistry.addSmelting(ModBlocks.netherbismuthOre, new ItemStack(BmBlocks.bismuth_ore, 2), 1.0f);		// Not supported in BM 2.2.2
