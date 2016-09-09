@@ -4,9 +4,11 @@ import com.knoxhack.nethermetals.blocks.ExplosiveBlock;
 import com.knoxhack.nethermetals.data.DataConstants;
 import dank.modularity.api.ModularityApi;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.world.BlockEvent;
@@ -118,24 +120,29 @@ public class Main {
 
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent e) {
-        boolean silk = false;
-        if(e.getPlayer()!=null) {
-            NBTTagList var15 = e.getPlayer().getHeldItem(e.getPlayer().swingingHand).getEnchantmentTagList();
-            if (var15 != null) {
-                for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
-                    short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
-                    if (Enchantment.getEnchantmentByID(l1) != null && Enchantment.getEnchantmentByID(l1) == Enchantments.SILK_TOUCH)
-                        silk=true;
-                }
-            }
-            if ((!silk && e.getWorld().provider.getDimension() == -1) && ((e.getState().getBlock() instanceof ExplosiveBlock && ((ExplosiveBlock) e.getState().getBlock()).doesExplode()) || e.getState().getBlock() == Blocks.QUARTZ_ORE)) {
-                int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
-                if (randomNum <= ConfigHandler.getExplosionChance() || ConfigHandler.getExplosionChance() > 100) {
-                    e.getWorld().createExplosion(e.getPlayer(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), 4.0F, true);
-                    if (ConfigHandler.isAngerPigmen())
-                        ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
-                }
-            }
-        }
+		boolean silk = false;
+		if(e.getPlayer()!=null) {
+			NBTTagList var15 = e.getPlayer().getHeldItem(e.getPlayer().swingingHand).getEnchantmentTagList();
+			if (var15 != null && (e.getPlayer().swingingHand!=null && e.getPlayer().getHeldItem(e.getPlayer().swingingHand) != null)) {
+				for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
+					short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
+					if (Enchantment.getEnchantmentByID(l1) != null && Enchantment.getEnchantmentByID(l1) == Enchantments.SILK_TOUCH)
+						silk=true;
+				}
+			}
+			if ((!silk && e.getWorld().provider.getDimension() == -1) && ((e.getState().getBlock() instanceof ExplosiveBlock && ((ExplosiveBlock) e.getState().getBlock()).doesExplode()) || e.getState().getBlock() == Blocks.QUARTZ_ORE)) {
+				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
+				if (randomNum <= ConfigHandler.getExplosionChance() || ConfigHandler.getExplosionChance() > 100) {
+					e.getWorld().createExplosion(e.getPlayer(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), 4.0F, true);
+					if (ConfigHandler.isAngerPigmen()) {
+						List<EntityPigZombie> ex = e.getWorld().getEntitiesWithinAABB(EntityPigZombie.class, new AxisAlignedBB(e.getPos().getX() - ConfigHandler.getAngerPigmenRange(), e.getPos().getY() - ConfigHandler.getAngerPigmenRange(), e.getPos().getZ() - ConfigHandler.getAngerPigmenRange(), e.getPos().getX() + ConfigHandler.getAngerPigmenRange(), e.getPos().getY() + ConfigHandler.getAngerPigmenRange(), e.getPos().getZ() + ConfigHandler.getAngerPigmenRange()));
+						for(EntityPigZombie pigZombie : ex) {
+							pigZombie.setRevengeTarget(e.getPlayer());
+							pigZombie.attackEntityAsMob(e.getPlayer());
+						}
+					}
+				}
+			}
+		}
 	}
 }
