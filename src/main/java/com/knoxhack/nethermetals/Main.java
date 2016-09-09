@@ -119,7 +119,7 @@ public class Main {
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent e) {
         boolean silk = false;
-        if(e.getPlayer()!=null) {
+        if(e.getPlayer()!=null && e.getPlayer().getHeldItem(e.getPlayer().swingingHand) != null) {
             NBTTagList var15 = e.getPlayer().getHeldItem(e.getPlayer().swingingHand).getEnchantmentTagList();
             if (var15 != null) {
                 for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
