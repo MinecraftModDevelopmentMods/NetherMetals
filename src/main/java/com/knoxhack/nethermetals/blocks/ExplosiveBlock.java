@@ -1,16 +1,14 @@
 package com.knoxhack.nethermetals.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.block.BlockOre;
 
-public class ExplosiveBlock extends Block {
+public class ExplosiveBlock extends BlockOre {
 
 	private boolean explode;
 
-	public ExplosiveBlock(Material p_i46399_1_, MapColor p_i46399_2_) {
-		super(p_i46399_1_, p_i46399_2_);
+	public ExplosiveBlock() {
+		super();
 	}
 
 	public Block explode() {
@@ -20,9 +18,5 @@ public class ExplosiveBlock extends Block {
 
 	public boolean doesExplode() {
 		return explode;
-	}
-
-	public ExplosiveBlock(Material p_i45394_1_) {
-		super(p_i45394_1_);
 	}
 }

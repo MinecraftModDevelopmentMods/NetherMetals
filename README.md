@@ -6,7 +6,8 @@ Nether Metals is an Addon for the mod Base Metals, it expands it to bring its or
 
 It can fit perfectly in skyblock modpacks
 
-This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/projects/base-metals
+This mod can make use of Base Metals (By: DrCyano) http://minecraft.curseforge.com/projects/base-metals
+This mod can make use of Modern Metals (By: jriwanek) http://minecraft.curseforge.com/projects/modern-metals
 
 #### ( Vanilla Ores ):
 
@@ -52,7 +53,7 @@ This mod requires Base Metals (By: DrCyano) http://minecraft.curseforge.com/proj
 Nether Ores spawn only in the Nether
 
 #### ( Github ):
-Check us on Github: https://github.com/nfinit-gaming/Nether-Metals
+Check us on Github: https://github.com/MinecraftModDevelopment/NetherMetals
 
 #### ( Discord ):
 We have a Discord server!  You can join with the following invite link: https://discord.gg/0eXbwPGyRiqemwip

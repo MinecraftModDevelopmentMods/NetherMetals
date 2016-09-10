@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.Loader;
 
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class ModularityApi {
 
     public static void angerPigmen(BlockPos pos, World world, EntityLivingBase revenge, final int radius) {

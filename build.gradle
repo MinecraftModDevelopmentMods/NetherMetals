@@ -13,7 +13,7 @@ buildscript {
 		}
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
 		classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT'
     }
 }
@@ -39,18 +39,26 @@ group= "com.knoxhack.nethermetals" // http://maven.apache.org/guides/mini/guide-
 archivesBaseName = "NetherMetals-1.10.2"
 
 minecraft {
-    version = "1.10.2-12.18.1.2065"
+    version = "1.10.2-12.18.1.2011"
     runDir = "run"
     
-    mappings = "stable_24"
+    mappings = "stable_26"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+repositories {
+    maven {
+        name "ilexiconn"
+        url "http://maven.ilexiconn.net/"
+    }
+}
+
 dependencies {
+    compile "mmd:orespawn:2.0.0.4-1.10.2:dev"
     compile files(
         'libs/BaseMetals_1.10.2-2.4.0.11.jar',
         'libs/ModernMetals-0.11.0.jar',
-        'libs/Modularity-[1.10.2]-0.1.0-pre-release-9-beta-of-the-pulverizers',
+        'libs/Modularity-[1.10.2]-0.1.0-pre-release-10.jar',
     )
 }
 
@@ -98,14 +106,15 @@ artifacts {
 
 curseforge {
 	project {
-		apiKey = '' // Curse API Key goes here, DO NOT COMMIT IT TO REPO.
+		apiKey = ''
 		id = '243277'
 		changelog = file('CHANGELOG.txt')
 		releaseType = 'beta'
 		mainArtifact(jar) {
 			displayName = "Nether Metals $project.version"
 			relations {
-				requiredLibrary 'base-metals'
+				optionalLibrary 'base-metals'
+				optionalLibrary 'modern-metals'
 			}
 		addArtifact sourceJar
 		addArtifact deobfJar
