@@ -13,13 +13,13 @@ public class Orespawn implements Function<OreSpawnAPI, SpawnLogic> {
 
 		// Vanilla
 		logic.getDimension(1)
-				.addOre(ModBlocks.coal_ore.getDefaultState(),     15, 4, 7, 0, 128)
-				.addOre(ModBlocks.diamond_ore.getDefaultState(),  15, 4, 7, 0, 128)
-				.addOre(ModBlocks.emerald_ore.getDefaultState(),  15, 4, 7, 0, 128)
-				.addOre(ModBlocks.gold_ore.getDefaultState(),     15, 4, 7, 0, 128)
-				.addOre(ModBlocks.iron_ore.getDefaultState(),     15, 4, 7, 0, 128)
-				.addOre(ModBlocks.lapis_ore.getDefaultState(),    15, 4, 7, 0, 128)
-				.addOre(ModBlocks.redstone_ore.getDefaultState(), 15, 4, 7, 0, 128);
+				.addOre(ModBlocks.coal_ore.getDefaultState(),     15,  4,  7, 0, 128)
+				.addOre(ModBlocks.diamond_ore.getDefaultState(),  15,  4,  7, 0, 128)
+				.addOre(ModBlocks.emerald_ore.getDefaultState(),  15,  4,  7, 0, 128)
+				.addOre(ModBlocks.gold_ore.getDefaultState(),     15,  4,  7, 0, 128)
+				.addOre(ModBlocks.iron_ore.getDefaultState(),     15,  4,  7, 0, 128)
+				.addOre(ModBlocks.lapis_ore.getDefaultState(),    15,  4,  7, 0, 128)
+				.addOre(ModBlocks.redstone_ore.getDefaultState(), 15,  4,  7, 0, 128);
 
 		// Base Metals
 		logic.getDimension(1)

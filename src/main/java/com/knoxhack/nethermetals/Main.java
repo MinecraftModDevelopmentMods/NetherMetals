@@ -103,8 +103,7 @@ public class Main {
 		Main.proxy.postInit(event);
 	}
 
-	@SidedProxy(clientSide = "com.knoxhack.nethermetals.ClientProxy",
-			serverSide = "com.knoxhack.nethermetals.ServerProxy")
+	@SidedProxy(clientSide = "com.knoxhack.nethermetals.ClientProxy", serverSide = "com.knoxhack.nethermetals.ServerProxy")
 	public static CommonProxy proxy;
 
 	@SubscribeEvent
