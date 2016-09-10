@@ -30,33 +30,32 @@ public class WorldGen implements IWorldGenerator {
 
 		final Block matchBlock = Blocks.NETHERRACK;
 		// Vanilla
-		this.gen_coal_ore = new WorldGenMinable(ModBlocks.coal_ore.getDefaultState(), ConfigHandler.getCoalOreSpawnProb(), BlockMatcher.forBlock(matchBlock));
-		this.gen_diamond_ore = new WorldGenMinable(ModBlocks.diamond_ore.getDefaultState(), ConfigHandler.getDiamondOreSpawnProb(), BlockMatcher.forBlock(matchBlock));
-		this.gen_emerald_ore = new WorldGenMinable(ModBlocks.emerald_ore.getDefaultState(), ConfigHandler.getEmeraldOreSpawnProb(), BlockMatcher.forBlock(matchBlock));
-		this.gen_gold_ore = new WorldGenMinable(ModBlocks.gold_ore.getDefaultState(), ConfigHandler.getGoldOreSpawnProb(), BlockMatcher.forBlock(matchBlock));
-		this.gen_iron_ore = new WorldGenMinable(ModBlocks.iron_ore.getDefaultState(), ConfigHandler.getIronOreSpawnProb(), BlockMatcher.forBlock(matchBlock));
-		this.gen_lapis_ore = new WorldGenMinable(ModBlocks.lapis_ore.getDefaultState(), ConfigHandler.getLapisOreSpawnProb(), BlockMatcher.forBlock(matchBlock));
+		this.gen_coal_ore = new WorldGenMinable(ModBlocks.coal_ore.getDefaultState(),         ConfigHandler.getCoalOreSpawnProb(),     BlockMatcher.forBlock(matchBlock));
+		this.gen_diamond_ore = new WorldGenMinable(ModBlocks.diamond_ore.getDefaultState(),   ConfigHandler.getDiamondOreSpawnProb(),  BlockMatcher.forBlock(matchBlock));
+		this.gen_emerald_ore = new WorldGenMinable(ModBlocks.emerald_ore.getDefaultState(),   ConfigHandler.getEmeraldOreSpawnProb(),  BlockMatcher.forBlock(matchBlock));
+		this.gen_gold_ore = new WorldGenMinable(ModBlocks.gold_ore.getDefaultState(),         ConfigHandler.getGoldOreSpawnProb(),     BlockMatcher.forBlock(matchBlock));
+		this.gen_iron_ore = new WorldGenMinable(ModBlocks.iron_ore.getDefaultState(),         ConfigHandler.getIronOreSpawnProb(),     BlockMatcher.forBlock(matchBlock));
+		this.gen_lapis_ore = new WorldGenMinable(ModBlocks.lapis_ore.getDefaultState(),       ConfigHandler.getLapisOreSpawnProb(),    BlockMatcher.forBlock(matchBlock));
 		this.gen_redstone_ore = new WorldGenMinable(ModBlocks.redstone_ore.getDefaultState(), ConfigHandler.getRedstoneOreSpawnProb(), BlockMatcher.forBlock(matchBlock));
 	}
 
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
-			IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		switch (world.provider.getDimension()) {
-		case 0: // Overworld
-			break;
-		case -1: // Nether
-			// Vanilla
-			this.runGenerator(this.gen_coal_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_diamond_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_emerald_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_gold_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_iron_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_lapis_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_redstone_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			break;
-		case 1: // End
-			break;
+			case 0: // Overworld
+				break;
+			case -1: // Nether
+				// Vanilla
+				this.runGenerator(this.gen_coal_ore,     world, random, chunkX, chunkZ, 5, 0, 200);
+				this.runGenerator(this.gen_diamond_ore,  world, random, chunkX, chunkZ, 5, 0, 200);
+				this.runGenerator(this.gen_emerald_ore,  world, random, chunkX, chunkZ, 5, 0, 200);
+				this.runGenerator(this.gen_gold_ore,     world, random, chunkX, chunkZ, 5, 0, 200);
+				this.runGenerator(this.gen_iron_ore,     world, random, chunkX, chunkZ, 5, 0, 200);
+				this.runGenerator(this.gen_lapis_ore,    world, random, chunkX, chunkZ, 5, 0, 200);
+				this.runGenerator(this.gen_redstone_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+				break;
+			case 1: // End
+				break;
 		}
 	}
 

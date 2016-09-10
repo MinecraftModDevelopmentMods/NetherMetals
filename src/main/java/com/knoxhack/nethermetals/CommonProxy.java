@@ -26,11 +26,11 @@ public class CommonProxy {
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-		// 
+		//
 	}
 
 	public void info(String s) {
-		logger.info(s);	
+		logger.info(s);
 	}
 
 	public void error(String s) {

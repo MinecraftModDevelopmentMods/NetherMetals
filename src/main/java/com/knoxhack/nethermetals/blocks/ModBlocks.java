@@ -114,10 +114,10 @@ public final class ModBlocks {
 
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders(FMLInitializationEvent event) {
-		for(String name : allBlocks.keySet()){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0, 
-				new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));
+		for (String name : allBlocks.keySet()) {
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(
+					net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0,
+					new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));
 		}
 	}
 }

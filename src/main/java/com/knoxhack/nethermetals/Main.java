@@ -29,10 +29,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(
-		modid = Main.MODID,
-		name = Main.MODNAME,
-		version = Main.VERSION,
+@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION,
 		dependencies = "required-after:Forge;after:modularity;after:modernmetals;after:basemetals",
 		acceptedMinecraftVersions = "1.10.2,)",
 		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
@@ -56,36 +53,36 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(this);
 
 		// vanilla config loader
-        ConfigHandler.startConfig(event);
+		ConfigHandler.startConfig(event);
 
 		// load config
 		final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 
-		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(),"orespawn");
-		if(ConfigHandler.requireOreSpawn) {
+		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
+		if (ConfigHandler.requireOreSpawn) {
 			// Base Metals
-			if(Loader.isModLoaded("basemetals")) {
+			if (Loader.isModLoaded("basemetals")) {
 				final Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-bmores" + ".json");
-				if(!Files.exists(bmoreSpawnFile)) {
+				if (!Files.exists(bmoreSpawnFile)) {
 					try {
 						Files.createDirectories(bmoreSpawnFile.getParent());
 						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.BM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
-						FMLLog.severe(MODID+": Error: Failed to write file " + bmoreSpawnFile);
+						FMLLog.severe(MODID + ": Error: Failed to write file " + bmoreSpawnFile);
 					}
 				}
 			}
 
 			// Modern Metals
-			if(Loader.isModLoaded("modernmetals")) {
+			if (Loader.isModLoaded("modernmetals")) {
 				final Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-mmores" + ".json");
-				if(!Files.exists(mmoreSpawnFile)) {
+				if (!Files.exists(mmoreSpawnFile)) {
 					try {
 						Files.createDirectories(mmoreSpawnFile.getParent());
 						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.MM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
-						FMLLog.severe(MODID+": Error: Failed to write file " + mmoreSpawnFile);
+						FMLLog.severe(MODID + ": Error: Failed to write file " + mmoreSpawnFile);
 					}
 				}
 			}
@@ -106,29 +103,33 @@ public class Main {
 		Main.proxy.postInit(event);
 	}
 
-	@SidedProxy(clientSide="com.knoxhack.nethermetals.ClientProxy", serverSide="com.knoxhack.nethermetals.ServerProxy")
+	@SidedProxy(clientSide = "com.knoxhack.nethermetals.ClientProxy",
+			serverSide = "com.knoxhack.nethermetals.ServerProxy")
 	public static CommonProxy proxy;
 
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent e) {
-        boolean silk = false;
-        if(e.getPlayer()!=null && e.getPlayer().getHeldItem(e.getPlayer().swingingHand) != null) {
-            NBTTagList var15 = e.getPlayer().getHeldItem(e.getPlayer().swingingHand).getEnchantmentTagList();
-            if (var15 != null) {
-                for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
-                    short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
-                    if (Enchantment.getEnchantmentByID(l1) != null && Enchantment.getEnchantmentByID(l1) == Enchantments.SILK_TOUCH)
-                        silk=true;
-                }
-            }
-            if ((!silk && e.getWorld().provider.getDimension() == -1) && ((e.getState().getBlock() instanceof ExplosiveBlock && ((ExplosiveBlock) e.getState().getBlock()).doesExplode()) || e.getState().getBlock() == Blocks.QUARTZ_ORE)) {
-                int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
-                if (randomNum <= ConfigHandler.getExplosionChance() || ConfigHandler.getExplosionChance() > 100) {
-                    e.getWorld().createExplosion(e.getPlayer(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), 4.0F, true);
-                    if (ConfigHandler.isAngerPigmen())
-                        ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
-                }
-            }
-        }
+		boolean silk = false;
+		if (e.getPlayer() != null && e.getPlayer().getHeldItem(e.getPlayer().swingingHand) != null) {
+			NBTTagList var15 = e.getPlayer().getHeldItem(e.getPlayer().swingingHand).getEnchantmentTagList();
+			if (var15 != null) {
+				for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
+					short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
+					if (Enchantment.getEnchantmentByID(l1) != null && Enchantment.getEnchantmentByID(l1) == Enchantments.SILK_TOUCH)
+						silk = true;
+				}
+			}
+			if ((!silk && e.getWorld().provider.getDimension() == -1)
+					&& ((e.getState().getBlock() instanceof ExplosiveBlock
+							&& ((ExplosiveBlock) e.getState().getBlock()).doesExplode())
+							|| e.getState().getBlock() == Blocks.QUARTZ_ORE)) {
+				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
+				if (randomNum <= ConfigHandler.getExplosionChance() || ConfigHandler.getExplosionChance() > 100) {
+					e.getWorld().createExplosion(e.getPlayer(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), 4.0F, true);
+					if (ConfigHandler.isAngerPigmen())
+						ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
+				}
+			}
+		}
 	}
 }

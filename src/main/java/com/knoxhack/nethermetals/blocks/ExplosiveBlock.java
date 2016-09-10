@@ -12,7 +12,7 @@ public class ExplosiveBlock extends BlockOre {
 	}
 
 	public Block explode() {
-		this.explode=true;
+		this.explode = true;
 		return this;
 	}
 
