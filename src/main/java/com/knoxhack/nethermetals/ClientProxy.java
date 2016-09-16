@@ -1,7 +1,6 @@
 package com.knoxhack.nethermetals;
 
-import com.knoxhack.nethermetals.client.render.blocks.BlockRenderRegister;
-
+import com.knoxhack.nethermetals.blocks.ModBlocks;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -18,7 +17,7 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
 
-		BlockRenderRegister.registerBlockRenderer();
+		ModBlocks.registerItemRenders(event);
 	}
 
 	@Override

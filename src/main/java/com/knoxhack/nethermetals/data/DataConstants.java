@@ -1,7 +1,7 @@
 package com.knoxhack.nethermetals.data;
 
 public class DataConstants {
-	public static final String bmOreSpawnJSON = "{"
+	public static final String BM_ORESPAWN_JSON = "{"
 + "\n	\"dimensions\":["
 + "\n		{"
 + "\n			\"dimension\":\"-1\","
@@ -94,7 +94,7 @@ public class DataConstants {
 + "\n		}"
 + "\n	]"
 + "\n}";
-	public static final String mmOreSpawnJSON = "{"
+	public static final String MM_ORESPAWN_JSON = "{"
 + "\n	\"dimensions\":["
 + "\n		{"
 + "\n			\"dimension\":\"-1\","
