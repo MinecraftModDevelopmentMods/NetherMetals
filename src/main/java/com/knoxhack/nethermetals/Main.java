@@ -30,7 +30,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION,
-		dependencies = "required-after:Forge;after:modularity;after:modernmetals;after:basemetals",
+		dependencies = "required-after:forge;after:modularity;after:modernmetals;after:basemetals",
 		acceptedMinecraftVersions = "1.10.2,)",
 		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
 

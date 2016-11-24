@@ -39,10 +39,10 @@ group= "com.knoxhack.nethermetals" // http://maven.apache.org/guides/mini/guide-
 archivesBaseName = "NetherMetals-1.10.2"
 
 minecraft {
-    version = "1.10.2-12.18.1.2011"
+    version = "1.11-13.19.0.2153"
     runDir = "run"
     
-    mappings = "stable_26"
+    mappings = "snapshot_20161111"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 

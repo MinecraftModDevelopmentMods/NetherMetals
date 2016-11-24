@@ -1,7 +1,7 @@
 package com.knoxhack.nethermetals.crafting;
 
-import cyano.basemetals.registry.CrusherRecipeRegistry;
-import dank.modularity.framework.common.init.FrameworkContent;
+//import cyano.basemetals.registry.CrusherRecipeRegistry;
+//import dank.modularity.framework.common.init.FrameworkContent;
 import com.knoxhack.nethermetals.blocks.ModBlocks;
 
 import net.minecraft.init.Blocks;
@@ -24,25 +24,27 @@ public final class ModCrafting {
 
 		// Modularity
 		if (Loader.isModLoaded("modularity")) {
-			GameRegistry.addSmelting(ModBlocks.copper_ore, new ItemStack(FrameworkContent.resourceOre, 2, 0), 1.0f);
-			GameRegistry.addSmelting(ModBlocks.lead_ore, new ItemStack(FrameworkContent.resourceOre, 2, 3), 1.0f);
-			GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(FrameworkContent.resourceOre, 2, 2), 1.0f);
-			GameRegistry.addSmelting(ModBlocks.tin_ore, new ItemStack(FrameworkContent.resourceOre, 2, 1), 1.0f);
+			//GameRegistry.addSmelting(ModBlocks.copper_ore, new ItemStack(FrameworkContent.resourceOre, 2, 0), 1.0f);
+			//GameRegistry.addSmelting(ModBlocks.lead_ore, new ItemStack(FrameworkContent.resourceOre, 2, 3), 1.0f);
+			//GameRegistry.addSmelting(ModBlocks.silver_ore, new ItemStack(FrameworkContent.resourceOre, 2, 2), 1.0f);
+			//GameRegistry.addSmelting(ModBlocks.tin_ore, new ItemStack(FrameworkContent.resourceOre, 2, 1), 1.0f);
 		}
 
 		// Vanilla BM Hammer Compat
 		if (Loader.isModLoaded("basemetals")) {
-			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.coal_ore, new ItemStack(Blocks.COAL_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.diamond_ore, new ItemStack(Blocks.DIAMOND_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.emerald_ore, new ItemStack(Blocks.EMERALD_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.gold_ore, new ItemStack(Blocks.GOLD_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.iron_ore, new ItemStack(Blocks.IRON_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.lapis_ore, new ItemStack(Blocks.LAPIS_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.redstone_ore, new ItemStack(Blocks.REDSTONE_ORE, 2));
+			//CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.coal_ore, new ItemStack(Blocks.COAL_ORE, 2));
+			//CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.diamond_ore, new ItemStack(Blocks.DIAMOND_ORE, 2));
+			//CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.emerald_ore, new ItemStack(Blocks.EMERALD_ORE, 2));
+			//CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.gold_ore, new ItemStack(Blocks.GOLD_ORE, 2));
+			//CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.iron_ore, new ItemStack(Blocks.IRON_ORE, 2));
+			//CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.lapis_ore, new ItemStack(Blocks.LAPIS_ORE, 2));
+			//CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.redstone_ore, new ItemStack(Blocks.REDSTONE_ORE, 2));
 		}
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
+			
+			/*
 			// GameRegistry.addSmelting(ModBlocks.antimony_ore, new ItemStack(BmBlocks.antimony_ore, 2), 1.0f);				// Not supported in BM 2.2.2
 			// CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.antimony_ore, new ItemStack(BmBlocks.antimony_ore, 2));	// Not supported in BM 2.2.2
 			// GameRegistry.addSmelting(ModBlocks.bismuth_ore, new ItemStack(BmBlocks.bismuth_ore, 2), 1.0f);				// Not supported in BM 2.2.2
@@ -63,10 +65,12 @@ public final class ModCrafting {
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.tin_ore, new ItemStack(BmBlocks.tin_ore, 2));
 			GameRegistry.addSmelting(ModBlocks.zinc_ore, new ItemStack(BmBlocks.zinc_ore, 2), 1.0f);
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.zinc_ore, new ItemStack(BmBlocks.zinc_ore, 2));
+		*/
 		}
 
 		// Modern Metals
 		if (Loader.isModLoaded("modernmetals")) {
+			/*
 			GameRegistry.addSmelting(ModBlocks.aluminum_ore, new ItemStack(MmBlocks.aluminum_ore, 2), 1.0f);
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.aluminum_ore, new ItemStack(MmBlocks.aluminum_ore, 2));
 			GameRegistry.addSmelting(ModBlocks.cadmium_ore, new ItemStack(MmBlocks.cadmium_ore, 2), 1.0f);
@@ -95,6 +99,10 @@ public final class ModCrafting {
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.uranium_ore, new ItemStack(MmBlocks.uranium_ore, 2));
 			GameRegistry.addSmelting(ModBlocks.zirconium_ore, new ItemStack(MmBlocks.zirconium_ore, 2), 1.0f);
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.zirconium_ore, new ItemStack(MmBlocks.zirconium_ore, 2));
+		
+		
+		*/
+			
 		}
 	}
 }
