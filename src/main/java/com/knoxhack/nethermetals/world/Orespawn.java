@@ -12,7 +12,7 @@ public class Orespawn implements Function<OreSpawnAPI, SpawnLogic> {
 		SpawnLogic logic = api.createSpawnLogic();
 
 		// Vanilla
-		logic.getDimension(1)
+		logic.getDimension(-1)
 				.addOre(ModBlocks.coal_ore.getDefaultState(),     15,  4,  7, 0, 128)
 				.addOre(ModBlocks.diamond_ore.getDefaultState(),  15,  4,  7, 0, 128)
 				.addOre(ModBlocks.emerald_ore.getDefaultState(),  15,  4,  7, 0, 128)
@@ -22,7 +22,7 @@ public class Orespawn implements Function<OreSpawnAPI, SpawnLogic> {
 				.addOre(ModBlocks.redstone_ore.getDefaultState(), 15,  4,  7, 0, 128);
 
 		// Base Metals
-		logic.getDimension(1)
+		logic.getDimension(-1)
 				.addOre(ModBlocks.antimony_ore.getDefaultState(),  8,  4, 10, 0, 128)
 				.addOre(ModBlocks.bismuth_ore.getDefaultState(),   8,  4, 10, 0, 128)
 				.addOre(ModBlocks.copper_ore.getDefaultState(),    8, 12, 20, 0, 128)
@@ -35,7 +35,7 @@ public class Orespawn implements Function<OreSpawnAPI, SpawnLogic> {
 				.addOre(ModBlocks.zinc_ore.getDefaultState(),      8,  8, 12, 0, 128);
 
 		// Modern Metals
-		logic.getDimension(1)
+		logic.getDimension(-1)
 				.addOre(ModBlocks.aluminum_ore.getDefaultState(),  8,  8, 10, 0, 128)
 				.addOre(ModBlocks.cadmium_ore.getDefaultState(),   8,  8, 10, 0, 128)
 				.addOre(ModBlocks.chromium_ore.getDefaultState(),  8,  8, 10, 0, 128)

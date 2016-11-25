@@ -1,6 +1,7 @@
 package com.knoxhack.nethermetals;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,9 +23,11 @@ public class ConfigHandler {
 
 	private static final String COMMENTS = Main.MODNAME + " Config\n For " + Main.MODNAME + " \n"
 			+ " For " + Main.MODNAME + " " + Main.VERSION;
-	 public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
+	 //public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
 
 	private static final String ORE_SPAWN_PROB_COMMENT = "Spawn Probability\nSet to zero to disable ore spawning of this type";
+
+	private static String ORESPANE_CFG_PATH = "orespawn";
 
 	public static boolean requireOreSpawn = true;
 
@@ -47,7 +50,7 @@ public class ConfigHandler {
 		final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 
-		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
+		Path oreSpawnFolder = Paths.get(ORESPANE_CFG_PATH);;
 		if (ConfigHandler.requireOreSpawn) {
 			// Base Metals
 		 {

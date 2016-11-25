@@ -1,14 +1,9 @@
 package com.knoxhack.nethermetals.data;
 
 public class DataConstants {
-	public static final String BM_ORESPAWN_JSON = "{"
-+ "\n	\"dimensions\":["
+	public static final String BM_ORESPAWN_JSON = "["
 + "\n		{"
 + "\n			\"dimension\":\"-1\","
-+ "\n			\"__comment\":\""
-+ "dimension 0 for overworld, -1 for the nether, 1 for the end, other numbers "
-+ "for dimensions added by other mods, and + for any dimension not already "
-+ "described by this file.\","
 + "\n			\"ores\":["
 //+ "\n				{"
 //+ "\n					\"blockID\":\"nethermetals:nether_antimony_ore\","
