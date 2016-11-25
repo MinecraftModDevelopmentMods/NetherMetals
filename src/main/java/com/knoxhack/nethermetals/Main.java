@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 import com.knoxhack.nethermetals.blocks.ExplosiveBlock;
@@ -44,52 +46,13 @@ public class Main {
 	public static final String VERSION = "1.2";
 
 	/** All ore-spawn files discovered in the ore-spawn folder */
-	// public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		INSTANCE = this;
-
 		MinecraftForge.EVENT_BUS.register(this);
-
 		// vanilla config loader
 		ConfigHandler.startConfig(event);
-
-		// load config
-		final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
-
-		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
-		if (ConfigHandler.requireOreSpawn) {
-			// Base Metals
-			if (Loader.isModLoaded("basemetals")) {
-				final Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-bmores" + ".json");
-				if (!Files.exists(bmoreSpawnFile)) {
-					try {
-						Files.createDirectories(bmoreSpawnFile.getParent());
-						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.BM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
-					} catch (IOException e) {
-						FMLLog.severe(MODID + ": Error: Failed to write file " + bmoreSpawnFile);
-					}
-				}
-			}
-
-			// Modern Metals
-			if (Loader.isModLoaded("modernmetals")) {
-				final Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-mmores" + ".json");
-				if (!Files.exists(mmoreSpawnFile)) {
-					try {
-						Files.createDirectories(mmoreSpawnFile.getParent());
-						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.MM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
-					} catch (IOException e) {
-						FMLLog.severe(MODID + ": Error: Failed to write file " + mmoreSpawnFile);
-					}
-				}
-			}
-		}
-
-		config.save();
-
 		Main.proxy.preInit(event);
 	}
 

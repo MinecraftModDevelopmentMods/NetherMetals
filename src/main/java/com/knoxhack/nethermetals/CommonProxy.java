@@ -22,7 +22,7 @@ public class CommonProxy {
 
 	public void init(FMLInitializationEvent event) {
 		ModCrafting.initCrafting();
-		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
+		//GameRegistry.registerWorldGenerator(new WorldGen(), 0);
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {

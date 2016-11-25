@@ -1,6 +1,19 @@
 package com.knoxhack.nethermetals;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.knoxhack.nethermetals.data.DataConstants;
+
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.FMLLog;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ConfigHandler {
@@ -9,6 +22,7 @@ public class ConfigHandler {
 
 	private static final String COMMENTS = Main.MODNAME + " Config\n For " + Main.MODNAME + " \n"
 			+ " For " + Main.MODNAME + " " + Main.VERSION;
+	 public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
 
 	private static final String ORE_SPAWN_PROB_COMMENT = "Spawn Probability\nSet to zero to disable ore spawning of this type";
 
@@ -29,6 +43,39 @@ public class ConfigHandler {
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load(); // only need to load config once during pre initializeSoundEvents
 		updateConfigInfo();
+		
+		final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+		config.load();
+
+		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
+		if (ConfigHandler.requireOreSpawn) {
+			// Base Metals
+		 {
+				final Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), Main.MODID + "-base_metals_ores" + ".json");
+				if (!Files.exists(bmoreSpawnFile)) {
+					try {
+						Files.createDirectories(bmoreSpawnFile.getParent());
+						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.BM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
+					} catch (IOException e) {
+						FMLLog.severe(Main.MODID + ": Error: Failed to write file " + bmoreSpawnFile);
+					}
+				}
+			}
+
+			// Modern Metals
+			if (Loader.isModLoaded("modernmetals")) {
+				final Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), Main.MODID + "-modern_metals_ores" + ".json");
+				if (!Files.exists(mmoreSpawnFile)) {
+					try {
+						Files.createDirectories(mmoreSpawnFile.getParent());
+						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.MM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
+					} catch (IOException e) {
+						FMLLog.severe(Main.MODID + ": Error: Failed to write file " + mmoreSpawnFile);
+					}
+				}
+			}
+		}
+		config.save();
 	}
 
 	public static void updateConfigInfo() {
