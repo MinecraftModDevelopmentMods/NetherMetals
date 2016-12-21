@@ -98,8 +98,8 @@ dependencies {
         "libs/Modularity-[1.10.2]-0.1.0-pre-release-10.jar",
     )
     compile "mmd:orespawn:${orespawn_version}-${mc_version}:dev"
-    compile "cyano:BaseMetals:${mc_version}-${bme_version}:dev"
-    compile "mmd:ModernMetals:${mc_version}-${mme_version}:dev"
+    compile "cyano:BaseMetals:${mc_version}-${bme_version}:deobf"
+    compile "mmd:ModernMetals:${mc_version}-${mme_version}:deobf"
 }
 
 processResources {
