@@ -1,4 +1,4 @@
-package com.knoxhack.nethermetals;
+package com.knoxhack.nethermetals.proxy;
 
 import com.knoxhack.nethermetals.blocks.ModBlocks;
 import com.knoxhack.nethermetals.crafting.ModCrafting;

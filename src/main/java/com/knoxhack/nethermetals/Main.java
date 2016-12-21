@@ -10,6 +10,8 @@ import java.util.Random;
 
 import com.knoxhack.nethermetals.blocks.ExplosiveBlock;
 import com.knoxhack.nethermetals.data.DataConstants;
+import com.knoxhack.nethermetals.proxy.CommonProxy;
+
 import dank.modularity.api.ModularityApi;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
