@@ -1,4 +1,4 @@
-package mmd.orespawn;
+package com.mcmoddev.orespawn;
 
 import com.google.common.base.Function;
 

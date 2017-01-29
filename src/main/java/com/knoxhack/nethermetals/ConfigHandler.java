@@ -1,14 +1,15 @@
 package com.knoxhack.nethermetals;
 
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ConfigHandler {
 
 	public static Configuration config;
 
-	private static final String COMMENTS = Main.MODNAME + " Config\n For " + Main.MODNAME + " \n"
-			+ " For " + Main.MODNAME + " " + Main.VERSION;
+	private static final String COMMENTS = NetherMetals.NAME + " Config\n For " + NetherMetals.NAME + " \n"
+			+ " For " + NetherMetals.NAME + " " + NetherMetals.VERSION;
 
 	private static final String ORE_SPAWN_PROB_COMMENT = "Spawn Probability\nSet to zero to disable ore spawning of this type";
 
@@ -51,15 +52,15 @@ public class ConfigHandler {
 			angerPigmenRange = config.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt();
 			angerPigmen = config.get("mean", "PigmenAnger", true, "Anger Pigmen When Ores Explode\nSet to false to not anger").getBoolean();
 
-			config.get(Configuration.CATEGORY_GENERAL, "NetherIronOreSpawnProb",     14, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "NetherDiamondOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "NetherRedstoneOreSpawnProb", 12, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "NetherEmeraldOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "NetherGoldOreSpawnProb",      8, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "NetherLapisOreSpawnProb",     8, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "NetherCoalOreSpawnProb",     16, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "NetherIronOreSpawnProb",     14, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "NetherDiamondOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "NetherRedstoneOreSpawnProb", 12, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "NetherEmeraldOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "NetherGoldOreSpawnProb",      8, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "NetherLapisOreSpawnProb",     8, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "NetherCoalOreSpawnProb",     16, ORE_SPAWN_PROB_COMMENT).getInt();
 		} catch (Exception e) {
-			Main.proxy.info("failed to load or read the config file");
+			FMLLog.info("failed to load or read the config file");
 		} finally {
 			if (config.hasChanged()) {
 				config.save();

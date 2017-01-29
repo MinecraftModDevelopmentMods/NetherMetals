@@ -1,7 +1,5 @@
 package com.knoxhack.nethermetals.crafting;
 
-import modernmetals.init.Blocks;
-
-public class MmBlocks extends Blocks {
+public class MmBlocks extends com.mcmoddev.modernmetals.init.Blocks {
 
 }

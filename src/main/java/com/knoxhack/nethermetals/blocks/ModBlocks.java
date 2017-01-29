@@ -3,21 +3,16 @@ package com.knoxhack.nethermetals.blocks;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.knoxhack.nethermetals.Main;
+import org.apache.commons.lang3.StringUtils;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public final class ModBlocks {
 
-	private static final Map<String, Block> allBlocks = new HashMap<>();
+	private static final Map<String, Block> blockRegistry = new HashMap<>();
 
 	public static Block coal_ore;
 	public static Block diamond_ore;
@@ -94,30 +89,33 @@ public final class ModBlocks {
 	}
 
 	private static Block addBlock(Block block, String name) {
-		ResourceLocation location = new ResourceLocation(Main.MODID, name);
-		block.setRegistryName(location);
-		block.setUnlocalizedName(location.toString());
+		block.setRegistryName(name);
+		block.setUnlocalizedName(block.getRegistryName().getResourceDomain() + "." + name);
 		GameRegistry.register(block);
+		blockRegistry.put(name, block);
 
-		ItemBlock itemBlock = new ItemBlock(block);
-		itemBlock.setRegistryName(location);
-		itemBlock.setUnlocalizedName(location.toString());
+		final ItemBlock itemBlock = new ItemBlock(block);
+		itemBlock.setRegistryName(name);
+		itemBlock.setUnlocalizedName(block.getRegistryName().getResourceDomain() + "." + name);
 		GameRegistry.register(itemBlock);
 
-		allBlocks.put(name, block);
+//		OreDictionary.registerOre("oreNether" + StringUtils.capitalize(name), block);
+		// block.setCreativeTab(tab);
+
 		return block;
 	}
 
 	private static Block createOre(String name, float Hardness, float Resistance) {
-		return addBlock(new ModBlockOre(Hardness, Resistance), "nether_" + name + "_ore");
+		final Block block = addBlock(new ModBlockOre(Hardness, Resistance), "nether_" + name + "_ore");
+		OreDictionary.registerOre("oreNether" + StringUtils.capitalize(name), block);
+		return block;
 	}
 
-	@SideOnly(Side.CLIENT)
-	public static void registerItemRenders(FMLInitializationEvent event) {
-		for (final String name : allBlocks.keySet()) {
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(
-					net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0,
-					new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));
-		}
+	public static Block getBlockByName(String name) {
+		return blockRegistry.get(name);
+	}
+
+	public static Map<String, Block> getBlockRegistry() {
+		return blockRegistry;
 	}
 }
