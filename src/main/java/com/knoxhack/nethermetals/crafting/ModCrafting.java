@@ -52,8 +52,8 @@ public final class ModCrafting {
 				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.lead_ore, new ItemStack(Materials.getMaterialByName("lead").ore, 2));
 			}
 			if (com.mcmoddev.basemetals.util.Config.Options.enableMercury) {
-				GameRegistry.addSmelting(ModBlocks.mercury_ore, new ItemStack(com.mcmoddev.basemetals.init.Blocks.mercury_ore, 2), 1.0f);
-				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.mercury_ore, new ItemStack(com.mcmoddev.basemetals.init.Blocks.mercury_ore, 2));
+				GameRegistry.addSmelting(ModBlocks.mercury_ore, new ItemStack(Materials.getMaterialByName("mercury").ore, 2), 1.0f);
+				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.mercury_ore, new ItemStack(Materials.getMaterialByName("mercury").ore, 2));
 			}
 			if (com.mcmoddev.basemetals.util.Config.Options.enableNickel) {
 				GameRegistry.addSmelting(ModBlocks.nickel_ore, new ItemStack(Materials.getMaterialByName("nickel").ore, 2), 1.0f);
