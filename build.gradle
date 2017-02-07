@@ -99,6 +99,7 @@ dependencies {
     )
     compile "mmd:orespawn:${orespawn_version}-${mc_version}:dev"
     compile "cyano:BaseMetals:${mc_version}-${bme_version}:deobf"
+    compile "mmd:BaseMinerals:${mc_version}-${bmi_version}:deobf"
     compile "mmd:ModernMetals:${mc_version}-${mme_version}:deobf"
 }
 
