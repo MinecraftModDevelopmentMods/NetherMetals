@@ -58,6 +58,5 @@ public class NetherMetalsOreSpawn implements Function<OreSpawnAPI, SpawnLogic> {
 					.addOre(ModBlocks.zirconiumOre.getDefaultState(), 8, 8,  10, 0,  96);
 		}
 		return logic;
-	
 	}
 }
