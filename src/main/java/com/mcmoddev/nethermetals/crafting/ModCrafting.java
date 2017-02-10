@@ -11,6 +11,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public final class ModCrafting {
 
+	private ModCrafting() {
+		throw new IllegalAccessError("Not a instantiable class");
+	}
+
 	public static void initCrafting() {
 
 		// Vanilla

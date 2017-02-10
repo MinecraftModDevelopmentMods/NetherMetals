@@ -9,18 +9,15 @@ import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-//import net.minecraftforge.common.config.*;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.MissingModsException;
-//import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.versioning.ArtifactVersion;
-//import net.minecraftforge.fml.common.versioning.*;
 import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 /**
- * @author p455w0rd
+ * @author Jasmine Iwanek
  *
  */
 public class Config {
@@ -84,7 +81,7 @@ public class Config {
 	}
 
 	public static class Options {
-		public static boolean requireMMDLib = true;
+		public static boolean requireMMDLib = false;
 
 		public static boolean requireMMDOreSpawn = true;
 		public static boolean enableAluminumNetherOre = true;
@@ -94,9 +91,11 @@ public class Config {
 		public static int angerPigmenRange = 0;
 		public static boolean angerPigmen = false;
 
+
 		private Options() {
 			throw new IllegalAccessError("Not a instantiable class");
 		}
+
 		public static int getExplosionChance() {
 			return explosionChance;
 		}

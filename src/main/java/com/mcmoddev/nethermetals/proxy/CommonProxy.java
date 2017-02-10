@@ -14,7 +14,9 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(this);
 		Config.init();
+
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.NetherMetalsOreSpawn");
+
 		ModBlocks.createBlocks();
 	}
 
@@ -24,5 +26,4 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent event) {
 	}
-
 }
