@@ -47,15 +47,16 @@ public class NetherMetals {
 	 * compatibility with other mods that depend on this one.
 	 */
 	public static final String VERSION = "1.2.0";
+
 	public static Logger logger;
-	
+
 	@SidedProxy(clientSide = "com.mcmoddev.nethermetals.proxy.ClientProxy", serverSide = "com.mcmoddev.nethermetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = Logger.getLogger(MODID);
-	   // logger.setParent() FMLLog.getLogger());
+//		logger.setParent(FMLLog.getLogger());
 		
 		NetherMetals.proxy.preInit(event);
 	}
