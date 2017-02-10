@@ -1,16 +1,19 @@
-package com.knoxhack.nethermetals;
+package com.mcmoddev.nethermetals;
 
 import java.util.Random;
+import java.util.logging.Logger;
 
-import com.knoxhack.nethermetals.blocks.ExplosiveBlock;
-import com.knoxhack.nethermetals.proxy.CommonProxy;
+import com.mcmoddev.nethermetals.blocks.ExplosiveBlock;
+import com.mcmoddev.nethermetals.proxy.CommonProxy;
+import com.mcmoddev.nethermetals.util.Config.Options;
 
-import dank.modularity.api.ModularityApi;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.FMLLog;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -44,14 +47,15 @@ public class NetherMetals {
 	 * compatibility with other mods that depend on this one.
 	 */
 	public static final String VERSION = "1.2.0";
-
-	@SidedProxy(clientSide = "com.knoxhack.nethermetals.proxy.ClientProxy", serverSide = "com.knoxhack.nethermetals.proxy.ServerProxy")
+	public static Logger logger;
+	
+	@SidedProxy(clientSide = "com.mcmoddev.nethermetals.proxy.ClientProxy", serverSide = "com.mcmoddev.nethermetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-//		logger = Logger.getLogger(MODID);
-//		logger.setParent(FMLLog.getLogger());
+		logger = Logger.getLogger(MODID);
+	   // logger.setParent() FMLLog.getLogger());
 		
 		NetherMetals.proxy.preInit(event);
 	}
@@ -65,6 +69,23 @@ public class NetherMetals {
 	public void postInit(FMLPostInitializationEvent event) {
 		NetherMetals.proxy.postInit(event);
 	}
+	
+    public static boolean hasMMDLib() {
+        return Loader.isModLoaded("mmdlib");
+    }
+        
+    public static boolean hasOreSpawn() {
+        return Loader.isModLoaded("orespawn");
+    }
+    public static boolean hasTinkers() {
+        return Loader.isModLoaded("tinkersconstruct");
+    }
+    public static boolean hasModernMetals() {
+        return Loader.isModLoaded("modernmetals");
+    }
+    public static boolean hasBaseMetals() {
+        return Loader.isModLoaded("basemetals");
+    }
 
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent e) {
@@ -83,10 +104,10 @@ public class NetherMetals {
 							&& ((ExplosiveBlock) e.getState().getBlock()).doesExplode())
 							|| e.getState().getBlock() == Blocks.QUARTZ_ORE)) {
 				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
-				if (randomNum <= ConfigHandler.getExplosionChance() || ConfigHandler.getExplosionChance() > 100) {
+				if (randomNum <= Options.getExplosionChance() || Options.getExplosionChance() > 100) {
 					e.getWorld().createExplosion(e.getPlayer(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), 4.0F, true);
-					if (ConfigHandler.isAngerPigmen())
-						ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
+					//if (ConfigHandler.isAngerPigmen())
+						//ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
 				}
 			}
 		}

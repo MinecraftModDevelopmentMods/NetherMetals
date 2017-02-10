@@ -1,4 +1,4 @@
-package com.knoxhack.nethermetals.proxy;
+package com.mcmoddev.nethermetals.proxy;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

@@ -1,8 +1,8 @@
-package com.knoxhack.nethermetals.crafting;
+package com.mcmoddev.nethermetals.crafting;
 
 import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
 import com.mcmoddev.lib.init.Materials;
-import com.knoxhack.nethermetals.blocks.ModBlocks;
+import com.mcmoddev.nethermetals.blocks.ModBlocks;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -22,6 +22,7 @@ public final class ModCrafting {
 		GameRegistry.addSmelting(ModBlocks.lapis_ore, new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.redstone_ore, new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
 
+	
 		// Vanilla BM Hammer Compat
 		if (Loader.isModLoaded("basemetals")) {
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.coal_ore, new ItemStack(Blocks.COAL_ORE, 2));
@@ -32,7 +33,6 @@ public final class ModCrafting {
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.lapis_ore, new ItemStack(Blocks.LAPIS_ORE, 2));
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.redstone_ore, new ItemStack(Blocks.REDSTONE_ORE, 2));
 		}
-
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
 			if (com.mcmoddev.basemetals.util.Config.Options.enableAntimony) {

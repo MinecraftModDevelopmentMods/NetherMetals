@@ -1,7 +1,7 @@
-package com.knoxhack.nethermetals.proxy;
+package com.mcmoddev.nethermetals.proxy;
 
-import com.knoxhack.nethermetals.NetherMetals;
-import com.knoxhack.nethermetals.blocks.ModBlocks;
+import com.mcmoddev.nethermetals.NetherMetals;
+import com.mcmoddev.nethermetals.blocks.ModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;

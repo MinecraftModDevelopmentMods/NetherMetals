@@ -1,4 +1,4 @@
-package com.knoxhack.nethermetals.blocks;
+package com.mcmoddev.nethermetals.blocks;
 
 import java.util.HashMap;
 import java.util.Map;
