@@ -1,5 +1,5 @@
 package com.mcmoddev.nethermetals.blocks;
-
+/**
 import java.util.HashMap;
 import java.util.Map;
 
@@ -119,3 +119,6 @@ public final class ModBlocks {
 		return blockRegistry;
 	}
 }
+
+
+**/

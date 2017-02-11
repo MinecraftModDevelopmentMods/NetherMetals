@@ -1,8 +1,9 @@
 package com.mcmoddev.nethermetals.crafting;
 
 import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
-import com.mcmoddev.lib.init.Materials;
-import com.mcmoddev.nethermetals.blocks.ModBlocks;
+import com.mcmoddev.basemetals.init.Materials;
+import com.mcmoddev.nethermetals.init.MaterialsNetherOre;
+import com.mcmoddev.nethermetals.util.Config.Options;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,12 @@ public final class ModCrafting {
 	}
 
 	public static void initCrafting() {
+   
+		
+			if (Options.enableFurnaceSmelting) {
 
+		/**
+    
 		// Vanilla
 		GameRegistry.addSmelting(ModBlocks.coalOre, new ItemStack(Blocks.COAL_ORE, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.diamondOre, new ItemStack(Blocks.DIAMOND_ORE, 2), 1.0f);
@@ -36,13 +42,17 @@ public final class ModCrafting {
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.lapisOre, new ItemStack(Blocks.LAPIS_ORE, 2));
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.redstoneOre, new ItemStack(Blocks.REDSTONE_ORE, 2));
 		}
-
+**/
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
 			if (com.mcmoddev.basemetals.util.Config.Options.enableAntimony) {
-				GameRegistry.addSmelting(ModBlocks.antimonyOre, new ItemStack(Materials.getMaterialByName("antimony").ore, 2), 1.0f);
-				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.antimonyOre, new ItemStack(Materials.getMaterialByName("antimony").ore, 2));
+				GameRegistry.addSmelting(MaterialsNetherOre.getMaterialByName("antimony").oreNether, new ItemStack(Materials.getMaterialByName("antimony").ore, 2), 1.0f);
+				CrusherRecipeRegistry.addNewCrusherRecipe(MaterialsNetherOre.getMaterialByName("antimony").oreNether, new ItemStack(Materials.getMaterialByName("antimony").ore, 2));
 			}
+			
+			
+			
+			/**
 			if (com.mcmoddev.basemetals.util.Config.Options.enableBismuth) {
 				GameRegistry.addSmelting(ModBlocks.bismuthOre, new ItemStack(Materials.getMaterialByName("bismuth").ore, 2), 1.0f);
 				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.bismuthOre, new ItemStack(Materials.getMaterialByName("bismuth").ore, 2));
@@ -139,6 +149,8 @@ public final class ModCrafting {
 				GameRegistry.addSmelting(ModBlocks.zirconiumOre, new ItemStack(Materials.getMaterialByName("zirconium").ore, 2), 1.0f);
 				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.zirconiumOre, new ItemStack(Materials.getMaterialByName("zirconium").ore, 2));
 			}
+			
+			**/
 		}
 	}
-}
+}}

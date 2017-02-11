@@ -3,7 +3,7 @@ package com.mcmoddev.nethermetals;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import com.mcmoddev.nethermetals.blocks.ExplosiveBlock;
+import com.mcmoddev.lib.blocks.BlockExplosiveOre;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
 import com.mcmoddev.nethermetals.util.Config.Options;
 
@@ -101,8 +101,8 @@ public class NetherMetals {
 				}
 			}
 			if ((!silk && e.getWorld().provider.getDimension() == -1)
-					&& ((e.getState().getBlock() instanceof ExplosiveBlock
-							&& ((ExplosiveBlock) e.getState().getBlock()).doesExplode())
+					&& ((e.getState().getBlock() instanceof BlockExplosiveOre
+							&& ((BlockExplosiveOre) e.getState().getBlock()).doesExplode())
 							|| e.getState().getBlock() == Blocks.QUARTZ_ORE)) {
 				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
 				if (randomNum <= Options.getExplosionChance() || Options.getExplosionChance() > 100) {

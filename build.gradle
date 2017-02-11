@@ -89,9 +89,22 @@ repositories {
     }
     maven {
         name "epoxide"
-        url "http://maven.epoxide.xyz"
+        url "http://maven.epoxide.org"
+    }
+    maven { // CraftTweaker
+        name 'jared maven'
+        url "http://blamejared.com/maven"
+    }
+    maven {
+        name "jitpack"
+        url "https://jitpack.io"
+    }
+    maven {
+        name "industrialcraft"
+        url "http://maven.ic2.player.to"
     }
 }
+
 
 dependencies {
     compile "slimeknights:TConstruct:${mc_version}-${tconstruct_version}:deobf"
@@ -100,7 +113,38 @@ dependencies {
     compile "mmd:BaseMetals:${mc_version}-${bme_version}:deobf"
     compile "mmd:BaseMinerals:${mc_version}-${bmi_version}:deobf"
     compile "mmd:ModernMetals:${mc_version}-${mme_version}:deobf"
+    	// c510ce7d8c = https://github.com/aidancbrady/Mekanism/commit/c510ce7d8cf7810500e032e2f713796078d26c6f
+	// 7e3c806a8f = https://github.com/aidancbrady/Mekanism/commit/7e3c806a8f136526129967ba1b25946d8f05ccd9
+    deobfCompile ("com.github.aidancbrady:Mekanism:7e3c806a8f") {
+        exclude group: 'MCMultiPart'
+    }
+
+	deobfCompile ("com.github.TeamFRM:TAIGA:4db215fc65") {
+		exclude group: 'MCMultiPart'
+	}
+	
+    deobfCompile ("slimeknights:TConstruct:${mc_version}-${tconstruct_version}") {
+        exclude group: 'mezz.jei'
+    }
+    deobfCompile "slimeknights.mantle:Mantle:${mc_version}-${mantle_version}"
+    deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}"
+    deobfCompile "codechicken:CodeChickenLib:${mc_version}-${ccl_version}:universal"
+    deobfCompile ("codechicken:CodeChickenCore:${mc_version}-${ccc_version}:universal") {
+        exclude group: 'codechicken'
+    }
+    deobfCompile ("codechicken:NotEnoughItems:${mc_version}-${nei_version}:universal") {
+        exclude group: 'mezz.jei'
+        exclude group: 'codechicken'
+    }
+    deobfCompile "mmd:orespawn:${orespawn_version}-${mc_version}"
+//    deobfCompile "MCMultiPart:MCMultiPart:${mcmp_version}:universal"
+      deobfCompile "MCMultiPart:MCMultiPart-experimental:${mcmp_experimental_version}:universal"
+//    compile "mcjty:theoneprobe:TheOneProbe:${mc_version}-${top_version}"
+
+    deobfCompile "net.industrial-craft:industrialcraft-2:2.6.161-ex110:api"
+    deobfCompile "MineTweaker3:MineTweaker3-API:3.+"
 }
+
 
 processResources {
     inputs.property "version", project.version
