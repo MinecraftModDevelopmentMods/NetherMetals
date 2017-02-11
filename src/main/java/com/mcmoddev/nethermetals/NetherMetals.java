@@ -12,7 +12,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -33,7 +32,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class NetherMetals {
 
 	@Instance
-	public static NetherMetals INSTANCE;
+	public static NetherMetals instance;
 
 	/** ID of this Mod */
 	public static final String MODID = "nethermetals";

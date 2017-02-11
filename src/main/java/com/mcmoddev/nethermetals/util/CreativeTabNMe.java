@@ -1,7 +1,7 @@
 package com.mcmoddev.nethermetals.util;
 
 
-import com.mcmoddev.nethermetals.init.MaterialsNetherOre;
+import com.mcmoddev.lib.init.Materials;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -15,7 +15,7 @@ public class CreativeTabNMe extends CreativeTabs {
     
     @Override
     public Item getTabIconItem () {
-        
-        return Item.getItemFromBlock(MaterialsNetherOre.getMaterialByName("lead").oreNether) ;
+      
+        return Item.getItemFromBlock(Materials.getMaterialByName("lead").oreNether) ;
     }
 }

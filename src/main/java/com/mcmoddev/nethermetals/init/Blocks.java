@@ -1,9 +1,10 @@
 package com.mcmoddev.nethermetals.init;
 
+import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.nethermetals.util.Config.Options;
 
 /**
- * This class initializes all blocks in Modern Metals.
+ * This class initializes all blocks in Nether Metals.
  *
  * @author Jasmine Iwanek
  *
@@ -20,44 +21,40 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 			return;
 		}
 
-		MaterialsNetherOre.init();
+		Materials.init();
 		ItemGroups.init();
 
 		if (Options.enableAntimonyNetherOre) {
-			createNetherOre(MaterialsNetherOre.antimony);	
+			createNetherOre(Materials.getMaterialByName("antimony"));
 
 		}
 		if (Options.enableBismuthNetherOre) {
-			createNetherOre(MaterialsNetherOre.bismuth);
+			createNetherOre(Materials.getMaterialByName("bismuth"));
 		}		
 		if (Options.enableCopperNetherOre) {
-			createNetherOre(MaterialsNetherOre.copper);
+			createNetherOre(Materials.getMaterialByName("copper"));
 		}		
 		if (Options.enableLeadNetherOre) {
-			createNetherOre(MaterialsNetherOre.lead);
+			createNetherOre(Materials.getMaterialByName("lead"));
 		}		
 		if (Options.enableMercuryNetherOre) {
-			createNetherOre(MaterialsNetherOre.mercury);
+			createNetherOre(Materials.getMaterialByName("mercury"));
 		}		
 		if (Options.enableNickelNetherOre) {
-			createNetherOre(MaterialsNetherOre.nickel);
+			createNetherOre(Materials.getMaterialByName("nickel"));
 		}		
 		if (Options.enablePlatinumNetherOre) {
-			createNetherOre(MaterialsNetherOre.platinum);
+			createNetherOre(Materials.getMaterialByName("platinum"));
 		}		
 		if (Options.enableSilverNetherOre) {
-			createNetherOre(MaterialsNetherOre.silver);
+			createNetherOre(Materials.getMaterialByName("silver"));
 		}		
 		if (Options.enableTinNetherOre) {
-			createNetherOre(MaterialsNetherOre.tin);
+			createNetherOre(Materials.getMaterialByName("tin"));
 		}		
 		if (Options.enableZincNetherOre) {
-			createNetherOre(MaterialsNetherOre.zinc);
+			createNetherOre(Materials.getMaterialByName("zinc"));
 		}
-		
-		
-		
-		
 
 		initDone = true;
 	}

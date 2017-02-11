@@ -12,10 +12,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.block.*;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.ModelBakery;
-import net.minecraft.client.renderer.block.statemap.StateMapperBase;
-import net.minecraftforge.client.model.ModelLoader;
 
 public class ClientProxy extends CommonProxy {
 
@@ -28,8 +24,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
-
-	
 
 		for (final String name : Blocks.getBlockRegistry().keySet()) {
 			registerRenderOuter(Blocks.getBlockByName(name));

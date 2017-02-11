@@ -28,7 +28,7 @@ public class Config {
 	private static final String ORESPAWN = "OreSpawn";
 	private static final String NETHERORE = "Nether Ores";
 	private static final String COMPAT = "Mod Compat";
-	private static final String GENERAL = "General";
+//	private static final String GENERAL = "General";
 	private static final String MMDLIB = "MMD Lib";
 
 	@SubscribeEvent
@@ -45,21 +45,21 @@ public class Config {
 		}
 		
 		//General
-		Options.enableFurnaceSmelting = configuration.getBoolean("enableFurnaceSmelting", NETHERORE, true, "Enable enableFurnaceSmelting");
+		Options.enableFurnaceSmelting = configuration.getBoolean("enableFurnaceSmelting", NETHERORE, true, "EnableFurnaceSmelting");
 
 		Options.explosionChance = configuration.get("mean", "OreExplosionChance", 2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt();
 		Options.angerPigmenRange = configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt();
 		//Nether Ores
-		Options.enableAntimonyNetherOre = configuration.getBoolean("enableAntimonyNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableBismuthNetherOre = configuration.getBoolean("enableBismuthNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableCopperNetherOre = configuration.getBoolean("enableCopperNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableLeadNetherOre = configuration.getBoolean("enableLeadNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableMercuryNetherOre = configuration.getBoolean("enableMercuryNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableNickelNetherOre = configuration.getBoolean("enableNickelNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enablePlatinumNetherOre = configuration.getBoolean("enablePlatinumNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableSilverNetherOre = configuration.getBoolean("enableSilverNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableTinNetherOre = configuration.getBoolean("enableTinNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
-		Options.enableZincNetherOre = configuration.getBoolean("enableZincNetherOre", NETHERORE, true, "Enable enableAntimony Nether Ores");
+		Options.enableAntimonyNetherOre = configuration.getBoolean("enableAntimonyNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableBismuthNetherOre = configuration.getBoolean("enableBismuthNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableCopperNetherOre = configuration.getBoolean("enableCopperNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableLeadNetherOre = configuration.getBoolean("enableLeadNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableMercuryNetherOre = configuration.getBoolean("enableMercuryNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableNickelNetherOre = configuration.getBoolean("enableNickelNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enablePlatinumNetherOre = configuration.getBoolean("enablePlatinumNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableSilverNetherOre = configuration.getBoolean("enableSilverNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableTinNetherOre = configuration.getBoolean("enableTinNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
+		Options.enableZincNetherOre = configuration.getBoolean("enableZincNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
 
 		//Mod Compat
 		Options.requireMMDLib = configuration.getBoolean("requireMMDLib", MMDLIB, true, "Require MMD Lib");
