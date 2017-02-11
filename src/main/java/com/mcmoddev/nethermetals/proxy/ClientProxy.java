@@ -10,16 +10,9 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.block.*;
 
 public class ClientProxy extends CommonProxy {
-
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		super.preInit(event);
-		
-	}
 
 	@Override
 	public void init(FMLInitializationEvent event) {
@@ -29,8 +22,6 @@ public class ClientProxy extends CommonProxy {
 			registerRenderOuter(Blocks.getBlockByName(name));
 		}
 	}
-
-	
 
 	public void registerRenderOuter(Block block) {
 		if ((block instanceof BlockDoor) || (block instanceof BlockSlab))
