@@ -1,7 +1,8 @@
 package com.mcmoddev.nethermetals.util;
 
 
-import com.mcmoddev.nethermetals.init.Materials;
+
+import com.mcmoddev.lib.init.Materials;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

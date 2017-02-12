@@ -1,6 +1,7 @@
 package com.mcmoddev.nethermetals.crafting;
 
 import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
+import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.nethermetals.util.Config.Options;
 
 import net.minecraft.item.ItemStack;
@@ -9,15 +10,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public final class ModCrafting {
 
-	public static com.mcmoddev.lib.init.Materials mmdlibMat;
-	public static com.mcmoddev.basemetals.init.Materials bmmat;
-	public static com.mcmoddev.modernmetals.init.Materials mmmat;
-	public static com.mcmoddev.nethermetals.init.Materials nmmat;
+
 	private ModCrafting() {
 		throw new IllegalAccessError("Not a instantiable class");
 	}
 
-	@SuppressWarnings("static-access")
 	public static void initCrafting() {
 
 		if (Options.enableFurnaceSmelting) {
@@ -50,104 +47,104 @@ public final class ModCrafting {
 			if (Loader.isModLoaded("basemetals")) {
 
 				if (com.mcmoddev.basemetals.util.Config.Options.enableAntimony) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("antimony").oreNether, new ItemStack(mmdlibMat.getMaterialByName("antimony").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("antimony").oreNether, new ItemStack(mmdlibMat.getMaterialByName("antimony").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("antimony").oreNether, new ItemStack(Materials.getMaterialByName("antimony").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("antimony").oreNether, new ItemStack(Materials.getMaterialByName("antimony").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableBismuth) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("bismuth").oreNether, new ItemStack(mmdlibMat.getMaterialByName("bismuth").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("bismuth").oreNether, new ItemStack(mmdlibMat.getMaterialByName("bismuth").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("bismuth").oreNether, new ItemStack(Materials.getMaterialByName("bismuth").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("bismuth").oreNether, new ItemStack(Materials.getMaterialByName("bismuth").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableCopper) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("copper").oreNether, new ItemStack(mmdlibMat.getMaterialByName("copper").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("copper").oreNether, new ItemStack(mmdlibMat.getMaterialByName("copper").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("copper").oreNether, new ItemStack(Materials.getMaterialByName("copper").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("copper").oreNether, new ItemStack(Materials.getMaterialByName("copper").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableLead) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("lead").oreNether, new ItemStack(mmdlibMat.getMaterialByName("lead").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("lead").oreNether, new ItemStack(mmdlibMat.getMaterialByName("lead").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("lead").oreNether, new ItemStack(Materials.getMaterialByName("lead").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("lead").oreNether, new ItemStack(Materials.getMaterialByName("lead").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableMercury) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("mercury").oreNether, new ItemStack(mmdlibMat.getMaterialByName("mercury").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("mercury").oreNether, new ItemStack(mmdlibMat.getMaterialByName("mercury").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("mercury").oreNether, new ItemStack(Materials.getMaterialByName("mercury").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("mercury").oreNether, new ItemStack(Materials.getMaterialByName("mercury").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableNickel) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("nickel").oreNether, new ItemStack(mmdlibMat.getMaterialByName("nickel").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("nickel").oreNether, new ItemStack(mmdlibMat.getMaterialByName("nickel").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("nickel").oreNether, new ItemStack(Materials.getMaterialByName("nickel").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("nickel").oreNether, new ItemStack(Materials.getMaterialByName("nickel").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enablePlatinum) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("platinum").oreNether, new ItemStack(mmdlibMat.getMaterialByName("platinum").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("platinum").oreNether, new ItemStack(mmdlibMat.getMaterialByName("platinum").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("platinum").oreNether, new ItemStack(Materials.getMaterialByName("platinum").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("platinum").oreNether, new ItemStack(Materials.getMaterialByName("platinum").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableSilver) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("silver").oreNether, new ItemStack(mmdlibMat.getMaterialByName("silver").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("silver").oreNether, new ItemStack(mmdlibMat.getMaterialByName("silver").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("silver").oreNether, new ItemStack(Materials.getMaterialByName("silver").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("silver").oreNether, new ItemStack(Materials.getMaterialByName("silver").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableTin) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("tin").oreNether, new ItemStack(mmdlibMat.getMaterialByName("tin").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("tin").oreNether, new ItemStack(mmdlibMat.getMaterialByName("tin").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("tin").oreNether, new ItemStack(Materials.getMaterialByName("tin").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("tin").oreNether, new ItemStack(Materials.getMaterialByName("tin").ore, 2));
 				}
 				if (com.mcmoddev.basemetals.util.Config.Options.enableZinc) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("zinc").oreNether, new ItemStack(mmdlibMat.getMaterialByName("zinc").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("zinc").oreNether, new ItemStack(mmdlibMat.getMaterialByName("zinc").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("zinc").oreNether, new ItemStack(Materials.getMaterialByName("zinc").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("zinc").oreNether, new ItemStack(Materials.getMaterialByName("zinc").ore, 2));
 				}
 			}
 
 			// Modern Metals
 			if (Loader.isModLoaded("modernmetals")) {
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableAluminum) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("aluminum").oreNether, new ItemStack(mmdlibMat.getMaterialByName("aluminum").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("aluminum").oreNether, new ItemStack(mmdlibMat.getMaterialByName("aluminum").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("aluminum").oreNether, new ItemStack(Materials.getMaterialByName("aluminum").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("aluminum").oreNether, new ItemStack(Materials.getMaterialByName("aluminum").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableCadmium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("cadmium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("cadmium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("cadmium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("cadmium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("cadmium").oreNether, new ItemStack(Materials.getMaterialByName("cadmium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("cadmium").oreNether, new ItemStack(Materials.getMaterialByName("cadmium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableChromium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("chromium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("chromium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("chromium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("chromium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("chromium").oreNether, new ItemStack(Materials.getMaterialByName("chromium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("chromium").oreNether, new ItemStack(Materials.getMaterialByName("chromium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableIridium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("iridium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("iridium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("iridium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("iridium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("iridium").oreNether, new ItemStack(Materials.getMaterialByName("iridium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("iridium").oreNether, new ItemStack(Materials.getMaterialByName("iridium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableMagnesium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("magnesium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("magnesium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("magnesium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("magnesium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("magnesium").oreNether, new ItemStack(Materials.getMaterialByName("magnesium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("magnesium").oreNether, new ItemStack(Materials.getMaterialByName("magnesium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableManganese) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("manganese").oreNether, new ItemStack(mmdlibMat.getMaterialByName("manganese").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("manganese").oreNether, new ItemStack(mmdlibMat.getMaterialByName("manganese").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("manganese").oreNether, new ItemStack(Materials.getMaterialByName("manganese").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("manganese").oreNether, new ItemStack(Materials.getMaterialByName("manganese").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableOsmium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("osmium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("osmium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("osmium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("osmium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("osmium").oreNether, new ItemStack(Materials.getMaterialByName("osmium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("osmium").oreNether, new ItemStack(Materials.getMaterialByName("osmium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enablePlutonium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("plutonium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("plutonium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("plutonium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("plutonium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("plutonium").oreNether, new ItemStack(Materials.getMaterialByName("plutonium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("plutonium").oreNether, new ItemStack(Materials.getMaterialByName("plutonium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableRutile) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("rutile").oreNether, new ItemStack(mmdlibMat.getMaterialByName("rutile").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("rutile").oreNether, new ItemStack(mmdlibMat.getMaterialByName("rutile").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("rutile").oreNether, new ItemStack(Materials.getMaterialByName("rutile").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("rutile").oreNether, new ItemStack(Materials.getMaterialByName("rutile").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableTantalum) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("tantalum").oreNether, new ItemStack(mmdlibMat.getMaterialByName("tantalum").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("tantalum").oreNether, new ItemStack(mmdlibMat.getMaterialByName("tantalum").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("tantalum").oreNether, new ItemStack(Materials.getMaterialByName("tantalum").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("tantalum").oreNether, new ItemStack(Materials.getMaterialByName("tantalum").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableTitanium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("titanium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("titanium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("titanium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("titanium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("titanium").oreNether, new ItemStack(Materials.getMaterialByName("titanium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("titanium").oreNether, new ItemStack(Materials.getMaterialByName("titanium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableTungsten) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("tungsten").oreNether, new ItemStack(mmdlibMat.getMaterialByName("tungsten").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("tungsten").oreNether, new ItemStack(mmdlibMat.getMaterialByName("tungsten").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("tungsten").oreNether, new ItemStack(Materials.getMaterialByName("tungsten").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("tungsten").oreNether, new ItemStack(Materials.getMaterialByName("tungsten").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableUranium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("uranium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("uranium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("uranium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("uranium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("uranium").oreNether, new ItemStack(Materials.getMaterialByName("uranium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("uranium").oreNether, new ItemStack(Materials.getMaterialByName("uranium").ore, 2));
 				}
 				if (com.mcmoddev.modernmetals.util.Config.Options.enableZirconium) {
-					GameRegistry.addSmelting(mmdlibMat.getMaterialByName("zirconium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("zirconium").ore, 2), 1.0f);
-					CrusherRecipeRegistry.addNewCrusherRecipe(mmdlibMat.getMaterialByName("zirconium").oreNether, new ItemStack(mmdlibMat.getMaterialByName("zirconium").ore, 2));
+					GameRegistry.addSmelting(Materials.getMaterialByName("zirconium").oreNether, new ItemStack(Materials.getMaterialByName("zirconium").ore, 2), 1.0f);
+					CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("zirconium").oreNether, new ItemStack(Materials.getMaterialByName("zirconium").ore, 2));
 				}
 			}
 		}
