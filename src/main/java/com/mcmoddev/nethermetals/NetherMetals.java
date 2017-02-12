@@ -1,7 +1,9 @@
 package com.mcmoddev.nethermetals;
 
 import java.util.Random;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.mcmoddev.lib.blocks.BlockExplosiveOre;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
@@ -54,7 +56,7 @@ public class NetherMetals {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = Logger.getLogger(MODID);
+		logger = LogManager.getFormatterLogger(MODID);
 //		logger.setParent(FMLLog.getLogger());
 		
 		NetherMetals.proxy.preInit(event);
