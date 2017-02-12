@@ -2,7 +2,6 @@ package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.util.Config;
 import com.mcmoddev.nethermetals.util.CreativeTabNMe;
-import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.nethermetals.crafting.ModCrafting;
 import com.mcmoddev.nethermetals.init.Blocks;
 import com.mcmoddev.nethermetals.init.ItemGroups;
@@ -17,11 +16,18 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class CommonProxy {
 
     public static CreativeTabs tab;
-
+	public static com.mcmoddev.lib.init.Materials mmdlibMat;
+	public static com.mcmoddev.basemetals.init.Materials bmmat;
+	public static com.mcmoddev.modernmetals.init.Materials mmmat;
+	public static com.mcmoddev.nethermetals.init.Materials nmmat;
+	
+	
+	@SuppressWarnings("static-access")
 	public void preInit(FMLPreInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(this);
 		Config.init();
-		Materials.init();
+		mmdlibMat.init();
+
 		ItemGroups.init();
 		Blocks.init();
         tab = new CreativeTabNMe();
@@ -30,7 +36,7 @@ public class CommonProxy {
 	}
 
 	public void init(FMLInitializationEvent event) {
-		ModCrafting.initCrafting();
+		//ModCrafting.initCrafting();
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {

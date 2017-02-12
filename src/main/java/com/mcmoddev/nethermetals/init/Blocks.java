@@ -1,6 +1,5 @@
 package com.mcmoddev.nethermetals.init;
 
-import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.util.Config.Options;
 
 /**
@@ -28,7 +27,10 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 			return;
 		}
 
-		nmmat.init();
+		mmdlibMat.init();
+		bmmat.init();
+		mmmat.init();
+
 		ItemGroups.init();
 		
 		
@@ -60,80 +62,80 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 		**/
 		
 		if (Options.enableAntimonyNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("antimony"));
+			createNetherOre(mmdlibMat.getMaterialByName("antimony"));
 
 		}
 		if (Options.enableBismuthNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("bismuth"));
+			createNetherOre(mmdlibMat.getMaterialByName("bismuth"));
 		}		
 		if (Options.enableCopperNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("copper"));
+			createNetherOre(mmdlibMat.getMaterialByName("copper"));
 		}		
 		if (Options.enableLeadNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("lead"));
+			createNetherOre(mmdlibMat.getMaterialByName("lead"));
 		}		
 		if (Options.enableMercuryNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("mercury"));
+			createNetherOre(mmdlibMat.getMaterialByName("mercury"));
 		}		
 		if (Options.enableNickelNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("nickel"));
+			createNetherOre(mmdlibMat.getMaterialByName("nickel"));
 		}		
 		if (Options.enablePlatinumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("platinum"));
+			createNetherOre(mmdlibMat.getMaterialByName("platinum"));
 		}		
 		if (Options.enableSilverNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("silver"));
+			createNetherOre(mmdlibMat.getMaterialByName("silver"));
 		}		
 		if (Options.enableTinNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("tin"));
+			createNetherOre(mmdlibMat.getMaterialByName("tin"));
 		}		
 		if (Options.enableZincNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("zinc"));
+			createNetherOre(mmdlibMat.getMaterialByName("zinc"));
 		}
 		
 		
 
 		if (Options.enableAluminumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("aluminum"));
+			createNetherOre(mmdlibMat.getMaterialByName("aluminum"));
 		}		
 		if (Options.enableCadmiumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("cadmium"));
+			createNetherOre(mmdlibMat.getMaterialByName("cadmium"));
 		}		
 		if (Options.enableChromiumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("chromium"));
+			createNetherOre(mmdlibMat.getMaterialByName("chromium"));
 		}		
 		if (Options.enableIridiumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("iridium"));
+			createNetherOre(mmdlibMat.getMaterialByName("iridium"));
 		}		
 		if (Options.enableMagnesiumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("magnesium"));
+			createNetherOre(mmdlibMat.getMaterialByName("magnesium"));
 		}		
 		if (Options.enableManganeseNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("manganese"));
+			createNetherOre(mmdlibMat.getMaterialByName("manganese"));
 		}		
 		if (Options.enableOsmiumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("osmium"));
+			createNetherOre(mmdlibMat.getMaterialByName("osmium"));
 		}		
 		if (Options.enablePlutoniumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("plutonium"));
+			createNetherOre(mmdlibMat.getMaterialByName("plutonium"));
 		}		
 		if (Options.enableRutileNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("rutile"));
+			createNetherOre(mmdlibMat.getMaterialByName("rutile"));
 		}		
 		if (Options.enableTantalumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("tantalum"));
+			createNetherOre(mmdlibMat.getMaterialByName("tantalum"));
 		}		
 		if (Options.enableTitaniumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("titanium"));
+			createNetherOre(mmdlibMat.getMaterialByName("titanium"));
 		}		
 		if (Options.enableTungstenNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("tungsten"));
+			createNetherOre(mmdlibMat.getMaterialByName("tungsten"));
 		}		
 		if (Options.enableUraniumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("uranium"));
+			createNetherOre(mmdlibMat.getMaterialByName("uranium"));
 		}		
 		if (Options.enableZirconiumNetherOre) {
-			createNetherOre(nmmat.getMaterialByName("zirconium"));
+			createNetherOre(mmdlibMat.getMaterialByName("zirconium"));
 		}
 		
 		
