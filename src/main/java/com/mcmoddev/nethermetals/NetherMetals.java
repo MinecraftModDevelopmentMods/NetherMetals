@@ -1,7 +1,9 @@
 package com.mcmoddev.nethermetals;
 
 import java.util.Random;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.mcmoddev.lib.blocks.BlockExplosiveOre;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
@@ -54,20 +56,19 @@ public class NetherMetals {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = Logger.getLogger(MODID);
+		logger = LogManager.getFormatterLogger(MODID);
 //		logger.setParent(FMLLog.getLogger());
-		
-		NetherMetals.proxy.preInit(event);
+		proxy.preInit(event);
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		NetherMetals.proxy.init(event);
+		proxy.init(event);
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		NetherMetals.proxy.postInit(event);
+		proxy.postInit(event);
 	}
 	
     public static boolean hasMMDLib() {
@@ -88,10 +89,10 @@ public class NetherMetals {
     }
 
 	@SubscribeEvent
-	public void onBlockBreak(BlockEvent.BreakEvent e) {
+	public void onBlockBreak(BlockEvent.BreakEvent event) {
 		boolean silk = false;
-		if (e.getPlayer() != null && e.getPlayer().getHeldItem(e.getPlayer().swingingHand) != null) {
-			NBTTagList var15 = e.getPlayer().getHeldItem(e.getPlayer().swingingHand).getEnchantmentTagList();
+		if (event.getPlayer() != null && event.getPlayer().getHeldItem(event.getPlayer().swingingHand) != null) {
+			NBTTagList var15 = event.getPlayer().getHeldItem(event.getPlayer().swingingHand).getEnchantmentTagList();
 			if (var15 != null) {
 				for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
 					short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
@@ -99,13 +100,13 @@ public class NetherMetals {
 						silk = true;
 				}
 			}
-			if ((!silk && e.getWorld().provider.getDimension() == -1)
-					&& ((e.getState().getBlock() instanceof BlockExplosiveOre
-							&& ((BlockExplosiveOre) e.getState().getBlock()).doesExplode())
-							|| e.getState().getBlock() == Blocks.QUARTZ_ORE)) {
+			if ((!silk && event.getWorld().provider.getDimension() == -1)
+					&& ((event.getState().getBlock() instanceof BlockExplosiveOre
+							&& ((BlockExplosiveOre) event.getState().getBlock()).doesExplode())
+							|| event.getState().getBlock() == Blocks.QUARTZ_ORE)) {
 				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
 				if (randomNum <= Options.getExplosionChance() || Options.getExplosionChance() > 100) {
-					e.getWorld().createExplosion(e.getPlayer(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), 4.0F, true);
+					event.getWorld().createExplosion(event.getPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), 4.0F, true);
 					//if (ConfigHandler.isAngerPigmen())
 						//ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
 				}
