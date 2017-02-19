@@ -1,7 +1,7 @@
 package com.mcmoddev.nethermetals.init;
 
 /**
- * This class initializes all item groups in Modern Metals.
+ * This class initializes all item groups in Nether Metals.
  *
  * @author Jasmine Iwanek
  *
@@ -24,7 +24,4 @@ public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 
 		initDone = true;
 	}
-
-		
-
 }

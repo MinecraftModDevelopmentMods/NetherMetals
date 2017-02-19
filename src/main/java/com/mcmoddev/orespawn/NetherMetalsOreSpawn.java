@@ -14,7 +14,7 @@ public class NetherMetalsOreSpawn implements Function<OreSpawnAPI, SpawnLogic> {
 
 		SpawnLogic logic = api.createSpawnLogic();
 
-		// Vanilla		
+		// Vanilla
 		logic.getDimension(-1)
 				.addOre(Materials.getMaterialByName("coal").oreNether.getDefaultState(), 10, 8,  12, 0,  200)
 				.addOre(Materials.getMaterialByName("diamond").oreNether.getDefaultState(), 2, 8,  12, 0,  200)
