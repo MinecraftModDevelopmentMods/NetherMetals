@@ -66,7 +66,6 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 	private static void createNetherOreWrapper(boolean enabled, MetalMaterial material) {
 		if (enabled) {
 			if (material != null) {
-				NetherMetals.logger.error("Creating Nether Ore for: " + material.getName());
 				createNetherOre(material);				
 			} else {
 				NetherMetals.logger.error("material was null!");
