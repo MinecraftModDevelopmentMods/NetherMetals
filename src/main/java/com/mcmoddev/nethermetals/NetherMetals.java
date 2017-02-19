@@ -30,7 +30,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author Jasmine Iwanek
  *
  */
-@Mod(modid = NetherMetals.MODID, name = NetherMetals.NAME, version = NetherMetals.VERSION, dependencies = "required-after:Forge;after:modularity;after:modernmetals;after:basemetals", acceptedMinecraftVersions = "[1.10.2,)", updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
+@Mod(modid = NetherMetals.MODID, name = NetherMetals.NAME, version = NetherMetals.VERSION, dependencies = "required-after:Forge@[12.18.3.2185,);after:basemetals;after:baseminerals;after:modernmetals", acceptedMinecraftVersions = "[1.10.2,)", updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
 public class NetherMetals {
 
 	@Instance
