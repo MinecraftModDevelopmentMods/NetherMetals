@@ -26,7 +26,6 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 		Materials.init();
 //		ItemGroups.init();
 
-		/*
 		createNetherOreWrapper(Options.enableCoalNetherOre, Materials.getMaterialByName("coal"));
 		createNetherOreWrapper(Options.enableDiamondNetherOre, Materials.getMaterialByName("diamond"));
 		createNetherOreWrapper(Options.enableEmeraldNetherOre, Materials.getMaterialByName("emerald"));
@@ -34,7 +33,6 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 		createNetherOreWrapper(Options.enableIronNetherOre, Materials.getMaterialByName("iron"));
 		createNetherOreWrapper(Options.enableLapisNetherOre, Materials.getMaterialByName("lapis"));
 		createNetherOreWrapper(Options.enableRedstoneNetherOre, Materials.getMaterialByName("redstone"));
-		*/
 
 		createNetherOreWrapper(Options.enableAntimonyNetherOre, Materials.getMaterialByName("antimony"));
 		createNetherOreWrapper(Options.enableBismuthNetherOre, Materials.getMaterialByName("bismuth"));

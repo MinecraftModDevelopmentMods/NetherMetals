@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public final class Recipes {
 
-
 	private Recipes() {
 		throw new IllegalAccessError("Not a instantiable class");
 	}

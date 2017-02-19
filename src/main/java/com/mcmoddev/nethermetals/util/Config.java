@@ -1,6 +1,7 @@
 package com.mcmoddev.nethermetals.util;
 
 import java.io.*;
+import java.util.*;
 
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
@@ -8,7 +9,11 @@ import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.versioning.ArtifactVersion;
+import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 /**
  * @author Jasmine Iwanek
@@ -42,7 +47,16 @@ public class Config {
 		Options.enableFurnaceSmelting = configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "EnableFurnaceSmelting");
 		Options.explosionChance = configuration.get("mean", "OreExplosionChance", 2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt();
 		Options.angerPigmenRange = configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt();
+
 		//Nether Ores
+		Options.enableCoalNetherOre = configuration.getBoolean("enableCoalNetherOre", NETHERORE, true, "Enable Coal Nether Ore");
+		Options.enableDiamondNetherOre = configuration.getBoolean("enableDiamondNetherOre", NETHERORE, true, "Enable Diamond Nether Ore");
+		Options.enableEmeraldNetherOre = configuration.getBoolean("enableEmeraldNetherOre", NETHERORE, true, "Enable Emerald Nether Ore");
+		Options.enableGoldNetherOre = configuration.getBoolean("enableGoldNetherOre", NETHERORE, true, "Enable Gold Nether Ore");
+		Options.enableIronNetherOre = configuration.getBoolean("enableIronNetherOre", NETHERORE, true, "Enable Iron Nether Ore");
+		Options.enableLapisNetherOre = configuration.getBoolean("enableLapisNetherOre", NETHERORE, true, "Enable Lapis Nether Ore");
+		Options.enableRedstoneNetherOre = configuration.getBoolean("enableRedstoneNetherOre", NETHERORE, true, "Enable Redstone Nether Ore");
+
 		Options.enableAntimonyNetherOre = configuration.getBoolean("enableAntimonyNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
 		Options.enableBismuthNetherOre = configuration.getBoolean("enableBismuthNetherOre", NETHERORE, true, "Enable Bismuth Nether Ore");
 		Options.enableCopperNetherOre = configuration.getBoolean("enableCopperNetherOre", NETHERORE, true, "Enable Copper Nether Ore");
@@ -77,13 +91,14 @@ public class Config {
 		if (configuration.hasChanged()) {
 			configuration.save();
 		}
-/*
-		if (com.mcmoddev.nethermetals.util.Config.Options.requireMMDOreSpawn) {
+
+		if (Options.requireMMDOreSpawn) {
 			if (!Loader.isModLoaded("orespawn")) {
 				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
 				orespawnMod.add(new DefaultArtifactVersion("1.1.0"));
 				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 			}
+/*
 			final Path oreSpawnFile = Paths.get(ORESPAWN_CFG_PATH, NetherMetals.MODID + ".json");
 			if (!(oreSpawnFile.toFile().exists())) {
 				try {
@@ -92,8 +107,8 @@ public class Config {
 					//NetherMetals.logger.error("Failed to write file " + oreSpawnFile, ex);
 				}
 			}
-		}	
 */
+		}
 	}
 
 	public static class Options {
@@ -105,6 +120,16 @@ public class Config {
 		public static int explosionChance = 0;
 		public static int angerPigmenRange = 0;
 		public static boolean angerPigmen = false;
+		public static boolean enableFurnaceSmelting = true;
+
+		public static boolean enableCoalNetherOre = true;
+		public static boolean enableDiamondNetherOre = true;
+		public static boolean enableEmeraldNetherOre = true;
+		public static boolean enableGoldNetherOre = true;
+		public static boolean enableIronNetherOre = true;
+		public static boolean enableLapisNetherOre = true;
+		public static boolean enableRedstoneNetherOre = true;
+
 		public static boolean enableAntimonyNetherOre = true;
 		public static boolean enableBismuthNetherOre = true;
 		public static boolean enableCopperNetherOre = true;
@@ -115,7 +140,6 @@ public class Config {
 		public static boolean enableSilverNetherOre = true;
 		public static boolean enableTinNetherOre = true;
 		public static boolean enableZincNetherOre = true;
-		public static boolean enableFurnaceSmelting = true;
 		
 		public static boolean enableAluminumNetherOre = true;
 		public static boolean enableCadmiumNetherOre = true;
