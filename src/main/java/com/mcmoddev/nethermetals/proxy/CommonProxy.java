@@ -2,6 +2,7 @@ package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.util.Config;
 import com.mcmoddev.nethermetals.util.CreativeTabNMe;
+import com.mcmoddev.baseminerals.integration.IntegrationManager;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.nethermetals.init.*;
 
@@ -20,6 +21,8 @@ public class CommonProxy {
 		CreativeTabs tab = new CreativeTabNMe();
 		Blocks.init();
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.NetherMetalsOreSpawn");
+
+		IntegrationManager.INSTANCE.preInit(event);
 
 /*
 		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
