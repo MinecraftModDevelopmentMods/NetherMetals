@@ -18,63 +18,67 @@ public final class Recipes {
 
 	public static void init() {
 
-			/*
-			// Vanilla
-			GameRegistry.addSmelting(Materials.getMaterialByName("coal").oreNether, new ItemStack(Blocks.COAL_ORE, 2), 1.0f);
-			GameRegistry.addSmelting(Materials.getMaterialByName("diamond").oreNether, new ItemStack(Blocks.DIAMOND_ORE, 2), 1.0f);
-			GameRegistry.addSmelting(Materials.getMaterialByName("emerald").oreNether, new ItemStack(Blocks.EMERALD_ORE, 2), 1.0f);
-			GameRegistry.addSmelting(Materials.getMaterialByName("gold").oreNether, new ItemStack(Blocks.GOLD_ORE, 2), 1.0f);
-			GameRegistry.addSmelting(Materials.getMaterialByName("iron").oreNether, new ItemStack(Blocks.IRON_ORE, 2), 1.0f);
-			/ *
-			GameRegistry.addSmelting(ModBlocks.lapisOre, new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
-			GameRegistry.addSmelting(ModBlocks.redstoneOre, new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
-			* /
+		// Vanilla
+		recipeWrapper(true, Materials.getMaterialByName("coal"));
+		recipeWrapper(true, Materials.getMaterialByName("diamond"));
+		recipeWrapper(true, Materials.getMaterialByName("emerald"));
+		recipeWrapper(true, Materials.getMaterialByName("gold"));
+		recipeWrapper(true, Materials.getMaterialByName("iron"));
+		recipeWrapper(true, Materials.getMaterialByName("lapis"));
+		recipeWrapper(true, Materials.getMaterialByName("redstone"));
 
-			// Vanilla BM Hammer Compat
-			if (Loader.isModLoaded("basemetals")) {
-				CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("coal").oreNether, new ItemStack(Blocks.COAL_ORE, 2));
-				CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("diamond").oreNether, new ItemStack(Blocks.DIAMOND_ORE, 2));
-				CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("emerald").oreNether, new ItemStack(Blocks.EMERALD_ORE, 2));
-				CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("gold").oreNether, new ItemStack(Blocks.GOLD_ORE, 2));
-				CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("iron").oreNether, new ItemStack(Blocks.IRON_ORE, 2));
-				/ *
-				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.lapisOre, new ItemStack(Blocks.LAPIS_ORE, 2));
-				CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.redstoneOre, new ItemStack(Blocks.REDSTONE_ORE, 2));
-				* /
-			}
-			*/
+		/*
+		GameRegistry.addSmelting(Materials.getMaterialByName("coal").oreNether, new ItemStack(Blocks.COAL_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(Materials.getMaterialByName("diamond").oreNether, new ItemStack(Blocks.DIAMOND_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(Materials.getMaterialByName("emerald").oreNether, new ItemStack(Blocks.EMERALD_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(Materials.getMaterialByName("gold").oreNether, new ItemStack(Blocks.GOLD_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(Materials.getMaterialByName("iron").oreNether, new ItemStack(Blocks.IRON_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(Materials.getMaterialByName("lapis").oreNether, new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
+		GameRegistry.addSmelting(Materials.getMaterialByName("redstone").oreNether, new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
 
-			// Base Metals
-			if (Loader.isModLoaded("basemetals")) {
-				recipeWrapper(true, Materials.getMaterialByName("antimony"));
-				recipeWrapper(true, Materials.getMaterialByName("bismuth"));
-				recipeWrapper(true, Materials.getMaterialByName("copper"));
-				recipeWrapper(true, Materials.getMaterialByName("lead"));
-				recipeWrapper(true, Materials.getMaterialByName("mercury"));
-				recipeWrapper(true, Materials.getMaterialByName("nickel"));
-				recipeWrapper(true, Materials.getMaterialByName("platinum"));
-				recipeWrapper(true, Materials.getMaterialByName("silver"));
-				recipeWrapper(true, Materials.getMaterialByName("tin"));
-				recipeWrapper(true, Materials.getMaterialByName("zinc"));
-			}
+		// Vanilla BM Hammer Compat
+		if (Loader.isModLoaded("basemetals")) {
+			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("coal").oreNether, new ItemStack(Blocks.COAL_ORE, 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("diamond").oreNether, new ItemStack(Blocks.DIAMOND_ORE, 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("emerald").oreNether, new ItemStack(Blocks.EMERALD_ORE, 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("gold").oreNether, new ItemStack(Blocks.GOLD_ORE, 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("iron").oreNether, new ItemStack(Blocks.IRON_ORE, 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("lapis").oreNether, new ItemStack(Blocks.LAPIS_ORE, 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("redstone").oreNether, new ItemStack(Blocks.REDSTONE_ORE, 2));
+		}
+		*/
 
-			// Modern Metals
-			if (Loader.isModLoaded("modernmetals")) {
-				recipeWrapper(true, Materials.getMaterialByName("aluminum"));
-				recipeWrapper(true, Materials.getMaterialByName("cadmium"));
-				recipeWrapper(true, Materials.getMaterialByName("chromium"));
-				recipeWrapper(true, Materials.getMaterialByName("iridium"));
-				recipeWrapper(true, Materials.getMaterialByName("magnesium"));
-				recipeWrapper(true, Materials.getMaterialByName("manganese"));
-				recipeWrapper(true, Materials.getMaterialByName("osmium"));
-				recipeWrapper(true, Materials.getMaterialByName("plutonium"));
-				recipeWrapper(true, Materials.getMaterialByName("rutile"));
-				recipeWrapper(true, Materials.getMaterialByName("tantalum"));
-				recipeWrapper(true, Materials.getMaterialByName("titanium"));
-				recipeWrapper(true, Materials.getMaterialByName("tungsten"));
-				recipeWrapper(true, Materials.getMaterialByName("uranium"));
-				recipeWrapper(true, Materials.getMaterialByName("zirconium"));
-			}
+		// Base Metals
+		if (Loader.isModLoaded("basemetals")) {
+			recipeWrapper(true, Materials.getMaterialByName("antimony"));
+			recipeWrapper(true, Materials.getMaterialByName("bismuth"));
+			recipeWrapper(true, Materials.getMaterialByName("copper"));
+			recipeWrapper(true, Materials.getMaterialByName("lead"));
+			recipeWrapper(true, Materials.getMaterialByName("mercury"));
+			recipeWrapper(true, Materials.getMaterialByName("nickel"));
+			recipeWrapper(true, Materials.getMaterialByName("platinum"));
+			recipeWrapper(true, Materials.getMaterialByName("silver"));
+			recipeWrapper(true, Materials.getMaterialByName("tin"));
+			recipeWrapper(true, Materials.getMaterialByName("zinc"));
+		}
+
+		// Modern Metals
+		if (Loader.isModLoaded("modernmetals")) {
+			recipeWrapper(true, Materials.getMaterialByName("aluminum"));
+			recipeWrapper(true, Materials.getMaterialByName("cadmium"));
+			recipeWrapper(true, Materials.getMaterialByName("chromium"));
+			recipeWrapper(true, Materials.getMaterialByName("iridium"));
+			recipeWrapper(true, Materials.getMaterialByName("magnesium"));
+			recipeWrapper(true, Materials.getMaterialByName("manganese"));
+			recipeWrapper(true, Materials.getMaterialByName("osmium"));
+			recipeWrapper(true, Materials.getMaterialByName("plutonium"));
+			recipeWrapper(true, Materials.getMaterialByName("rutile"));
+			recipeWrapper(true, Materials.getMaterialByName("tantalum"));
+			recipeWrapper(true, Materials.getMaterialByName("titanium"));
+			recipeWrapper(true, Materials.getMaterialByName("tungsten"));
+			recipeWrapper(true, Materials.getMaterialByName("uranium"));
+			recipeWrapper(true, Materials.getMaterialByName("zirconium"));
+		}
 	}
 
 	private static void recipeWrapper(boolean enabled, MetalMaterial material) {
