@@ -2,7 +2,7 @@ package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.util.Config;
 import com.mcmoddev.nethermetals.util.CreativeTabNMe;
-import com.mcmoddev.baseminerals.integration.IntegrationManager;
+import com.mcmoddev.lib.integration.IntegrationManager;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.nethermetals.init.*;
 
