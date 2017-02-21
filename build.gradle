@@ -114,19 +114,10 @@ repositories {
 }
 
 dependencies {
-    compile "slimeknights:TConstruct:${mc_version}-${tconstruct_version}:deobf"
-    compile "slimeknights.mantle:Mantle:${mc_version}-${mantle_version}:deobf"
     compile "mmd:orespawn:${orespawn_version}-${mc_version}:dev"
     compile "com.mcmoddev:BaseMetals:${mc_version}-${bme_version}:deobf"
     compile "com.mcmoddev:BaseMinerals:${mc_version}-${bmi_version}:deobf"
     compile "com.mcmoddev:ModernMetals:${mc_version}-${mme_version}:deobf"
-
-    // Temporary
-    deobfCompile ("slimeknights:TConstruct:${mc_version}-${tconstruct_version}") {
-        exclude group: 'mezz.jei'
-    }
-    // Temporary
-    deobfCompile "slimeknights.mantle:Mantle:${mc_version}-${mantle_version}"
 }
 
 processResources {

@@ -1,16 +1,17 @@
 package com.mcmoddev.nethermetals.integration.plugins;
 
+import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
+import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.material.MetalMaterial;
-import com.mcmoddev.nethermetals.integration.NetherMetalsPlugin;
 
 /**
  *
  * @author Jasmine Iwanek
  *
  */
-@NetherMetalsPlugin(TinkersConstruct.PLUGIN_MODID)
+@MMDPlugin(addonId = NetherMetals.MODID, pluginId = TinkersConstruct.PLUGIN_MODID)
 public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstruct implements IIntegration {
 
 	private static boolean initDone = false;
