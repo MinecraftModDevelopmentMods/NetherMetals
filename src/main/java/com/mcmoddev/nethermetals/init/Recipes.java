@@ -1,8 +1,8 @@
 package com.mcmoddev.nethermetals.init;
 
-import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MetalMaterial;
+import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.util.Config.Options;
 
