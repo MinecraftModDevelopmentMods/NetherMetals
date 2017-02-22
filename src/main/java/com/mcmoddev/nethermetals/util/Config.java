@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import com.mcmoddev.nethermetals.NetherMetals;
-import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
+import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
