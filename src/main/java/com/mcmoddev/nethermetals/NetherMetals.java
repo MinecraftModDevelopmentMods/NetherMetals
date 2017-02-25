@@ -5,7 +5,7 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.mcmoddev.lib.blocks.BlockExplosiveOre;
+import com.mcmoddev.lib.block.BlockExplosiveOre;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
 import com.mcmoddev.nethermetals.util.Config.Options;
 
