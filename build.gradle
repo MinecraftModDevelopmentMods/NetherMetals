@@ -111,6 +111,10 @@ repositories {
     	name "tehnut"
     	url "http://tehnut.info/maven"
     }
+    maven { // CoFH stuff is here
+    	name "Covers Maven"
+    	url "http://maven.covers1624.net"
+    }
 }
 
 dependencies {
