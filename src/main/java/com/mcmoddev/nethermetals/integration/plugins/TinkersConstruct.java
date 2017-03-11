@@ -12,7 +12,7 @@ import com.mcmoddev.lib.material.MetalMaterial;
  *
  */
 @MMDPlugin(addonId = NetherMetals.MODID, pluginId = TinkersConstruct.PLUGIN_MODID)
-public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstruct implements IIntegration {
+public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstructBase implements IIntegration {
 
 	private static boolean initDone = false;
 
