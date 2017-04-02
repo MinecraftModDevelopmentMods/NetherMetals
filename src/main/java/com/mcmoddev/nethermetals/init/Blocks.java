@@ -1,7 +1,7 @@
 package com.mcmoddev.nethermetals.init;
 
 import com.mcmoddev.lib.init.Materials;
-import com.mcmoddev.lib.material.MetalMaterial;
+import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.util.Config.Options;
 
@@ -63,7 +63,7 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 		initDone = true;
 	}
 
-	private static void createNetherOreWrapper(boolean enabled, MetalMaterial material) {
+	private static void createNetherOreWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
 				createNetherOre(material);				

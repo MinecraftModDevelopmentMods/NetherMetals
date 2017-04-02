@@ -4,7 +4,7 @@ import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
 import com.mcmoddev.lib.integration.MMDPlugin;
-import com.mcmoddev.lib.material.MetalMaterial;
+import com.mcmoddev.lib.material.MMDMaterial;
 
 /**
  *
@@ -59,7 +59,7 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 		initDone = true;
 	}
 	
-	private static void registerExtraMeltingWrapper(MetalMaterial material, int quantity) {
+	private static void registerExtraMeltingWrapper(MMDMaterial material, int quantity) {
 		registerExtraMelting(material, material.oreNether, quantity);		
 	}
 }

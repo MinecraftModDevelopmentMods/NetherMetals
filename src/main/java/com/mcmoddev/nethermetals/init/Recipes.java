@@ -1,7 +1,7 @@
 package com.mcmoddev.nethermetals.init;
 
 import com.mcmoddev.lib.init.Materials;
-import com.mcmoddev.lib.material.MetalMaterial;
+import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.util.Config.Options;
@@ -81,7 +81,7 @@ public final class Recipes {
 		}
 	}
 
-	private static void recipeWrapper(boolean enabled, MetalMaterial material) {
+	private static void recipeWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
 				if (material.oreNether != null) {
