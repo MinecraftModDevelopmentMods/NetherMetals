@@ -19,7 +19,7 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 
 	@Override
 	public void init() {
-		if (initDone || !com.mcmoddev.basemetals.util.Config.Options.enableTinkersConstruct) {
+		if (initDone || !com.mcmoddev.basemetals.util.Config.Options.modEnabled("tinkersconstruct")) {
 			return;
 		}
 

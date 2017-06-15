@@ -1,6 +1,7 @@
 package com.mcmoddev.orespawn;
 
 import com.google.common.base.Function;
+import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 
@@ -27,43 +28,43 @@ public class NetherMetalsOreSpawn implements Function<OreSpawnAPI, SpawnLogic> {
 
 		//Base Metals
 		if (Loader.isModLoaded("basemetals")) {
-			if( com.mcmoddev.basemetals.util.Config.Options.enableAntimony ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.ANTIMONY)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("antimony").getBlock(Names.NETHERORE).getDefaultState(), 8, 4, 10, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableBismuth ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.BISMUTH)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("bismuth").getBlock(Names.NETHERORE).getDefaultState(), 8, 4,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableCopper ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.COPPER)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("copper").getBlock(Names.NETHERORE).getDefaultState(), 10, 12,  20, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableLead ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.LEAD)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("lead").getBlock(Names.NETHERORE).getDefaultState(), 8, 12,  20, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableMercury ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.MERCURY)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("mercury").getBlock(Names.NETHERORE).getDefaultState(), 4, 4,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableNickel ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.NICKEL)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("nickel").getBlock(Names.NETHERORE).getDefaultState(), 6, 4,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enablePlatinum ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.PLATINUM)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("platinum").getBlock(Names.NETHERORE).getDefaultState(), 2, 4,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableSilver ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.SILVER)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("silver").getBlock(Names.NETHERORE).getDefaultState(), 8, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableTin ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.TIN)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("tin").getBlock(Names.NETHERORE).getDefaultState(), 10, 12,  20, 0,  200);
 			}
 
-			if( com.mcmoddev.basemetals.util.Config.Options.enableZinc ) {
+			if (com.mcmoddev.basemetals.util.Config.Options.materialEnabled(MaterialNames.ZINC)) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("zinc").getBlock(Names.NETHERORE).getDefaultState(), 6, 8,  12, 0,  200);
 			}
 
@@ -72,59 +73,59 @@ public class NetherMetalsOreSpawn implements Function<OreSpawnAPI, SpawnLogic> {
 
 		//Modern Metals
 		if (Loader.isModLoaded("modernmetals")) {
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableAluminum ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableAluminum) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("aluminum").getBlock(Names.NETHERORE).getDefaultState(), 10, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableCadmium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableCadmium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("cadmium").getBlock(Names.NETHERORE).getDefaultState(), 4, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableChromium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableChromium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("chromium").getBlock(Names.NETHERORE).getDefaultState(), 4, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableIridium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableIridium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("iridium").getBlock(Names.NETHERORE).getDefaultState(), 6, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableMagnesium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableMagnesium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("magnesium").getBlock(Names.NETHERORE).getDefaultState(), 6, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableManganese ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableManganese) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("manganese").getBlock(Names.NETHERORE).getDefaultState(), 6, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableOsmium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableOsmium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("osmium").getBlock(Names.NETHERORE).getDefaultState(), 10, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enablePlutonium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enablePlutonium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("plutonium").getBlock(Names.NETHERORE).getDefaultState(), 4, 4,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableRutile ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableRutile) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("rutile").getBlock(Names.NETHERORE).getDefaultState(), 8, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableTantalum ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableTantalum) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("tantalum").getBlock(Names.NETHERORE).getDefaultState(), 8, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableTitanium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableTitanium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("titanium").getBlock(Names.NETHERORE).getDefaultState(), 4, 4,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableTungsten ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableTungsten) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("tungsten").getBlock(Names.NETHERORE).getDefaultState(), 8, 8,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableUranium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableUranium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("uranium").getBlock(Names.NETHERORE).getDefaultState(), 2, 4,  10, 0,  200);
 			}
 
-			if( com.mcmoddev.modernmetals.util.Config.Options.enableZirconium ) {
+			if (com.mcmoddev.modernmetals.util.Config.Options.enableZirconium) {
 				logic.getDimension(-1).addOre(Materials.getMaterialByName("zirconium").getBlock(Names.NETHERORE).getDefaultState(), 8, 8,  10, 0,  200);
 			}
 		}

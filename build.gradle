@@ -126,7 +126,7 @@ repositories {
 }
 
 dependencies {
-    compile "mmd:orespawn:${orespawn_version}-${mc_version}:dev"
+    compile "com.mcmoddev:OreSpawn:${mc_version}-${orespawn_version}:dev"
     compile "com.mcmoddev:BaseMetals:${mc_version}-${bme_version}:deobf"
     compile "com.mcmoddev:BaseMinerals:${mc_version}-${bmi_version}:deobf"
     compile "com.mcmoddev:ModernMetals:${mc_version}-${mme_version}:deobf"
