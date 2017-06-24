@@ -5,8 +5,8 @@ import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 
-import mmd.orespawn.api.OreSpawnAPI;
-import mmd.orespawn.api.SpawnLogic;
+import com.mcmoddev.orespawn.api.OreSpawnAPI;
+import com.mcmoddev.orespawn.api.SpawnLogic;
 import net.minecraftforge.fml.common.Loader;
 
 public class NetherMetalsOreSpawn implements Function<OreSpawnAPI, SpawnLogic> {
