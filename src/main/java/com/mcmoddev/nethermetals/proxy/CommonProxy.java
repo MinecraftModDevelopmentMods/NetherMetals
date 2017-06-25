@@ -2,7 +2,6 @@ package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.util.Config;
 import com.mcmoddev.lib.integration.IntegrationManager;
-import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.nethermetals.init.*;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -14,9 +13,11 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		Config.init();
-		Materials.init();
+		NetherMaterials.init();
+		NetherFluids.init();
 		ItemGroups.init();
-		Blocks.init();
+		NetherBlocks.init();
+		NetherItems.init();
 		ItemGroups.setupIcons();
 		
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.NetherMetalsOreSpawn");
