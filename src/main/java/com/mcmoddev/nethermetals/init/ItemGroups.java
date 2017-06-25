@@ -3,7 +3,7 @@ package com.mcmoddev.nethermetals.init;
 import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.MMDCreativeTab;
-import com.mcmoddev.modernmetals.init.Materials;
+import com.mcmoddev.lib.init.Materials;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
