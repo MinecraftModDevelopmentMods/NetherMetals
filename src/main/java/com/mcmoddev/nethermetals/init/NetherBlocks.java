@@ -27,56 +27,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 		}
 
 		Materials.init();
-//		ItemGroups.init();
-
-		if( !Materials.getMaterialByName("coal").hasBlock(Names.ORE) ) {
-			final MMDMaterial material = Materials.getMaterialByName("coal");
-			
-			material.addNewBlock(Names.BLOCK, net.minecraft.init.Blocks.COAL_BLOCK);
-			material.addNewBlock(Names.ORE, net.minecraft.init.Blocks.COAL_ORE);
-		}
-
-		if( !Materials.getMaterialByName("diamond").hasBlock(Names.ORE) ) {
-			final MMDMaterial material = Materials.getMaterialByName("diamond");
-			
-			material.addNewBlock(Names.BLOCK, net.minecraft.init.Blocks.DIAMOND_BLOCK);
-			material.addNewBlock(Names.ORE, net.minecraft.init.Blocks.DIAMOND_ORE);
-		}
-
-		if( !Materials.getMaterialByName("emerald").hasBlock(Names.ORE) ) {
-			final MMDMaterial material = Materials.getMaterialByName("emerald");
-			
-			material.addNewBlock(Names.BLOCK, net.minecraft.init.Blocks.EMERALD_BLOCK);
-			material.addNewBlock(Names.ORE, net.minecraft.init.Blocks.EMERALD_ORE);
-		}
-
-		if( !Materials.getMaterialByName("gold").hasBlock(Names.ORE) ) {
-			final MMDMaterial material = Materials.getMaterialByName("gold");
-			
-			material.addNewBlock(Names.BLOCK, net.minecraft.init.Blocks.GOLD_BLOCK);
-			material.addNewBlock(Names.ORE, net.minecraft.init.Blocks.GOLD_ORE);
-		}
-		
-		if( !Materials.getMaterialByName("lapis").hasBlock(Names.ORE) ) {
-			final MMDMaterial material = Materials.getMaterialByName("lapis");
-			
-			material.addNewBlock(Names.BLOCK, net.minecraft.init.Blocks.LAPIS_BLOCK);
-			material.addNewBlock(Names.ORE, net.minecraft.init.Blocks.LAPIS_ORE);
-		}
-
-		if( !Materials.getMaterialByName("iron").hasBlock(Names.ORE) ) {
-			final MMDMaterial material = Materials.getMaterialByName("iron");
-			
-			material.addNewBlock(Names.BLOCK, net.minecraft.init.Blocks.IRON_BLOCK);
-			material.addNewBlock(Names.ORE, net.minecraft.init.Blocks.IRON_ORE);
-		}
-		
-		if( !Materials.getMaterialByName("redstone").hasBlock(Names.ORE) ) {
-			final MMDMaterial material = Materials.getMaterialByName("redstone");
-			
-			material.addNewBlock(Names.BLOCK, net.minecraft.init.Blocks.REDSTONE_BLOCK);
-			material.addNewBlock(Names.ORE, net.minecraft.init.Blocks.REDSTONE_ORE);
-		}
+		ItemGroups.init();
 		
 		createNetherOreWrapper(Options.enableCoalNetherOre, Materials.getMaterialByName("coal"));
 		createNetherOreWrapper(Options.enableDiamondNetherOre, Materials.getMaterialByName("diamond"));
