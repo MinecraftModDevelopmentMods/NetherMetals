@@ -13,11 +13,8 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		Config.init();
-		NetherMaterials.init();
-		NetherFluids.init();
 		ItemGroups.init();
 		NetherBlocks.init();
-		NetherItems.init();
 		ItemGroups.setupIcons();
 		
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.NetherMetalsOreSpawn");
