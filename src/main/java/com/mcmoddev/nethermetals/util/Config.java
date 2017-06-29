@@ -23,7 +23,6 @@ public class Config {
 
 	private static Configuration configuration;
 	private static final String CONFIG_FILE = "config/NetherMetals.cfg";
-//	private static final String ORESPAWN_CFG_PATH = "orespawn";
 	private static final String ORESPAWN = "OreSpawn";
 	private static final String NETHERORE = "Nether Ores";
 	private static final String COMPAT = "Mod Compat";
@@ -100,16 +99,6 @@ public class Config {
 				orespawnMod.add(new DefaultArtifactVersion("1.1.0"));
 				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 			}
-/*
-			final Path oreSpawnFile = Paths.get(ORESPAWN_CFG_PATH, NetherMetals.MODID + ".json");
-			if (!(oreSpawnFile.toFile().exists())) {
-				try {
-					Files.createDirectories(oreSpawnFile.getParent());
-				} catch (final IOException ex) {
-					//NetherMetals.logger.error("Failed to write file " + oreSpawnFile, ex);
-				}
-			}
-*/
 		}
 	}
 
