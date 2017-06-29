@@ -86,10 +86,10 @@ public final class Recipes {
 		if (enabled) {
 			if (material != null) {
 				if (material.getBlock(Names.NETHERORE) != null) {
-					boolean makeDusts = false;
-					boolean smeltToIngots = false;
+					boolean makeDusts = Options.makeDusts;
+					boolean smeltToIngots = Options.smeltToIngots;
 					if (Options.enableFurnaceSmelting) {
-						if (smeltToIngots == true) {
+						if (smeltToIngots) {
 							if (material.getItem(Names.INGOT) != null) {
 								GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
 							} else {
@@ -103,7 +103,7 @@ public final class Recipes {
 							}
 						}
 					}
-					if (makeDusts == true) {
+					if (makeDusts) {
 						if (material.getItem(Names.POWDER) != null) {
 						CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.POWDER), 4));
 						} else {
