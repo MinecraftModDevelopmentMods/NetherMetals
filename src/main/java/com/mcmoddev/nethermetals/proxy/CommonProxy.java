@@ -1,12 +1,9 @@
 package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.util.Config;
-import com.mcmoddev.nethermetals.util.CreativeTabNMe;
 import com.mcmoddev.lib.integration.IntegrationManager;
-import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.nethermetals.init.*;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -16,10 +13,10 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		Config.init();
-		Materials.init();
-//		ItemGroups.init();
-		CreativeTabs tab = new CreativeTabNMe();
-		Blocks.init();
+		ItemGroups.init();
+		NetherBlocks.init();
+		ItemGroups.setupIcons();
+		
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.NetherMetalsOreSpawn");
 
 		IntegrationManager.INSTANCE.preInit(event);
