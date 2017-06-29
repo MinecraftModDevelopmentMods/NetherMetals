@@ -91,8 +91,8 @@ public class NetherMetals {
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent event) {
 		boolean silk = false;
-		if (event.getPlayer() != null && event.getPlayer().getHeldItem(event.getPlayer().swingingHand) != null) {
-			NBTTagList var15 = event.getPlayer().getHeldItem(event.getPlayer().swingingHand).getEnchantmentTagList();
+		if (event.getPlayer() != null && event.getPlayer().getHeldItemMainhand() != null) {
+			NBTTagList var15 = event.getPlayer().getHeldItemMainhand().getEnchantmentTagList();
 			if (var15 != null) {
 				for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
 					short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
