@@ -5,7 +5,7 @@ import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 import com.mcmoddev.nethermetals.NetherMetals;
-import com.mcmoddev.nethermetals.util.Config.Options;
+import com.mcmoddev.lib.util.ConfigBase.Options;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
@@ -27,27 +27,6 @@ public final class Recipes {
 		recipeWrapper(true, Materials.getMaterialByName("iron"));
 		recipeWrapper(true, Materials.getMaterialByName("lapis"));
 		recipeWrapper(true, Materials.getMaterialByName("redstone"));
-
-		/*
-		GameRegistry.addSmelting(Materials.getMaterialByName("coal").getBlock(Names.NETHERORE), new ItemStack(Blocks.COAL_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("diamond").getBlock(Names.NETHERORE), new ItemStack(Blocks.DIAMOND_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("emerald").getBlock(Names.NETHERORE), new ItemStack(Blocks.EMERALD_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("gold").getBlock(Names.NETHERORE), new ItemStack(Blocks.GOLD_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("iron").getBlock(Names.NETHERORE), new ItemStack(Blocks.IRON_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("lapis").getBlock(Names.NETHERORE), new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("redstone").getBlock(Names.NETHERORE), new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
-
-		// Vanilla BM Hammer Compat
-		if (Loader.isModLoaded("basemetals")) {
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("coal").getBlock(Names.NETHERORE), new ItemStack(Blocks.COAL_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("diamond").getBlock(Names.NETHERORE), new ItemStack(Blocks.DIAMOND_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("emerald").getBlock(Names.NETHERORE), new ItemStack(Blocks.EMERALD_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("gold").getBlock(Names.NETHERORE), new ItemStack(Blocks.GOLD_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("iron").getBlock(Names.NETHERORE), new ItemStack(Blocks.IRON_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("lapis").getBlock(Names.NETHERORE), new ItemStack(Blocks.LAPIS_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("redstone").getBlock(Names.NETHERORE), new ItemStack(Blocks.REDSTONE_ORE, 2));
-		}
-		*/
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
@@ -86,9 +65,9 @@ public final class Recipes {
 		if (enabled) {
 			if (material != null) {
 				if (material.getBlock(Names.NETHERORE) != null) {
-					boolean makeDusts = Options.makeDusts;
-					boolean smeltToIngots = Options.smeltToIngots;
-					if (Options.enableFurnaceSmelting) {
+					boolean makeDusts = Options.isThingEnabled("makeDusts");
+					boolean smeltToIngots = Options.isThingEnabled("smeltToIngots");
+					if (Options.isThingEnabled("enableFurnaceSmelting")) {
 						if (smeltToIngots) {
 							if (material.getItem(Names.INGOT) != null) {
 								GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
