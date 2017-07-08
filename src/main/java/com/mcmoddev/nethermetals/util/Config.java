@@ -1,9 +1,10 @@
 package com.mcmoddev.nethermetals.util;
 
-import java.io.*;
-import java.util.*;
-
 import com.mcmoddev.nethermetals.NetherMetals;
+
+import java.io.File;
+import java.util.HashSet;
+
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -19,7 +20,7 @@ import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
  * @author Jasmine Iwanek
  *
  */
-public class Config {
+public class Config extends com.mcmoddev.lib.util.ConfigBase {
 
 	private static Configuration configuration;
 	private static final String CONFIG_FILE = "config/NetherMetals.cfg";
@@ -43,126 +44,62 @@ public class Config {
 		}
 
 		//General
-		Options.enableFurnaceSmelting = configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "EnableFurnaceSmelting");
-		Options.explosionChance = configuration.get("mean", "OreExplosionChance", 2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt();
-		Options.angerPigmenRange = configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt();
-		Options.smeltToIngots = configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots");
-		Options.makeDusts = configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts");
+		Options.thingEnabled("enableFurnaceSmelting", configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "EnableFurnaceSmelting"));
+		Options.explosionChance( configuration.get("mean", "OreExplosionChance", 2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt());
+		Options.angerPigmenRange( configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt());
+		Options.thingEnabled("smeltToIngots", configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots"));
+		Options.thingEnabled("makeDusts", configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts"));
 		
 		//Nether Ores
-		Options.enableCoalNetherOre = configuration.getBoolean("enableCoalNetherOre", NETHERORE, true, "Enable Coal Nether Ore");
-		Options.enableDiamondNetherOre = configuration.getBoolean("enableDiamondNetherOre", NETHERORE, true, "Enable Diamond Nether Ore");
-		Options.enableEmeraldNetherOre = configuration.getBoolean("enableEmeraldNetherOre", NETHERORE, true, "Enable Emerald Nether Ore");
-		Options.enableGoldNetherOre = configuration.getBoolean("enableGoldNetherOre", NETHERORE, true, "Enable Gold Nether Ore");
-		Options.enableIronNetherOre = configuration.getBoolean("enableIronNetherOre", NETHERORE, true, "Enable Iron Nether Ore");
-		Options.enableLapisNetherOre = configuration.getBoolean("enableLapisNetherOre", NETHERORE, true, "Enable Lapis Nether Ore");
-		Options.enableRedstoneNetherOre = configuration.getBoolean("enableRedstoneNetherOre", NETHERORE, true, "Enable Redstone Nether Ore");
+		Options.materialEnabled("enableCoalNetherOre", configuration.getBoolean("enableCoalNetherOre", NETHERORE, true, "Enable Coal Nether Ore"));
+		Options.materialEnabled("enableDiamondNetherOre", configuration.getBoolean("enableDiamondNetherOre", NETHERORE, true, "Enable Diamond Nether Ore"));
+		Options.materialEnabled("enableEmeraldNetherOre", configuration.getBoolean("enableEmeraldNetherOre", NETHERORE, true, "Enable Emerald Nether Ore"));
+		Options.materialEnabled("enableGoldNetherOre", configuration.getBoolean("enableGoldNetherOre", NETHERORE, true, "Enable Gold Nether Ore"));
+		Options.materialEnabled("enableIronNetherOre", configuration.getBoolean("enableIronNetherOre", NETHERORE, true, "Enable Iron Nether Ore"));
+		Options.materialEnabled("enableLapisNetherOre", configuration.getBoolean("enableLapisNetherOre", NETHERORE, true, "Enable Lapis Nether Ore"));
+		Options.materialEnabled("enableRedstoneNetherOre", configuration.getBoolean("enableRedstoneNetherOre", NETHERORE, true, "Enable Redstone Nether Ore"));
 
-		Options.enableAntimonyNetherOre = configuration.getBoolean("enableAntimonyNetherOre", NETHERORE, true, "Enable Antimony Nether Ore");
-		Options.enableBismuthNetherOre = configuration.getBoolean("enableBismuthNetherOre", NETHERORE, true, "Enable Bismuth Nether Ore");
-		Options.enableCopperNetherOre = configuration.getBoolean("enableCopperNetherOre", NETHERORE, true, "Enable Copper Nether Ore");
-		Options.enableLeadNetherOre = configuration.getBoolean("enableLeadNetherOre", NETHERORE, true, "Enable Lead Nether Ore");
-		Options.enableMercuryNetherOre = configuration.getBoolean("enableMercuryNetherOre", NETHERORE, true, "Enable Mercury Nether Ore");
-		Options.enableNickelNetherOre = configuration.getBoolean("enableNickelNetherOre", NETHERORE, true, "Enable Nickel Nether Ore");
-		Options.enablePlatinumNetherOre = configuration.getBoolean("enablePlatinumNetherOre", NETHERORE, true, "Enable Platinum Nether Ore");
-		Options.enableSilverNetherOre = configuration.getBoolean("enableSilverNetherOre", NETHERORE, true, "Enable Silver Nether Ore");
-		Options.enableTinNetherOre = configuration.getBoolean("enableTinNetherOre", NETHERORE, true, "Enable Tin Nether Ore");
-		Options.enableZincNetherOre = configuration.getBoolean("enableZincNetherOre", NETHERORE, true, "Enable Zinc Nether Ore");
-		Options.enableAluminumNetherOre = configuration.getBoolean("enableAluminumNetherOre", NETHERORE, true, "Enable Aluminum Nether Ore");
-		Options.enableCadmiumNetherOre = configuration.getBoolean("enableCadmiumNetherOre", NETHERORE, true, "Enable Cadmium Nether Ore");
-		Options.enableChromiumNetherOre = configuration.getBoolean("enableChromiumNetherOre", NETHERORE, true, "Enable Chromium Nether Ore");
-		Options.enableIridiumNetherOre = configuration.getBoolean("enableIridiumNetherOre", NETHERORE, true, "Enable Iridium Nether Ore");
-		Options.enableMagnesiumNetherOre = configuration.getBoolean("enableMagnesiumNetherOre", NETHERORE, true, "Enable Magnesium Nether Ore");
-		Options.enableManganeseNetherOre = configuration.getBoolean("enableManganeseNetherOre", NETHERORE, true, "Enable Manganese Nether Ore");
-		Options.enableOsmiumNetherOre = configuration.getBoolean("enableOsmiumNetherOre", NETHERORE, true, "Enable Osmium Nether Ore");
-		Options.enablePlutoniumNetherOre = configuration.getBoolean("enablePlutoniumNetherOre", NETHERORE, true, "Enable Plutonium Nether Ore");
-		Options.enableRutileNetherOre = configuration.getBoolean("enableRutileNetherOre", NETHERORE, true, "Enable Rutile Nether Ore");
-		Options.enableTantalumNetherOre = configuration.getBoolean("enableTantalumNetherOre", NETHERORE, true, "Enable Tantalum Nether Ore");
-		Options.enableTitaniumNetherOre = configuration.getBoolean("enableTitaniumNetherOre", NETHERORE, true, "Enable Titanium Nether Ore");
-		Options.enableTungstenNetherOre = configuration.getBoolean("enableTungstenNetherOre", NETHERORE, true, "Enable Tungsten Nether Ore");
-		Options.enableUraniumNetherOre = configuration.getBoolean("enableUraniumNetherOre", NETHERORE, true, "Enable Uranium Nether Ore");
-		Options.enableZirconiumNetherOre = configuration.getBoolean("enableZirconiumNetherOre", NETHERORE, true, "Enable Zirconium Nether Ore");
+		Options.materialEnabled("enableAntimonyNetherOre", configuration.getBoolean("enableAntimonyNetherOre", NETHERORE, true, "Enable Antimony Nether Ore"));
+		Options.materialEnabled("enableBismuthNetherOre", configuration.getBoolean("enableBismuthNetherOre", NETHERORE, true, "Enable Bismuth Nether Ore"));
+		Options.materialEnabled("enableCopperNetherOre", configuration.getBoolean("enableCopperNetherOre", NETHERORE, true, "Enable Copper Nether Ore"));
+		Options.materialEnabled("enableLeadNetherOre", configuration.getBoolean("enableLeadNetherOre", NETHERORE, true, "Enable Lead Nether Ore"));
+		Options.materialEnabled("enableMercuryNetherOre", configuration.getBoolean("enableMercuryNetherOre", NETHERORE, true, "Enable Mercury Nether Ore"));
+		Options.materialEnabled("enableNickelNetherOre", configuration.getBoolean("enableNickelNetherOre", NETHERORE, true, "Enable Nickel Nether Ore"));
+		Options.materialEnabled("enablePlatinumNetherOre", configuration.getBoolean("enablePlatinumNetherOre", NETHERORE, true, "Enable Platinum Nether Ore"));
+		Options.materialEnabled("enableSilverNetherOre", configuration.getBoolean("enableSilverNetherOre", NETHERORE, true, "Enable Silver Nether Ore"));
+		Options.materialEnabled("enableTinNetherOre", configuration.getBoolean("enableTinNetherOre", NETHERORE, true, "Enable Tin Nether Ore"));
+		Options.materialEnabled("enableZincNetherOre", configuration.getBoolean("enableZincNetherOre", NETHERORE, true, "Enable Zinc Nether Ore"));
+		Options.materialEnabled("enableAluminumNetherOre", configuration.getBoolean("enableAluminumNetherOre", NETHERORE, true, "Enable Aluminum Nether Ore"));
+		Options.materialEnabled("enableCadmiumNetherOre", configuration.getBoolean("enableCadmiumNetherOre", NETHERORE, true, "Enable Cadmium Nether Ore"));
+		Options.materialEnabled("enableChromiumNetherOre", configuration.getBoolean("enableChromiumNetherOre", NETHERORE, true, "Enable Chromium Nether Ore"));
+		Options.materialEnabled("enableIridiumNetherOre", configuration.getBoolean("enableIridiumNetherOre", NETHERORE, true, "Enable Iridium Nether Ore"));
+		Options.materialEnabled("enableMagnesiumNetherOre", configuration.getBoolean("enableMagnesiumNetherOre", NETHERORE, true, "Enable Magnesium Nether Ore"));
+		Options.materialEnabled("enableManganeseNetherOre", configuration.getBoolean("enableManganeseNetherOre", NETHERORE, true, "Enable Manganese Nether Ore"));
+		Options.materialEnabled("enableOsmiumNetherOre", configuration.getBoolean("enableOsmiumNetherOre", NETHERORE, true, "Enable Osmium Nether Ore"));
+		Options.materialEnabled("enablePlutoniumNetherOre", configuration.getBoolean("enablePlutoniumNetherOre", NETHERORE, true, "Enable Plutonium Nether Ore"));
+		Options.materialEnabled("enableRutileNetherOre", configuration.getBoolean("enableRutileNetherOre", NETHERORE, true, "Enable Rutile Nether Ore"));
+		Options.materialEnabled("enableTantalumNetherOre", configuration.getBoolean("enableTantalumNetherOre", NETHERORE, true, "Enable Tantalum Nether Ore"));
+		Options.materialEnabled("enableTitaniumNetherOre", configuration.getBoolean("enableTitaniumNetherOre", NETHERORE, true, "Enable Titanium Nether Ore"));
+		Options.materialEnabled("enableTungstenNetherOre", configuration.getBoolean("enableTungstenNetherOre", NETHERORE, true, "Enable Tungsten Nether Ore"));
+		Options.materialEnabled("enableUraniumNetherOre", configuration.getBoolean("enableUraniumNetherOre", NETHERORE, true, "Enable Uranium Nether Ore"));
+		Options.materialEnabled("enableZirconiumNetherOre", configuration.getBoolean("enableZirconiumNetherOre", NETHERORE, true, "Enable Zirconium Nether Ore"));
 
 		//Mod Compat
-		Options.requireMMDLib = configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib");
-		Options.requireMMDOreSpawn = configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn");
-		Options.enableVeinminer = configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support");
-		Options.enableTinkersConstruct = configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support");
+		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
+		Options.thingEnabled("requireMMDOreSpawn", configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
+		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
+		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support"));
 
 		if (configuration.hasChanged()) {
 			configuration.save();
 		}
 
-		if (Options.requireMMDOreSpawn) {
+		if (Options.isThingEnabled("requireMMDOreSpawn")) {
 			if (!Loader.isModLoaded("orespawn")) {
 				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
 				orespawnMod.add(new DefaultArtifactVersion("3.0.0"));
 				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 			}
-		}
-	}
-
-	public static class Options {
-
-		public static boolean makeDusts;
-		public static boolean smeltToIngots;
-		public static boolean requireMMDLib = false;
-		public static boolean requireMMDOreSpawn = true;
-		public static boolean enableTinkersConstruct = false;
-		public static boolean enableVeinminer = false;
-		public static int explosionChance = 0;
-		public static int angerPigmenRange = 0;
-		public static boolean angerPigmen = false;
-		public static boolean enableFurnaceSmelting = true;
-
-		public static boolean enableCoalNetherOre = true;
-		public static boolean enableDiamondNetherOre = true;
-		public static boolean enableEmeraldNetherOre = true;
-		public static boolean enableGoldNetherOre = true;
-		public static boolean enableIronNetherOre = true;
-		public static boolean enableLapisNetherOre = true;
-		public static boolean enableRedstoneNetherOre = true;
-
-		public static boolean enableAntimonyNetherOre = true;
-		public static boolean enableBismuthNetherOre = true;
-		public static boolean enableCopperNetherOre = true;
-		public static boolean enableLeadNetherOre = true;
-		public static boolean enableMercuryNetherOre = true;
-		public static boolean enableNickelNetherOre = true;
-		public static boolean enablePlatinumNetherOre = true;
-		public static boolean enableSilverNetherOre = true;
-		public static boolean enableTinNetherOre = true;
-		public static boolean enableZincNetherOre = true;
-		
-		public static boolean enableAluminumNetherOre = true;
-		public static boolean enableCadmiumNetherOre = true;
-		public static boolean enableChromiumNetherOre = true;
-		public static boolean enableIridiumNetherOre = true;
-		public static boolean enableMagnesiumNetherOre = true;
-		public static boolean enableManganeseNetherOre = true;
-		public static boolean enableOsmiumNetherOre = true;
-		public static boolean enablePlutoniumNetherOre = true;
-		public static boolean enableRutileNetherOre = true;
-		public static boolean enableTantalumNetherOre = true;
-		public static boolean enableTitaniumNetherOre = true;
-		public static boolean enableTungstenNetherOre = true;
-		public static boolean enableUraniumNetherOre = true;
-		public static boolean enableZirconiumNetherOre = true;
-
-		private Options() {
-			throw new IllegalAccessError("Not a instantiable class");
-		}
-
-		public static int getExplosionChance() {
-			return explosionChance;
-		}
-
-		public static boolean isAngerPigmen() {
-			return angerPigmen;
-		}
-
-		public static int getAngerPigmenRange() {
-			return angerPigmenRange;
 		}
 	}
 

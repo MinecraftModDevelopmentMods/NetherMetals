@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.mcmoddev.lib.block.BlockExplosiveOre;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
-import com.mcmoddev.nethermetals.util.Config.Options;
+import com.mcmoddev.lib.util.ConfigBase.Options;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
@@ -105,7 +105,7 @@ public class NetherMetals {
 							&& ((BlockExplosiveOre) event.getState().getBlock()).doesExplode())
 							|| event.getState().getBlock() == Blocks.QUARTZ_ORE)) {
 				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
-				if (randomNum <= Options.getExplosionChance() || Options.getExplosionChance() > 100) {
+				if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
 					event.getWorld().createExplosion(event.getPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), 4.0F, true);
 					//if (ConfigHandler.isAngerPigmen())
 						//ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
