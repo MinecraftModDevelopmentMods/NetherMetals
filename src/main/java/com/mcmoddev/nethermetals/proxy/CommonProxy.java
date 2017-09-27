@@ -1,13 +1,21 @@
 package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.util.Config;
+import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IntegrationManager;
+import com.mcmoddev.lib.material.MMDMaterial;
+import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.init.*;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class CommonProxy {
 
@@ -19,38 +27,9 @@ public class CommonProxy {
 		
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.NetherMetalsOreSpawn");
 
+		MinecraftForge.EVENT_BUS.register(this);
 		IntegrationManager.INSTANCE.preInit(event);
 
-/*
-		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
-		if (ConfigHandler.requireOreSpawn) {
-			// Base Metals
-			if (Loader.isModLoaded("basemetals")) {
-				final Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), NetherMetals.MODID + "-bmores" + ".json");
-				if (!(bmoreSpawnFile.toFile().exists())) {
-					try {
-						Files.createDirectories(bmoreSpawnFile.getParent());
-						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.BM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
-					} catch (IOException e) {
-						FMLLog.severe(NetherMetals.MODID + ": Error: Failed to write file " + bmoreSpawnFile);
-					}
-				}
-			}
-
-			// Modern Metals
-			if (Loader.isModLoaded("modernmetals")) {
-				final Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), NetherMetals.MODID + "-mmores" + ".json");
-				if (!(mmoreSpawnFile.toFile().exists())) {
-					try {
-						Files.createDirectories(mmoreSpawnFile.getParent());
-						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.MM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
-					} catch (IOException e) {
-						FMLLog.severe(NetherMetals.MODID + ": Error: Failed to write file " + mmoreSpawnFile);
-					}
-				}
-			}
-		}
-*/
 	}
 
 	public void init(FMLInitializationEvent event) {
@@ -59,5 +38,32 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent event) {
 		Config.postInit();
+	}
+	
+	// even though no items are directly created there are ItemBlock instances that need registered as well
+	@SubscribeEvent
+	public void registerItems(RegistryEvent.Register<Item> event) {
+		// NetherMetals doesn't do any of its own materials, just its own blocks
+		// so it actually needs this helper :)
+		for( MMDMaterial mat : Materials.getAllMaterials()) {
+			for( Item item : mat.getItems() ) {
+				if( item.getRegistryName().getResourceDomain().equals(NetherMetals.MODID) ) {
+					event.getRegistry().register(item);
+				}
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void registerBlocks(RegistryEvent.Register<Block> event) {
+		// NetherMetals doesn't do any of its own materials, just its own blocks
+		// so it actually needs this helper :)
+		for( MMDMaterial mat : Materials.getAllMaterials()) {
+			for( Block block : mat.getBlocks() ) {
+				if( block.getRegistryName().getResourceDomain().equals(NetherMetals.MODID) ) {
+					event.getRegistry().register(block);
+				}
+			}
+		}
 	}
 }

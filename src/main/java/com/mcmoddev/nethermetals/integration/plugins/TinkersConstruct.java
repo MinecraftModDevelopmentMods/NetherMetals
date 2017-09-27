@@ -26,42 +26,42 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 			return;
 		}
 
-		registerExtraMeltingWrapper(Materials.getMaterialByName("coal"), 144);
-		registerExtraMeltingWrapper(Materials.getMaterialByName("diamond"), 144);
-		registerExtraMeltingWrapper(Materials.getMaterialByName("emerald"), 144);
-		registerExtraMeltingWrapper(Materials.getMaterialByName("gold"), 144);
-		registerExtraMeltingWrapper(Materials.getMaterialByName("iron"), 144);
-		registerExtraMeltingWrapper(Materials.getMaterialByName("lapis"), 144);
-		registerExtraMeltingWrapper(Materials.getMaterialByName("redstone"), 144);
+		registerExtraMeltingWrapper(Materials.getMaterialByName("coal"), 576);
+		registerExtraMeltingWrapper(Materials.getMaterialByName("diamond"), 576);
+		registerExtraMeltingWrapper(Materials.getMaterialByName("emerald"), 576);
+		registerExtraMeltingWrapper(Materials.getMaterialByName("gold"), 576);
+		registerExtraMeltingWrapper(Materials.getMaterialByName("iron"), 576);
+		registerExtraMeltingWrapper(Materials.getMaterialByName("lapis"), 576);
+		registerExtraMeltingWrapper(Materials.getMaterialByName("redstone"), 576);
 		
 		if( Loader.isModLoaded("basemetals") ) {
-			registerExtraMeltingWrapper(Materials.getMaterialByName("antimony"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("bismuth"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("copper"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("lead"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("mercury"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("nickel"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("platinum"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("silver"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("tin"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("zinc"), 144);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("antimony"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("bismuth"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("copper"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("lead"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("mercury"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("nickel"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("platinum"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("silver"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("tin"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("zinc"), 576);
 		}
 		
 		if( Loader.isModLoaded("modernmetals") ) {
-			registerExtraMeltingWrapper(Materials.getMaterialByName("aluminum"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("cadmium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("chromium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("iridium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("magnesium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("manganese"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("osmium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("plutonium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("rutile"),  144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("tantalum"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("titanium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("tungsten"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("uranium"), 144);
-			registerExtraMeltingWrapper(Materials.getMaterialByName("zirconium"), 144);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("aluminum"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("cadmium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("chromium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("iridium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("magnesium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("manganese"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("osmium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("plutonium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("rutile"),  576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("tantalum"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("titanium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("tungsten"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("uranium"), 576);
+			registerExtraMeltingWrapper(Materials.getMaterialByName("zirconium"), 576);
 		}
 		initDone = true;
 	}

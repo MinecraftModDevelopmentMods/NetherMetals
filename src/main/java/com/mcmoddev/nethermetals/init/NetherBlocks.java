@@ -5,6 +5,7 @@ import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 
+import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.Loader;
 
 /**
@@ -71,7 +72,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 	private static void createNetherOreWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
-				createNetherOre(material, ItemGroups.blocksTab);				
+				create(com.mcmoddev.lib.data.Names.NETHERORE, material, ItemGroups.blocksTab);
 			} else {
 				NetherMetals.logger.error("material was null!");
 			}
