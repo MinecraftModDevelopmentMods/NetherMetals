@@ -2,7 +2,11 @@ package com.mcmoddev.nethermetals.integration.plugins;
 
 import com.mcmoddev.nethermetals.NetherMetals;
 
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
@@ -26,12 +30,19 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 			return;
 		}
 
+		MinecraftForge.EVENT_BUS.register(this);
+		initDone = true;
+	}
+
+	@SubscribeEvent
+	public void doRegistration(RegistryEvent.Register<IRecipe> ev ) {
 		registerExtraMeltingWrapper(Materials.getMaterialByName("coal"), 576);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("diamond"), 576);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("emerald"), 576);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("gold"), 576);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("iron"), 576);
-		registerExtraMeltingWrapper(Materials.getMaterialByName("lapis"), 576);
+		// No such thing as a Lapis fluid in the code
+		//registerExtraMeltingWrapper(Materials.getMaterialByName("lapis"), 576);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("redstone"), 576);
 		
 		if( Loader.isModLoaded("basemetals") ) {
@@ -63,7 +74,6 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 			registerExtraMeltingWrapper(Materials.getMaterialByName("uranium"), 576);
 			registerExtraMeltingWrapper(Materials.getMaterialByName("zirconium"), 576);
 		}
-		initDone = true;
 	}
 	
 	private static void registerExtraMeltingWrapper(MMDMaterial material, int quantity) {

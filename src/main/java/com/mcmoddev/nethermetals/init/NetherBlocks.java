@@ -5,7 +5,6 @@ import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 
-import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.Loader;
 
 /**
