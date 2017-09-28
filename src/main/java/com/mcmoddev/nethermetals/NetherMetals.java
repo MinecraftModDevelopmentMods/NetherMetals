@@ -10,9 +10,15 @@ import com.mcmoddev.nethermetals.proxy.CommonProxy;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -93,6 +99,16 @@ public class NetherMetals {
         return Loader.isModLoaded("basemetals");
     }
 
+	public void angerPigmen(BlockPos pos, World world, EntityPlayer player, int range) {
+		int rr = range / 2;
+		BlockPos work1 = new BlockPos(pos).add(-rr,-rr,-rr);
+		BlockPos work2 = new BlockPos(pos).add(+rr,+rr,+rr);
+		AxisAlignedBB bb = new AxisAlignedBB(work1, work2);
+		for( final EntityLivingBase entity : world.getEntitiesWithinAABB(EntityPigZombie.class, bb) ) {
+			entity.setRevengeTarget(player);
+		}
+	}
+	
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent event) {
 		boolean silk = false;
@@ -112,8 +128,8 @@ public class NetherMetals {
 				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
 				if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
 					event.getWorld().createExplosion(event.getPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), 4.0F, true);
-					//if (ConfigHandler.isAngerPigmen())
-						//ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
+					if (Options.angerPigmenRange() > 0 )
+ 						this.angerPigmen(event.getPos(), event.getWorld(), event.getPlayer(), Options.angerPigmenRange());
 				}
 			}
 		}

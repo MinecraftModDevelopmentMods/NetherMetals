@@ -88,7 +88,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
 		Options.thingEnabled("requireMMDOreSpawn", configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
 		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
-		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support"));
+		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, true, "Enable Tinkers Construct Support"));
 
 		if (configuration.hasChanged()) {
 			configuration.save();
