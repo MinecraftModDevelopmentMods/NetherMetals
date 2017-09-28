@@ -19,6 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -69,6 +70,7 @@ public class NetherMetals {
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = LogManager.getFormatterLogger(MODID);
 //		logger.setParent(FMLLog.getLogger());
+		MinecraftForge.EVENT_BUS.register(this);
 		proxy.preInit(event);
 	}
 
