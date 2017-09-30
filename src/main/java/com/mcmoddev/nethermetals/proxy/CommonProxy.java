@@ -5,6 +5,7 @@ import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IntegrationManager;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.util.Oredicts;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.init.*;
 
@@ -65,6 +66,8 @@ public class CommonProxy {
 				}
 			}
 		}
+		Oredicts.registerItemOreDictionaryEntries();
+		Oredicts.registerBlockOreDictionaryEntries();
 	}
 	
 	@SubscribeEvent
