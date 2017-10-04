@@ -2,7 +2,6 @@ package com.mcmoddev.nethermetals.integration.plugins;
 
 import com.mcmoddev.nethermetals.NetherMetals;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;

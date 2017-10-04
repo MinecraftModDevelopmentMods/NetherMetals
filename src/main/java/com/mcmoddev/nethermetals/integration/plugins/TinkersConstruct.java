@@ -21,9 +21,7 @@ import com.mcmoddev.lib.util.ConfigBase.Options;
  */
 @MMDPlugin(addonId = NetherMetals.MODID,
 		   pluginId = TinkersConstruct.PLUGIN_MODID, 
-           preInitCallback="preInit", 
-           initCallback="initCallback",
-           postInitCallback="postInit")
+           initCallback="initCallback")
 public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstructBase implements IIntegration {
 
 	private static boolean initDone = false;
@@ -37,18 +35,9 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 		initDone = true;
 	}
 	
-	public void preInit() {
-		preInitSetup();
-		registerMelting();
-		setMaterialsVisible();
-	}
-	
 	public void initCallback() {
-		initSetup();
-	}
-
-	public void postInit() {
-		postInitSetup();
+		registerMelting();
+		registry.registerMeltings();
 	}
 
 	private void registerMelting() {
