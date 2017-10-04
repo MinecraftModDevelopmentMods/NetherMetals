@@ -43,7 +43,7 @@ public class CommonProxy {
 		
 		MinecraftForge.EVENT_BUS.register(this);
 		IntegrationManager.INSTANCE.preInit(event);
-
+		IntegrationManager.INSTANCE.runCallbacks("preInit");
 	}
 
 	public void init(FMLInitializationEvent event) {
