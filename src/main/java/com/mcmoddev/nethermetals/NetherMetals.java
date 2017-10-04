@@ -22,7 +22,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = NetherMetals.MODID,
 	name = NetherMetals.NAME,
 	version = NetherMetals.VERSION,
-	dependencies = "required-after:forge@[14.22.1.2485,);after:basemetals;after:baseminerals;after:modernmetals",
+	dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
 	acceptedMinecraftVersions = "[1.12,)",
 	updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
 public class NetherMetals {
