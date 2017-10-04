@@ -2,11 +2,10 @@ package com.mcmoddev.nethermetals.integration.plugins;
 
 import com.mcmoddev.nethermetals.NetherMetals;
 
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraft.item.Item;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
@@ -19,7 +18,11 @@ import com.mcmoddev.lib.material.MMDMaterial;
  * @author Jasmine Iwanek
  *
  */
-@MMDPlugin(addonId = NetherMetals.MODID, pluginId = TinkersConstruct.PLUGIN_MODID)
+@MMDPlugin(addonId = NetherMetals.MODID,
+		   pluginId = TinkersConstruct.PLUGIN_MODID, 
+           preInitCallback="preInit", 
+           initCallback="initCallback",
+           postInitCallback="postInit")
 public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstructBase implements IIntegration {
 
 	private static boolean initDone = false;
@@ -29,13 +32,25 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 		if (initDone || !com.mcmoddev.lib.util.ConfigBase.Options.isModEnabled("enableTinkersConstruct")) {
 			return;
 		}
-
-		MinecraftForge.EVENT_BUS.register(this);
+		
 		initDone = true;
 	}
+	
+	public void preInit() {
+		super.preInitSetup();
+		registerMelting();
+		super.setMaterialsVisible();
+	}
+	
+	public void initCallback() {
+		super.initSetup();
+	}
 
-	@SubscribeEvent
-	public void doRegistration(RegistryEvent.Register<IRecipe> ev ) {
+	public void postInit() {
+		super.postInitSetup();
+	}
+
+	private void registerMelting() {
 		registerExtraMeltingWrapper(Materials.getMaterialByName("coal"), 576);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("diamond"), 576);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("emerald"), 576);
@@ -75,8 +90,9 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 			registerExtraMeltingWrapper(Materials.getMaterialByName("zirconium"), 576);
 		}
 	}
-	
+
 	private static void registerExtraMeltingWrapper(MMDMaterial material, int quantity) {
-		registerExtraMelting(material, material.getBlock(Names.NETHERORE), quantity);		
-	}
+		FluidStack result = FluidRegistry.getFluidStack(material.getName(), quantity);
+		registry.registerMelting(Item.getItemFromBlock(material.getBlock(Names.NETHERORE)), result);
+	}	
 }
