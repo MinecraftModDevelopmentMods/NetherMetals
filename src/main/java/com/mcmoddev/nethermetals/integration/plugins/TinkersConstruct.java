@@ -38,17 +38,17 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 	}
 	
 	public void preInit() {
-		super.preInitSetup();
+		preInitSetup();
 		registerMelting();
-		super.setMaterialsVisible();
+		setMaterialsVisible();
 	}
 	
 	public void initCallback() {
-		super.initSetup();
+		initSetup();
 	}
 
 	public void postInit() {
-		super.postInitSetup();
+		postInitSetup();
 	}
 
 	private void registerMelting() {
@@ -88,7 +88,6 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
             registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.modernmetals.data.MaterialNames.TITANIUM),Materials.getMaterialByName(com.mcmoddev.modernmetals.data.MaterialNames.TITANIUM), 576);
             registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.modernmetals.data.MaterialNames.TUNGSTEN),Materials.getMaterialByName(com.mcmoddev.modernmetals.data.MaterialNames.TUNGSTEN), 576);
             registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.modernmetals.data.MaterialNames.URANIUM),Materials.getMaterialByName(com.mcmoddev.modernmetals.data.MaterialNames.URANIUM), 576);
-            registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.modernmetals.data.MaterialNames.ZIRCONIUM),Materials.getMaterialByName(com.mcmoddev.modernmetals.data.MaterialNames.ZIRCONIUM), 576);
             registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.modernmetals.data.MaterialNames.ZIRCONIUM),Materials.getMaterialByName(com.mcmoddev.modernmetals.data.MaterialNames.ZIRCONIUM), 576);
 		}
 	}

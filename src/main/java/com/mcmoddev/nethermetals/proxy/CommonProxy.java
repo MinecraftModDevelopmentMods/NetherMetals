@@ -47,12 +47,10 @@ public class CommonProxy {
 	}
 
 	public void init(FMLInitializationEvent event) {
-		IntegrationManager.INSTANCE.runCallbacks("init");
 		Recipes.init();
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-		IntegrationManager.INSTANCE.runCallbacks("postInit");
 		Config.postInit();
 	}
 	
