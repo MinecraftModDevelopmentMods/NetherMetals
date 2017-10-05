@@ -4,11 +4,13 @@ import com.mcmoddev.nethermetals.util.Config;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IntegrationManager;
 import com.mcmoddev.lib.material.MMDMaterial;
+import com.mcmoddev.lib.oregen.FallbackGenerator;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 import com.mcmoddev.lib.util.Oredicts;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.init.*;
 
+import java.util.HashSet;
 import java.util.Random;
 
 import com.mcmoddev.lib.block.BlockMMDNetherOre;
@@ -28,14 +30,28 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.versioning.ArtifactVersion;
+import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
+		if ((Options.requireMMDOreSpawn()) && (!Loader.isModLoaded("orespawn"))) {
+			if(Options.fallbackOrespawn()) {
+				GameRegistry.registerWorldGenerator(new FallbackGenerator(), 0);
+			} else {
+				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
+				orespawnMod.add(new DefaultArtifactVersion("3.1.0"));
+				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod (fallback generator disabled, MMD OreSpawn enabled)");
+			}
+		}
 		Config.init();
 		ItemGroups.init();
 		NetherBlocks.init();
