@@ -43,6 +43,8 @@ import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
+		Config.init();
+
 		if ((Options.requireMMDOreSpawn()) && (!Loader.isModLoaded("orespawn"))) {
 			if(Options.fallbackOrespawn()) {
 				GameRegistry.registerWorldGenerator(new FallbackGenerator(), 0);
@@ -52,7 +54,7 @@ public class CommonProxy {
 				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod (fallback generator disabled, MMD OreSpawn enabled)");
 			}
 		}
-		Config.init();
+		
 		ItemGroups.init();
 		NetherBlocks.init();
 		ItemGroups.setupIcons();
