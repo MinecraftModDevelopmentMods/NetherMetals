@@ -45,8 +45,10 @@ public class IC2 extends IC2Base implements IIntegration {
     		ItemStack output;
     		if( mat.hasItem(Names.CRUSHED)) {
     			output = new ItemStack( mat.getItem(Names.CRUSHED), 4 );
-    		} else {
+    		} else if( mat.hasItem(Names.POWDER) ) {
     			output = new ItemStack( mat.getItem(Names.POWDER), 4);
+    		} else {
+    			continue;
     		}
     		
     		addMaceratorRecipe(Oredicts.ORE_NETHER+mat.getCapitalizedName(), output);
