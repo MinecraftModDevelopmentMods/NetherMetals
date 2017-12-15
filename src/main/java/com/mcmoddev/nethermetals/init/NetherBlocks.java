@@ -70,7 +70,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 
 	private static void createNetherOreWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
-			if (material != null) {
+			if (material != null && !material.getName().equalsIgnoreCase("empty")) {
 				create(com.mcmoddev.lib.data.Names.NETHERORE, material, ItemGroups.blocksTab);
 			} else {
 				NetherMetals.logger.error("material was null!");
