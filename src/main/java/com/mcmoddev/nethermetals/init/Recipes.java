@@ -20,83 +20,80 @@ public final class Recipes {
 	public static void init() {
 
 		// Vanilla
-		recipeWrapper(true, Materials.getMaterialByName("coal"));
-		recipeWrapper(true, Materials.getMaterialByName("diamond"));
-		recipeWrapper(true, Materials.getMaterialByName("emerald"));
-		recipeWrapper(true, Materials.getMaterialByName("gold"));
-		recipeWrapper(true, Materials.getMaterialByName("iron"));
-		recipeWrapper(true, Materials.getMaterialByName("lapis"));
-		recipeWrapper(true, Materials.getMaterialByName("redstone"));
+		recipeWrapper(true, "coal");
+		recipeWrapper(true, "diamond");
+		recipeWrapper(true, "emerald");
+		recipeWrapper(true, "gold");
+		recipeWrapper(true, "iron");
+		recipeWrapper(true, "lapis");
+		recipeWrapper(true, "redstone");
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
-			recipeWrapper(true, Materials.getMaterialByName("antimony"));
-			recipeWrapper(true, Materials.getMaterialByName("bismuth"));
-			recipeWrapper(true, Materials.getMaterialByName("copper"));
-			recipeWrapper(true, Materials.getMaterialByName("lead"));
-			recipeWrapper(true, Materials.getMaterialByName("mercury"));
-			recipeWrapper(true, Materials.getMaterialByName("nickel"));
-			recipeWrapper(true, Materials.getMaterialByName("platinum"));
-			recipeWrapper(true, Materials.getMaterialByName("silver"));
-			recipeWrapper(true, Materials.getMaterialByName("tin"));
-			recipeWrapper(true, Materials.getMaterialByName("zinc"));
+			recipeWrapper(true, "antimony");
+			recipeWrapper(true, "bismuth");
+			recipeWrapper(true, "copper");
+			recipeWrapper(true, "lead");
+			recipeWrapper(true, "mercury");
+			recipeWrapper(true, "nickel");
+			recipeWrapper(true, "platinum");
+			recipeWrapper(true, "silver");
+			recipeWrapper(true, "tin");
+			recipeWrapper(true, "zinc");
 		}
 
 		// Modern Metals
 		if (Loader.isModLoaded("modernmetals")) {
-			recipeWrapper(true, Materials.getMaterialByName("aluminum"));
-			recipeWrapper(true, Materials.getMaterialByName("cadmium"));
-			recipeWrapper(true, Materials.getMaterialByName("chromium"));
-			recipeWrapper(true, Materials.getMaterialByName("iridium"));
-			recipeWrapper(true, Materials.getMaterialByName("magnesium"));
-			recipeWrapper(true, Materials.getMaterialByName("manganese"));
-			recipeWrapper(true, Materials.getMaterialByName("osmium"));
-			recipeWrapper(true, Materials.getMaterialByName("plutonium"));
-			recipeWrapper(true, Materials.getMaterialByName("rutile"));
-			recipeWrapper(true, Materials.getMaterialByName("tantalum"));
-			recipeWrapper(true, Materials.getMaterialByName("titanium"));
-			recipeWrapper(true, Materials.getMaterialByName("tungsten"));
-			recipeWrapper(true, Materials.getMaterialByName("uranium"));
-			recipeWrapper(true, Materials.getMaterialByName("zirconium"));
+			recipeWrapper(true, "aluminum");
+			recipeWrapper(true, "cadmium");
+			recipeWrapper(true, "chromium");
+			recipeWrapper(true, "iridium");
+			recipeWrapper(true, "magnesium");
+			recipeWrapper(true, "manganese");
+			recipeWrapper(true, "osmium");
+			recipeWrapper(true, "plutonium");
+			recipeWrapper(true, "rutile");
+			recipeWrapper(true, "tantalum");
+			recipeWrapper(true, "titanium");
+			recipeWrapper(true, "tungsten");
+			recipeWrapper(true, "uranium");
+			recipeWrapper(true, "zirconium");
 		}
 	}
 
-	private static void recipeWrapper(boolean enabled, MMDMaterial material) {
-		if (enabled) {
-			if (material != null) {
-				if (material.getBlock(Names.NETHERORE) != null) {
-					boolean makeDusts = Options.isThingEnabled("makeDusts");
-					boolean smeltToIngots = Options.isThingEnabled("smeltToIngots");
-					if (Options.isThingEnabled("enableFurnaceSmelting")) {
-						if (smeltToIngots) {
-							if (material.getItem(Names.INGOT) != null) {
-								GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
-							} else {
-								NetherMetals.logger.error("ingot was null for material " + material.getName());
-							}
+	private static void recipeWrapper(boolean enabled, String materialName) {
+		if (enabled && Materials.hasMaterial(materialName)) {
+			MMDMaterial material = Materials.getMaterialByName(materialName);
+			if (material.getBlock(Names.NETHERORE) != null) {
+				boolean makeDusts = Options.isThingEnabled("makeDusts");
+				boolean smeltToIngots = Options.isThingEnabled("smeltToIngots");
+				if (Options.isThingEnabled("enableFurnaceSmelting")) {
+					if (smeltToIngots) {
+						if (material.getItem(Names.INGOT) != null) {
+							GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
 						} else {
-							if (material.getBlock(Names.ORE) != null) {
-								GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getBlock(Names.ORE), 2), 1.0f);
-							} else {
-								NetherMetals.logger.error("ore was null for material " + material.getName());
-							}
-						}
-					}
-					if (makeDusts) {
-						if (material.getItem(Names.POWDER) != null) {
-						CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.POWDER), 4));
-						} else {
-							NetherMetals.logger.error("powder was null for material " + material.getName());
+							NetherMetals.logger.error("ingot was null for material " + material.getName());
 						}
 					} else {
 						if (material.getBlock(Names.ORE) != null) {
-							CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), new ItemStack(material.getBlock(Names.ORE), 2));
+							GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getBlock(Names.ORE), 2), 1.0f);
 						} else {
-							NetherMetals.logger.error("ore was null" + material.getName());
+							NetherMetals.logger.error("ore was null for material " + material.getName());
 						}
 					}
+				}
+				if (makeDusts) {
+					if (material.getItem(Names.POWDER) != null) {
+						CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.POWDER), 4));
+					} else {
+						NetherMetals.logger.error("powder was null for material " + material.getName());
+					}
 				} else {
-					NetherMetals.logger.error("oreNether was null");
+					if (material.getBlock(Names.ORE) != null) {
+						CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), new ItemStack(material.getBlock(Names.ORE), 2));
+					} else {
+						NetherMetals.logger.error("ore was null" + material.getName());
+					}
 				}
 			}
 		}
