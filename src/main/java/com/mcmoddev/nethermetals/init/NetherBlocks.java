@@ -70,7 +70,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 
 	private static void createNetherOreWrapper(boolean enabled, String materialName ) {
 		if (enabled && Materials.hasMaterial(materialName)) {
-			create(Names.ENDORE, Materials.getMaterialByName(materialName), ItemGroups.blocksTab);
+			create(Names.NETHERORE, Materials.getMaterialByName(materialName), ItemGroups.blocksTab);
 		}
 	}	
 }
