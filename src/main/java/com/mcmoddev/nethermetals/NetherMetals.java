@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -23,8 +24,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 	name = NetherMetals.NAME,
 	version = NetherMetals.VERSION,
 	dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
+	certificateFingerprint = "@FINGERPRINT@",
 	acceptedMinecraftVersions = "[1.12,)",
-	updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
+	updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopmentMods/NetherMetals/master/update.json")
 public class NetherMetals {
 
 	@Instance
@@ -47,6 +49,11 @@ public class NetherMetals {
 
 	@SidedProxy(clientSide = "com.mcmoddev.nethermetals.proxy.ClientProxy", serverSide = "com.mcmoddev.nethermetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
+
+	@EventHandler
+	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
+		logger.warn("Invalid fingerprint detected!");
+	}
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

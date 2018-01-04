@@ -75,10 +75,12 @@ if (secretFile.exists()) {
 minecraft {
     version = '1.12.1-14.22.1.2485'
     runDir = 'run'
-    mappings = 'snapshot_20170925'
+    mappings = 'snapshot_20171231'
 //  coreMod = corePlugin
 //  clientJvmArgs = ["-Dfml.coreMods.load=$corePlugin"]
 //  serverJvmArgs = ["-Dfml.coreMods.load=$corePlugin"]
+
+    replace '@FINGERPRINT@', project.findProperty('signSHA1')
 }
 
 repositories {
@@ -94,17 +96,13 @@ repositories {
         name 'tterrag'
         url 'http://maven.tterrag.com/'
     }
-    maven {
+    maven { // Tesla
         name 'MMD'
         url 'https://maven.mcmoddev.com/'
     }
     maven { // MCMultipart
         name 'amadornes'
         url 'http://maven.amadornes.com/'
-    }
-    maven { // Tesla
-        name 'epoxide'
-        url 'http://maven.epoxide.org'
     }
     maven { // CraftTweaker, ZenScript
         name 'jared maven'
@@ -176,6 +174,26 @@ task deobfJar(type: Jar) {
     classifier = 'deobf'
     from sourceSets.main.output
 }
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+
+    // Skips if the keyStore property is missing.
+    onlyIf {
+        project.hasProperty('keyStore')
+    }
+
+    // findProperty allows us to reference the property without it existing. 
+    // Using project.propName would cause the script to fail validation if 
+    // the property did not exist. 
+    keyStore = project.findProperty('keyStore')
+    alias = project.findProperty('keyStoreAlias')
+    storePass = project.findProperty('keyStorePass')
+    keyPass = project.findProperty('keyStoreKeyPass')
+    inputFile = jar.archivePath
+    outputFile = jar.archivePath
+}
+
+build.dependsOn signJar
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
