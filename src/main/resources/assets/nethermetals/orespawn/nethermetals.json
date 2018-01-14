@@ -21,10 +21,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_coal_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_coal_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_diamond_ore": {
 			"retrogen": false,
@@ -46,10 +48,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_diamond_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_diamond_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_emerald_ore": {
 			"retrogen": false,
@@ -71,10 +75,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_emerald_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_emerald_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_gold_ore": {
 			"retrogen": false,
@@ -96,10 +102,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_gold_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_gold_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_iron_ore": {
 			"retrogen": false,
@@ -121,10 +129,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_iron_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_iron_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_lapis_ore": {
 			"retrogen": false,
@@ -146,10 +156,12 @@
 				"minHeight": 0,
 				"maxHeight": 96
 			},
-			"block": {
-				"name": "nethermetals:nether_lapis_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_lapis_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_redstone_ore": {
 			"retrogen": false,
@@ -171,10 +183,12 @@
 				"minHeight": 0,
 				"maxHeight": 96
 			},
-			"block": {
-				"name": "nethermetals:nether_redstone_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_redstone_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_antimony_ore": {
 			"retrogen": false,
@@ -196,10 +210,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_antimony_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_antimony_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_bismuth_ore": {
 			"retrogen": false,
@@ -221,10 +237,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_bismuth_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_bismuth_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_copper_ore": {
 			"retrogen": false,
@@ -246,10 +264,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_copper_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_copper_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_lead_ore": {
 			"retrogen": false,
@@ -271,10 +291,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_lead_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_lead_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_mercury_ore": {
 			"retrogen": false,
@@ -296,10 +318,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_mercury_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_mercury_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_nickel_ore": {
 			"retrogen": false,
@@ -321,10 +345,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_nickel_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_nickel_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_platinum_ore": {
 			"retrogen": false,
@@ -346,10 +372,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_platinum_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_platinum_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_silver_ore": {
 			"retrogen": false,
@@ -371,10 +399,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_silver_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_silver_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_tin_ore": {
 			"retrogen": false,
@@ -396,10 +426,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_tin_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_tin_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_zinc_ore": {
 			"retrogen": false,
@@ -421,10 +453,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_zinc_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_zinc_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_aluminum_ore": {
 			"retrogen": false,
@@ -446,10 +480,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_aluminum_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_aluminum_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_cadmium_ore": {
 			"retrogen": false,
@@ -471,10 +507,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_cadmium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_cadmium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_chromium_ore": {
 			"retrogen": false,
@@ -496,10 +534,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_chromium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_chromium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_iridium_ore": {
 			"retrogen": false,
@@ -521,10 +561,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_iridium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_iridium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_magnesium_ore": {
 			"retrogen": false,
@@ -546,10 +588,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_magnesium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_magnesium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_manganese_ore": {
 			"retrogen": false,
@@ -571,10 +615,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_manganese_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_manganese_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_osmium_ore": {
 			"retrogen": false,
@@ -596,10 +642,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_osmium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_osmium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_plutonium_ore": {
 			"retrogen": false,
@@ -621,10 +669,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_plutonium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_plutonium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_rutile_ore": {
 			"retrogen": false,
@@ -646,10 +696,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_rutile_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_rutile_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_tantalum_ore": {
 			"retrogen": false,
@@ -671,10 +723,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_tantalum_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_tantalum_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_titanium_ore": {
 			"retrogen": false,
@@ -696,10 +750,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_titanium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_titanium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_tungsten_ore": {
 			"retrogen": false,
@@ -721,10 +777,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_tungsten_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_tungsten_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_uranium_ore": {
 			"retrogen": false,
@@ -746,10 +804,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_uranium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_uranium_ore",
+					"chance": 100
+				}
+			]
 		},
 		"nether_zirconium_ore": {
 			"retrogen": false,
@@ -771,10 +831,12 @@
 				"minHeight": 0,
 				"maxHeight": 200
 			},
-			"block": {
-				"name": "nethermetals:nether_zirconium_ore",
-				"chance": 100
-			}
+			"blocks": [
+				{
+					"name": "nethermetals:nether_zirconium_ore",
+					"chance": 100
+				}
+			]
 		}
 	}
 }
