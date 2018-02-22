@@ -2,8 +2,10 @@ package com.mcmoddev.nethermetals.init;
 
 import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.MMDCreativeTab;
 import com.mcmoddev.lib.init.Materials;
+import com.mcmoddev.lib.material.MMDMaterial;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,8 +17,7 @@ import net.minecraft.item.ItemStack;
  *
  */
 public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
-	private static final int blocksTabId  = addTab("blocks", true );;
-	public static final MMDCreativeTab blocksTab = getTab(blocksTabId);
+	public static final MMDCreativeTab blocksTab = getTab(SharedStrings.TAB_BLOCKS);
 
 	private static boolean initDone = false;
 
@@ -35,9 +36,26 @@ public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 		initDone = true;
 	}
 	
-	public static void setupIcons() {
-		Item blocksTabIconItem = Item.getItemFromBlock(Materials.getMaterialByName(MaterialNames.LAPIS).getBlock(Names.NETHERORE));
+	public static void setupIcons(String materialName) {
+		if (Materials.hasMaterial(materialName)) {
+			final MMDMaterial material = Materials.getMaterialByName(materialName);
 
-		blocksTab.setTabIconItem(new ItemStack(blocksTabIconItem));
+			if ((blocksTab != null) && (material.hasBlock(Names.NETHERORE))) {
+				blocksTab.setTabIconItem(Item.getItemFromBlock(material.getBlock(Names.NETHERORE)));
+			}
+/*
+			if ((itemsTab != null) && (material.hasItem(Names.GEAR))) {
+				itemsTab.setTabIconItem(material.getItem(Names.GEAR));
+			}
+
+			if ((toolsTab != null) && (material.hasItem(Names.PICKAXE))) {
+				toolsTab.setTabIconItem(material.getItem(Names.PICKAXE));
+			}
+
+			if ((combatTab != null) && (material.hasItem(Names.SWORD))) {
+				combatTab.setTabIconItem(material.getItem(Names.SWORD));
+			}
+*/
+		}
 	}
 }

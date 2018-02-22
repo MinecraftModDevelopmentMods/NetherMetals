@@ -27,50 +27,51 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 		Materials.init();
 		ItemGroups.init();
 		
-		createNetherOreWrapper(Options.isMaterialEnabled("enableCoalNetherOre"), "coal");
-		createNetherOreWrapper(Options.isMaterialEnabled("enableDiamondNetherOre"), "diamond");
-		createNetherOreWrapper(Options.isMaterialEnabled("enableEmeraldNetherOre"), "emerald");
-		createNetherOreWrapper(Options.isMaterialEnabled("enableGoldNetherOre"), "gold");
-		createNetherOreWrapper(Options.isMaterialEnabled("enableIronNetherOre"), "iron");
-		createNetherOreWrapper(Options.isMaterialEnabled("enableLapisNetherOre"), "lapis");
-		createNetherOreWrapper(Options.isMaterialEnabled("enableRedstoneNetherOre"), "redstone");
+		createNetherOreWrapper("coal");
+		createNetherOreWrapper("diamond");
+		createNetherOreWrapper("emerald");
+		createNetherOreWrapper("gold");
+		createNetherOreWrapper("iron");
+		createNetherOreWrapper("lapis");
+		createNetherOreWrapper("redstone");
 
 		if (Loader.isModLoaded("basemetals")) {
-			createNetherOreWrapper(Options.isMaterialEnabled("enableAntimonyNetherOre"), "antimony");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableBismuthNetherOre"), "bismuth");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableCopperNetherOre"), "copper");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableLeadNetherOre"), "lead");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableMercuryNetherOre"), "mercury");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableNickelNetherOre"), "nickel");
-			createNetherOreWrapper(Options.isMaterialEnabled("enablePlatinumNetherOre"), "platinum");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableSilverNetherOre"), "silver");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTinNetherOre"), "tin");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableZincNetherOre"), "zinc");
+			createNetherOreWrapper("antimony");
+			createNetherOreWrapper("bismuth");
+			createNetherOreWrapper("copper");
+			createNetherOreWrapper("lead");
+			createNetherOreWrapper("mercury");
+			createNetherOreWrapper("nickel");
+			createNetherOreWrapper("platinum");
+			createNetherOreWrapper("silver");
+			createNetherOreWrapper("tin");
+			createNetherOreWrapper("zinc");
 		}
 		
 		if (Loader.isModLoaded("modernmetals")) {
-			createNetherOreWrapper(Options.isMaterialEnabled("enableAluminumNetherOre"), "aluminum");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableCadmiumNetherOre"), "cadmium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableChromiumNetherOre"), "chromium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableIridiumNetherOre"), "iridium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableMagnesiumNetherOre"), "magnesium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableManganeseNetherOre"), "manganese");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableOsmiumNetherOre"), "osmium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enablePlutoniumNetherOre"), "plutonium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableRutileNetherOre"), "rutile");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTantalumNetherOre"), "tantalum");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTitaniumNetherOre"), "titanium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTungstenNetherOre"), "tungsten");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableUraniumNetherOre"), "uranium");
-			createNetherOreWrapper(Options.isMaterialEnabled("enableZirconiumNetherOre"), "zirconium");
+			createNetherOreWrapper("aluminum");
+			createNetherOreWrapper("cadmium");
+			createNetherOreWrapper("chromium");
+			createNetherOreWrapper("iridium");
+			createNetherOreWrapper("magnesium");
+			createNetherOreWrapper("manganese");
+			createNetherOreWrapper("osmium");
+			createNetherOreWrapper("plutonium");
+			createNetherOreWrapper("rutile");
+			createNetherOreWrapper("tantalum");
+			createNetherOreWrapper("titanium");
+			createNetherOreWrapper("tungsten");
+			createNetherOreWrapper("uranium");
+			createNetherOreWrapper("zirconium");
 		}
 		
 		initDone = true;
 	}
 
-	private static void createNetherOreWrapper(boolean enabled, String materialName ) {
-		if (enabled && Materials.hasMaterial(materialName)) {
-			create(Names.NETHERORE, Materials.getMaterialByName(materialName), ItemGroups.blocksTab);
+	private static void createNetherOreWrapper(String materialName ) {
+		if (Materials.hasMaterial(materialName)) {
+//			create(Names.NETHERORE, Materials.getMaterialByName(materialName));
+			create(Names.NETHERORE, materialName);
 		}
 	}	
 }

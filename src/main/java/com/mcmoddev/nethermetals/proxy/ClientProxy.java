@@ -2,6 +2,7 @@ package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.init.*;
+import com.mcmoddev.lib.client.registrations.RegistrationHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -19,6 +20,7 @@ public class ClientProxy extends CommonProxy {
 		super.init(event);
 
 		for (final String name : NetherBlocks.getBlockRegistry().keySet()) {
+			// RegistrationHelper.registerItemRender(name);
 			registerRenderOuter(NetherBlocks.getBlockByName(name));
 		}
 	}
