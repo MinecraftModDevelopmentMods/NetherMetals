@@ -36,8 +36,10 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 	}
 	
 	public void initCallback() {
+		/*
 		registerMelting();
 		registry.registerMeltings();
+		*/
 	}
 
 	private void registerMelting() {
