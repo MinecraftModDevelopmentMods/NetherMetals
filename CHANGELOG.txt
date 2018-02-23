@@ -1,1 +1,1 @@
-Port to 1.11.2
+Fixed a silly bug in the last release causing nether ores for vanilla mats not to generate
