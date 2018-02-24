@@ -5,7 +5,6 @@ import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
-import com.mcmoddev.lib.util.ConfigBase.Options;
 import com.mcmoddev.lib.util.Oredicts;
 
 import net.minecraft.block.Block;
@@ -85,7 +84,6 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 
 	private static void createNetherOreWrapper(String materialName ) {
 		if (Materials.hasMaterial(materialName)) {
-//			create(Names.NETHERORE, Materials.getMaterialByName(materialName));
 			create(Names.NETHERORE, materialName);
 		}
 	}	

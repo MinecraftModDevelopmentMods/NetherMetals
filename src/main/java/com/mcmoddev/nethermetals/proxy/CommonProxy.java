@@ -115,28 +115,46 @@ public class CommonProxy {
 	
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent event) {
-		boolean silk = false;
-		if (event.getPlayer() != null && event.getPlayer().getHeldItemMainhand() != null) {
-			NBTTagList var15 = event.getPlayer().getHeldItemMainhand().getEnchantmentTagList();
-			if (var15 != null) {
-				for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
-					short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
-					if (Enchantment.getEnchantmentByID(l1) != null && Enchantment.getEnchantmentByID(l1) == Enchantments.SILK_TOUCH)
-						silk = true;
-				}
-			}
-			
-			if ( (!silk && event.getWorld().provider.getDimension() == -1) &&
-				 ( ( event.getState().getBlock() instanceof BlockMMDNetherOre && 
-				   ((BlockMMDNetherOre) event.getState().getBlock()).doesExplode() ) ||
-				   ( event.getState().getBlock() == Blocks.QUARTZ_ORE) ) ) {
-				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
-				if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
-					event.getWorld().createExplosion(event.getPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), 4.0F, true);
-					if (Options.angerPigmenRange() > 0 )
- 						this.angerPigmen(event.getPos(), event.getWorld(), event.getPlayer(), Options.angerPigmenRange());
-				}
+		boolean silk = hasSilkTouch(event.getPlayer());
+		int currentDimension = event.getWorld().provider.getDimension();
+		Block targetBlock = event.getState().getBlock();
+		World w = event.getWorld();
+		if ((event.getPlayer() != null) && (!event.getPlayer().getHeldItemMainhand().isEmpty())) {
+			if (((!silk) && (currentDimension == -1)) && (isExplodingBlock(targetBlock))) {
+				doExplode(event.getPos(), event.getPlayer(), w);
 			}
 		}
+	}
+
+	private void doExplode(BlockPos pos, EntityPlayer player, World w) {
+		int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
+		if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
+			w.createExplosion(player, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true);
+			if (Options.angerPigmenRange() > 0 )
+				this.angerPigmen(pos, w, player, Options.angerPigmenRange());
+		}
+	}
+
+	private boolean isExplodingBlock(Block targetBlock) {
+		if (((targetBlock instanceof BlockMMDNetherOre) && 
+				(((BlockMMDNetherOre)targetBlock).doesExplode())) ||
+				(targetBlock.equals(Blocks.QUARTZ_ORE))) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean hasSilkTouch(EntityPlayer player) {
+		if( (player == null) || (player.getHeldItemMainhand().isEmpty())) return false;
+		NBTTagList enchants = player.getHeldItemMainhand().getEnchantmentTagList();
+		if (enchants != null) {
+			for (int index = 0; index < enchants.tagCount(); index++) {
+				short enchantId = enchants.getCompoundTagAt(index).getShort("id");
+				if (Enchantment.getEnchantmentByID(enchantId) != null && 
+						Enchantment.getEnchantmentByID(enchantId) == Enchantments.SILK_TOUCH)
+					return true;
+			}
+		}
+		return false;
 	}
 }

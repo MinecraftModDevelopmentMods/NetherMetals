@@ -21,7 +21,7 @@ import com.mcmoddev.lib.util.ConfigBase.Options;
  */
 @MMDPlugin(addonId = NetherMetals.MODID,
 		   pluginId = TinkersConstruct.PLUGIN_MODID, 
-           initCallback="initCallback")
+           preInitCallback="preInitCallback")
 public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstructBase implements IIntegration {
 
 	private static boolean initDone = false;
@@ -35,21 +35,18 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 		initDone = true;
 	}
 	
-	public void initCallback() {
-		/*
+	public void preInitCallback() {
 		registerMelting();
-		registry.registerMeltings();
-		*/
 	}
-
+	
 	private void registerMelting() {
 		registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.basemetals.data.MaterialNames.COAL), Materials.getMaterialByName(com.mcmoddev.basemetals.data.MaterialNames.COAL), 576);
 		registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.basemetals.data.MaterialNames.DIAMOND), Materials.getMaterialByName(com.mcmoddev.basemetals.data.MaterialNames.DIAMOND), 576);
 		registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.basemetals.data.MaterialNames.EMERALD), Materials.getMaterialByName(com.mcmoddev.basemetals.data.MaterialNames.EMERALD), 576);
 		registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.basemetals.data.MaterialNames.GOLD), Materials.getMaterialByName(com.mcmoddev.basemetals.data.MaterialNames.GOLD), 576);
 		registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.basemetals.data.MaterialNames.IRON), Materials.getMaterialByName(com.mcmoddev.basemetals.data.MaterialNames.IRON), 576);
-		// No such thing as a Lapis fluid in the code
-		//registerExtraMeltingWrapper(Materials.getMaterialByName("lapis"), 576);
+		// No such thing as a Lapis fluid in the code ?
+		// registerExtraMeltingWrapper(Materials.getMaterialByName("lapis"), 576);
 		registerExtraMeltingWrapper(Options.isMaterialEnabled(com.mcmoddev.basemetals.data.MaterialNames.REDSTONE), Materials.getMaterialByName(com.mcmoddev.basemetals.data.MaterialNames.REDSTONE), 576);
 		
 		if( Loader.isModLoaded("basemetals") ) {

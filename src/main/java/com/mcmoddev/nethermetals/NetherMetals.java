@@ -57,7 +57,6 @@ public class NetherMetals {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = LogManager.getFormatterLogger(MODID);
 		proxy.preInit(event);
 	}
 

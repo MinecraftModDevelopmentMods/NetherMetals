@@ -40,7 +40,7 @@ public class IC2 extends IC2Base implements IIntegration {
     public void regCallback(RegistryEvent.Register<IRecipe> ev) {
     	List<MMDMaterial> myMats = new ArrayList<>();
     	
-    	Materials.getAllMaterials().stream().filter((mat) -> mat.hasBlock(Names.NETHERORE)).forEach((mat) -> myMats.add(mat));
+    	Materials.getAllMaterials().stream().filter((mat) -> mat.hasBlock(Names.NETHERORE)).forEach(myMats::add);
     	for( MMDMaterial mat : myMats ) {
     		ItemStack output;
     		if( mat.hasItem(Names.CRUSHED)) {
