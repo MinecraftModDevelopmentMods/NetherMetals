@@ -1,28 +1,18 @@
 package com.mcmoddev.nethermetals;
 
-import java.util.Random;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.mcmoddev.lib.block.BlockExplosiveOre;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
-import com.mcmoddev.nethermetals.util.Config.Options;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Enchantments;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * This is the entry point for this Mod.
@@ -30,7 +20,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author Jasmine Iwanek
  *
  */
-@Mod(modid = NetherMetals.MODID, name = NetherMetals.NAME, version = NetherMetals.VERSION, dependencies = "required-after:Forge@[12.18.3.2185,);after:basemetals;after:baseminerals;after:modernmetals", acceptedMinecraftVersions = "[1.10.2,)", updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
+@Mod(modid = NetherMetals.MODID,
+	name = NetherMetals.NAME,
+	version = NetherMetals.VERSION,
+	dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
+	certificateFingerprint = "@FINGERPRINT@",
+	acceptedMinecraftVersions = "[1.12,)",
+	updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopmentMods/NetherMetals/master/update.json")
 public class NetherMetals {
 
 	@Instance
@@ -47,17 +43,20 @@ public class NetherMetals {
 	 * increased whenever a change is made that has the potential to break
 	 * compatibility with other mods that depend on this one.
 	 */
-	public static final String VERSION = "1.2.0-beta1";
+	public static final String VERSION = "1.2.0-beta2";
 
-	public static Logger logger;
+	public static Logger logger = LogManager.getFormatterLogger(NetherMetals.MODID);
 
 	@SidedProxy(clientSide = "com.mcmoddev.nethermetals.proxy.ClientProxy", serverSide = "com.mcmoddev.nethermetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
 
 	@EventHandler
+	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
+		logger.warn("Invalid fingerprint detected!");
+	}
+
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = LogManager.getFormatterLogger(MODID);
-//		logger.setParent(FMLLog.getLogger());
 		proxy.preInit(event);
 	}
 
@@ -88,29 +87,4 @@ public class NetherMetals {
         return Loader.isModLoaded("basemetals");
     }
 
-	@SubscribeEvent
-	public void onBlockBreak(BlockEvent.BreakEvent event) {
-		boolean silk = false;
-		if (event.getPlayer() != null && event.getPlayer().getHeldItem(event.getPlayer().swingingHand) != null) {
-			NBTTagList var15 = event.getPlayer().getHeldItem(event.getPlayer().swingingHand).getEnchantmentTagList();
-			if (var15 != null) {
-				for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
-					short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
-					if (Enchantment.getEnchantmentByID(l1) != null && Enchantment.getEnchantmentByID(l1) == Enchantments.SILK_TOUCH)
-						silk = true;
-				}
-			}
-			if ((!silk && event.getWorld().provider.getDimension() == -1)
-					&& ((event.getState().getBlock() instanceof BlockExplosiveOre
-							&& ((BlockExplosiveOre) event.getState().getBlock()).doesExplode())
-							|| event.getState().getBlock() == Blocks.QUARTZ_ORE)) {
-				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
-				if (randomNum <= Options.getExplosionChance() || Options.getExplosionChance() > 100) {
-					event.getWorld().createExplosion(event.getPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), 4.0F, true);
-					//if (ConfigHandler.isAngerPigmen())
-						//ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
-				}
-			}
-		}
-	}
 }

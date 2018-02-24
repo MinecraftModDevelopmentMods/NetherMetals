@@ -18,8 +18,9 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
 
-		for (final String name : Blocks.getBlockRegistry().keySet()) {
-			registerRenderOuter(Blocks.getBlockByName(name));
+		for (final String name : NetherBlocks.getBlockRegistry().keySet()) {
+			// RegistrationHelper.registerItemRender(name);
+			registerRenderOuter(NetherBlocks.getBlockByName(name));
 		}
 	}
 
@@ -28,7 +29,7 @@ public class ClientProxy extends CommonProxy {
 			return; // do not add door blocks or slabs
 
 		if (block != null) {
-			registerRender(Item.getItemFromBlock(block), Blocks.getNameOfBlock(block));
+			registerRender(Item.getItemFromBlock(block), NetherBlocks.getNameOfBlock(block));
 		}
 	}
 
