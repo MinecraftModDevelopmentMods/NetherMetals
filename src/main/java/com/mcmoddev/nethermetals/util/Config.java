@@ -29,7 +29,8 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 	private static final String COMPAT = "Mod Compat";
 	private static final String GENERAL = "General";
 	private static final String MMDLIB = "MMD Lib";
-
+	private static final String REQUIRE_MMD_ORE_SPAWN = "requireMMDOreSpawn";
+	
 	@SubscribeEvent
 	public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID().equals(NetherMetals.MODID)) {
@@ -86,7 +87,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 
 		//Mod Compat
 		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
-		Options.thingEnabled("requireMMDOreSpawn", configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
+		Options.thingEnabled(REQUIRE_MMD_ORE_SPAWN, configuration.getBoolean(REQUIRE_MMD_ORE_SPAWN, ORESPAWN, true, "Require MMD OreSpawn"));
 		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
 		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, true, "Enable Tinkers Construct Support"));
 
@@ -94,7 +95,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 			configuration.save();
 		}
 
-		if (Options.isThingEnabled("requireMMDOreSpawn")) {
+		if (Options.isThingEnabled(REQUIRE_MMD_ORE_SPAWN)) {
 			if (!Loader.isModLoaded("orespawn")) {
 				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
 				orespawnMod.add(new DefaultArtifactVersion("3.0.0"));

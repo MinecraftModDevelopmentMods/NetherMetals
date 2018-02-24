@@ -2,7 +2,6 @@ package com.mcmoddev.nethermetals.proxy;
 
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.init.*;
-import com.mcmoddev.lib.client.registrations.RegistrationHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
