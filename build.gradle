@@ -191,6 +191,13 @@ dependencies {
     compile "com.mcmoddev:BaseMetals:${mc_version}-${bme_version}:deobf"
     compile "com.mcmoddev:BaseMinerals:${mc_version}-${bmi_version}:deobf"
     compile "com.mcmoddev:ModernMetals:${mc_version}-${mme_version}:deobf"
+    deobfCompile ("slimeknights.mantle:Mantle:${mc_version}-${mantle_version}") {
+        exclude group: 'mezz.jei'
+    }
+
+    deobfCompile ("slimeknights:TConstruct:${mc_version}-${tconstruct_version}") {
+        exclude group: 'mezz.jei'
+    }
 }
 
 processResources {
