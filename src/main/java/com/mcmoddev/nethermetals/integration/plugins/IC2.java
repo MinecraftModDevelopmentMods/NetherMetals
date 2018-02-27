@@ -22,18 +22,13 @@ import com.mcmoddev.lib.util.Oredicts;
 
 @MMDPlugin(addonId=NetherMetals.MODID, pluginId = IC2.PLUGIN_MODID)
 public class IC2 extends IC2Base implements IIntegration {
-
-	private static boolean initDone = false;
-	
 	@Override
 	public void init() {
-		if (initDone || !Options.isModEnabled(IC2.PLUGIN_MODID)) {
+		if (!Options.isModEnabled(PLUGIN_MODID)) {
 			return;
 		}
 		
 		MinecraftForge.EVENT_BUS.register(this);
-		
-		initDone = true;
 	}
 
     @SubscribeEvent
