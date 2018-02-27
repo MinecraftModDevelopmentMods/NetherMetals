@@ -97,7 +97,6 @@ public class CommonProxy {
 				if( block.getRegistryName().getResourceDomain().equals(NetherMetals.MODID) ) {
 					((BlockMMDNetherOre)block).explode();
 					event.getRegistry().register(block);
-					NetherMetals.logger.fatal("registered block %s", block.getRegistryName());
 				}
 			}
 		}
