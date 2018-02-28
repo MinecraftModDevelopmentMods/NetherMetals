@@ -39,5 +39,8 @@ public class Mekanism extends MekanismBase implements IIntegration {
 				material.getItemStack(Names.CLUMP, 6));
 		addChemicalDissolutionChamberRecipe( material.getBlockItemStack(Names.NETHERORE),
 				material.getName(), 2000 );
+		if (material.hasItem(Names.POWDER))
+			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
+					material.getItemStack(Names.POWDER, 4));
 	}
 }
