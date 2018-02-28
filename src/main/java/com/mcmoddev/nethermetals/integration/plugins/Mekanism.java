@@ -36,7 +36,7 @@ public class Mekanism extends MekanismBase implements IIntegration {
 	
 	public void addMultRecipe(@Nonnull final MMDMaterial material) {
 		addPurificationChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
-				material.getItemStack(Names.POWDER, 4));
+				material.getItemStack(Names.CLUMP, 6));
 		addChemicalDissolutionChamberRecipe( material.getBlockItemStack(Names.NETHERORE),
 				material.getName(), 2000 );
 	}
