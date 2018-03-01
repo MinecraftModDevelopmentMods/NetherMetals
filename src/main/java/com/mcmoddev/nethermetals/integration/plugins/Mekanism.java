@@ -31,6 +31,7 @@ public class Mekanism extends MekanismBase implements IIntegration {
 	public void regCallback(RegistryEvent.Register<IRecipe> event) {
 		Materials.getAllMaterials().stream()
 		.filter(material -> material.hasBlock(Names.NETHERORE) && material.hasItem(Names.POWDER))
+		.filter(material -> gasExists(material.getName()))
 		.forEach(this::addMultRecipe);
 	}
 	
