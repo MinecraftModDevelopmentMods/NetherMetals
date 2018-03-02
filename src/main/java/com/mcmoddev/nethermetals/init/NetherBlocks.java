@@ -46,18 +46,16 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 
 	private static void createVanillaNetherOreWrapper(String materialName) {
 		final MMDMaterial material = Materials.getMaterialByName(materialName);
-			material.addNewBlock(Names.NETHERORE, addBlock(new BlockMMDNetherOre(material), Names.NETHERORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
-			final Block b = material.getBlock(Names.NETHERORE);
-			final String oredict = getOredictFromName(Names.NETHERORE);
-			if ((oredict != null) && (b != null)) {
-				Oredicts.registerOre(oredict + material.getCapitalizedName(), b);
-			}
+		material.addNewBlock(Names.NETHERORE, addBlock(new BlockMMDNetherOre(material), Names.NETHERORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
+		final Block b = material.getBlock(Names.NETHERORE);
+		final String oredict = getOredictFromName(Names.NETHERORE);
+		if ((oredict != null) && (b != null)) {
+			Oredicts.registerOre(oredict + material.getCapitalizedName(), b);
+		}
 	}
 
 	private static void createBasicNetherOreWrapper(String materialName ) {
-		if (Materials.hasMaterial(materialName)) {
-			create(Names.NETHERORE, materialName);
-		}
+		create(Names.NETHERORE, materialName);
 	}
 	
 	private static void createNetherOreWrapper(String materialName) {
