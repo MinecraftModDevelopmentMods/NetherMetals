@@ -24,6 +24,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -77,29 +78,40 @@ public class CommonProxy {
 	public void registerItems(RegistryEvent.Register<Item> event) {
 		// NetherMetals doesn't do any of its own materials, just its own blocks
 		// so it actually needs this helper :)
-		for( MMDMaterial mat : Materials.getAllMaterials()) {
-			for( Item item : mat.getItems() ) {
-				if( item.getRegistryName().getResourceDomain().equals(NetherMetals.MODID) ) {
-					event.getRegistry().register(item);
-				}
-			}
-		}
+		Materials.getAllMaterials().stream()
+		.forEach( mat -> {
+			mat.getItems().stream()
+			.map(itemStack -> itemStack.getItem())
+			.filter(this::itemFilterFunc)
+			.forEach(event.getRegistry()::register);
+		});
+
 		Oredicts.registerItemOreDictionaryEntries();
 		Oredicts.registerBlockOreDictionaryEntries();
+	}
+	
+	private boolean itemFilterFunc(Item item) {
+		return matchModId(item.getRegistryName());
 	}
 	
 	@SubscribeEvent
 	public void registerBlocks(RegistryEvent.Register<Block> event) {
 		// NetherMetals doesn't do any of its own materials, just its own blocks
 		// so it actually needs this helper :)
-		for( MMDMaterial mat : Materials.getAllMaterials()) {
-			for( Block block : mat.getBlocks() ) {
-				if( block.getRegistryName().getResourceDomain().equals(NetherMetals.MODID) ) {
-					((BlockMMDNetherOre)block).explode();
-					event.getRegistry().register(block);
-				}
-			}
-		}
+		Materials.getAllMaterials().stream()
+		.forEach( mat -> {
+			mat.getBlocks().stream()
+			.filter(this::blockFilterFunc)
+			.forEach(event.getRegistry()::register);
+		});
+	}
+
+	private boolean blockFilterFunc(Block block) {
+		return matchModId(block.getRegistryName());
+	}
+	
+	private boolean matchModId(ResourceLocation rl) {
+		return rl.getResourceDomain().equals(NetherMetals.MODID);
 	}
 	
 	public void angerPigmen(BlockPos pos, World world, EntityPlayer player, int range) {
