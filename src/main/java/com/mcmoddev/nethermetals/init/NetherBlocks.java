@@ -20,28 +20,22 @@ import net.minecraftforge.fml.common.Loader;
  *
  */
 public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
-
-	private static boolean initDone = false;
-
 	/**
 	 *
 	 */
 	public static void init() {
-		if (initDone) {
-			return;
-		}
-
 		Materials.init();
 		ItemGroups.init();
 
-		Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone", "antimony", 
-				"bismuth", "copper", "lead", "mercury", "nickel", "platinum", "silver", "tin", "zinc", 
-				"aluminum", "cadmium", "chromium", "iridium", "magnesium", "manganese", "osmium", 
-				"plutonium", "rutile", "tantalum", "titanium", "tungsten", "uranium", "zirconium").stream()
-		.filter(Materials::hasMaterial)
+		List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
+				"redstone", "antimony", "bismuth", "copper", "lead", "mercury", "nickel", "platinum",
+				"silver", "tin", "zinc", "aluminum", "cadmium", "chromium", "iridium", "magnesium",
+				"manganese", "osmium", "plutonium", "rutile", "tantalum", "titanium", "tungsten",
+				"uranium", "zirconium");
+		Materials.getAllMaterials().stream()
+		.map(mat -> mat.getName())
+		.filter(knownMaterials::contains)
 		.forEach(NetherBlocks::createNetherOreWrapper);
-			
-		initDone = true;
 	}
 
 	private static void createVanillaNetherOreWrapper(String materialName) {
