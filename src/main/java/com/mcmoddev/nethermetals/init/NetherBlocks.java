@@ -1,5 +1,8 @@
 package com.mcmoddev.nethermetals.init;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.mcmoddev.lib.block.*;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
@@ -31,44 +34,13 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 		Materials.init();
 		ItemGroups.init();
 
-		createVanillaNetherOreWrapper("coal");
-		createVanillaNetherOreWrapper("diamond");
-		createVanillaNetherOreWrapper("emerald");
-		createVanillaNetherOreWrapper("gold");
-		createVanillaNetherOreWrapper("iron");
-		createVanillaNetherOreWrapper("lapis");
-		createVanillaNetherOreWrapper("redstone");
-
-		if (Loader.isModLoaded("basemetals")) {
-			createNetherOreWrapper("antimony");
-			createNetherOreWrapper("bismuth");
-			createNetherOreWrapper("copper");
-			createNetherOreWrapper("lead");
-			createNetherOreWrapper("mercury");
-			createNetherOreWrapper("nickel");
-			createNetherOreWrapper("platinum");
-			createNetherOreWrapper("silver");
-			createNetherOreWrapper("tin");
-			createNetherOreWrapper("zinc");
-		}
-		
-		if (Loader.isModLoaded("modernmetals")) {
-			createNetherOreWrapper("aluminum");
-			createNetherOreWrapper("cadmium");
-			createNetherOreWrapper("chromium");
-			createNetherOreWrapper("iridium");
-			createNetherOreWrapper("magnesium");
-			createNetherOreWrapper("manganese");
-			createNetherOreWrapper("osmium");
-			createNetherOreWrapper("plutonium");
-			createNetherOreWrapper("rutile");
-			createNetherOreWrapper("tantalum");
-			createNetherOreWrapper("titanium");
-			createNetherOreWrapper("tungsten");
-			createNetherOreWrapper("uranium");
-			createNetherOreWrapper("zirconium");
-		}
-		
+		Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone", "antimony", 
+				"bismuth", "copper", "lead", "mercury", "nickel", "platinum", "silver", "tin", "zinc", 
+				"aluminum", "cadmium", "chromium", "iridium", "magnesium", "manganese", "osmium", 
+				"plutonium", "rutile", "tantalum", "titanium", "tungsten", "uranium", "zirconium").stream()
+		.filter(Materials::hasMaterial)
+		.forEach(NetherBlocks::createNetherOreWrapper);
+			
 		initDone = true;
 	}
 
@@ -82,9 +54,17 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 			}
 	}
 
-	private static void createNetherOreWrapper(String materialName ) {
+	private static void createBasicNetherOreWrapper(String materialName ) {
 		if (Materials.hasMaterial(materialName)) {
 			create(Names.NETHERORE, materialName);
 		}
-	}	
+	}
+	
+	private static void createNetherOreWrapper(String materialName) {
+		List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
+		if (vanillaMats.contains(materialName))
+			createVanillaNetherOreWrapper(materialName);
+		else
+			createBasicNetherOreWrapper(materialName);
+	}
 }
