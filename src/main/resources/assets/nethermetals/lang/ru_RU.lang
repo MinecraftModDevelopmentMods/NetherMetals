@@ -1,0 +1,36 @@
+#   Nether Metals 1.12-1.2.0-beta1.5
+#   Translated by Grey Mamon (grey.mamon@gmail.com) 11.28.2017
+
+tile.nethermetals.nether_coal_ore.name=Угольная руда ада
+tile.nethermetals.nether_diamond_ore.name=Алмазная руда ада
+tile.nethermetals.nether_emerald_ore.name=Изумрудная руда ада
+tile.nethermetals.nether_gold_ore.name=Золотая руда ада
+tile.nethermetals.nether_iron_ore.name=Железная руда ада
+tile.nethermetals.nether_lapis_ore.name=Лазуритовая руда ада
+tile.nethermetals.nether_redstone_ore.name=Редстоуновая руда ада
+ 
+tile.nethermetals.nether_antimony_ore.name=Сурьмяная руда ада
+tile.nethermetals.nether_bismuth_ore.name=Висмутовая руда ада
+tile.nethermetals.nether_copper_ore.name=Медная руда ада
+tile.nethermetals.nether_lead_ore.name=Свинцовая руда ада
+tile.nethermetals.nether_mercury_ore.name=Ртутная руда ада
+tile.nethermetals.nether_nickel_ore.name=Никелевая руда ада
+tile.nethermetals.nether_platinum_ore.name=Платиновая руда ада
+tile.nethermetals.nether_silver_ore.name=Серебряная руда ада
+tile.nethermetals.nether_tin_ore.name=Оловянная руда ада
+tile.nethermetals.nether_zinc_ore.name=Цинковая руда ада
+ 
+tile.nethermetals.nether_aluminum_ore.name=Алюминиевая руда ада
+tile.nethermetals.nether_cadmium_ore.name=Кадмиевая руда ада
+tile.nethermetals.nether_chromium_ore.name=Хромовая руда ада
+tile.nethermetals.nether_iridium_ore.name=Иридиевая руда ада
+tile.nethermetals.nether_magnesium_ore.name=Магниевая руда ада
+tile.nethermetals.nether_manganese_ore.name=Марганцевая руда ада
+tile.nethermetals.nether_osmium_ore.name=Осмиевая руда ада
+tile.nethermetals.nether_plutonium_ore.name=Плутониевая руда ада
+tile.nethermetals.nether_rutile_ore.name=Рутиловая руда ада
+tile.nethermetals.nether_tantalum_ore.name=Танталовая руда ада
+tile.nethermetals.nether_titanium_ore.name=Титановая руда ада
+tile.nethermetals.nether_tungsten_ore.name=Вольфрамовая руда ада
+tile.nethermetals.nether_uranium_ore.name=Урановая руда ада
+tile.nethermetals.nether_zirconium_ore.name=Циркониевая руда ада
