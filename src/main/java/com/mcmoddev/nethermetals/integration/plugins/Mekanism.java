@@ -1,7 +1,11 @@
 package com.mcmoddev.nethermetals.integration.plugins;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.annotation.Nonnull;
 
+import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.basemetals.init.Materials;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.integration.IIntegration;
@@ -13,9 +17,11 @@ import com.mcmoddev.nethermetals.NetherMetals;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 @MMDPlugin(addonId=NetherMetals.MODID, pluginId = Mekanism.PLUGIN_MODID)
 public class Mekanism extends MekanismBase implements IIntegration {
@@ -30,9 +36,33 @@ public class Mekanism extends MekanismBase implements IIntegration {
 	
 	@SubscribeEvent
 	public void regCallback(RegistryEvent.Register<IRecipe> event) {
+		final List<String> mekProvides = Arrays.asList(MaterialNames.IRON, MaterialNames.GOLD, 
+				com.mcmoddev.modernmetals.data.MaterialNames.OSMIUM,
+				MaterialNames.COPPER, MaterialNames.TIN, MaterialNames.SILVER, MaterialNames.LEAD);
+		
+		mekProvides.stream()
+		.map(Materials::getMaterialByName)
+		.filter(mat -> !mat.isEmpty())
+		.filter(mat -> gasExists(mat.getName()))
+		.forEach( mat -> {
+			ItemStack clump = new ItemStack( ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "clump")),
+					6, mekProvides.indexOf(mat.getName()));
+			ItemStack dust = new ItemStack( ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "dust")),
+					4, mekProvides.indexOf(mat.getName()));
+			ItemStack shard = new ItemStack( ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "shard")),
+					8, mekProvides.indexOf(mat.getName()));
+			final ItemStack netherOre = mat.getBlockItemStack(Names.NETHERORE);
+			
+			addEnrichmentChamberRecipe(netherOre, dust);
+			addPurificationChamberRecipe(netherOre, clump);
+			addChemicalInjectionChamberRecipe(netherOre, shard);
+			addChemicalDissolutionChamberRecipe(netherOre, mat.getName(), 2000);
+		});
+		
 		Materials.getAllMaterials().stream()
 		.filter(material -> material.hasBlock(Names.NETHERORE) && material.hasItem(Names.POWDER))
 		.filter(material -> gasExists(material.getName()))
+		.filter(material -> !mekProvides.contains(material.getName()))
 		.forEach(this::addMultRecipe);
 
 		if (Materials.hasMaterial("lapis")) {
@@ -62,7 +92,7 @@ public class Mekanism extends MekanismBase implements IIntegration {
 
 	private void addMultRecipe(@Nonnull final MMDMaterial material) {
 		final ItemStack netherOre = material.getBlockItemStack(Names.NETHERORE);
-
+		
 		if (material.hasItem(Names.POWDER)) {
 			addEnrichmentChamberRecipe(netherOre, material.getItemStack(Names.POWDER, 4));
 		}
