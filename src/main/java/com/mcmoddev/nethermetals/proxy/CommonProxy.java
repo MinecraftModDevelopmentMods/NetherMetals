@@ -58,7 +58,6 @@ public class CommonProxy {
 		
 		ItemGroups.init();
 		NetherBlocks.init();
-		ItemGroups.setupIcons("lapis");
 
 		MinecraftForge.EVENT_BUS.register(this);
 		IntegrationManager.INSTANCE.preInit(event);
@@ -67,6 +66,8 @@ public class CommonProxy {
 
 	public void init(FMLInitializationEvent event) {
 		Recipes.init();
+
+		ItemGroups.setupIcons("lapis");
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
