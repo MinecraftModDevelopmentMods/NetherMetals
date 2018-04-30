@@ -4,13 +4,16 @@ import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
+import com.mcmoddev.lib.integration.IntegrationInitEvent;
 import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 import com.mcmoddev.lib.util.Oredicts;
 import com.mcmoddev.lib.integration.plugins.TinkersConstructBase;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.smeltery.MeltingRecipe;
 import slimeknights.mantle.util.RecipeMatch;
@@ -22,7 +25,7 @@ import slimeknights.mantle.util.RecipeMatch;
  */
 @MMDPlugin(addonId = NetherMetals.MODID, 
 pluginId = TinkersConstruct.PLUGIN_MODID, 
-postInitCallback="registerExtraMelting")
+versions=TinkersConstruct.PLUGIN_MODID+"@[1.12.2-2.7.4.0,);")
 public class TinkersConstruct extends TinkersConstructBase implements IIntegration {
 
 	@Override
@@ -31,10 +34,13 @@ public class TinkersConstruct extends TinkersConstructBase implements IIntegrati
 			return;
 		}
 
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
 	private boolean registered = false;
-	public void registerExtraMelting() {
+	
+    @SubscribeEvent
+    public void registerExtraMeltings(IntegrationInitEvent ev) {
 		if (registered) return;
 		registered = true;
 		Materials.getAllMaterials().stream()

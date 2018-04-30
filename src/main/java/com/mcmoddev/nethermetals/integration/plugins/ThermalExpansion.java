@@ -14,7 +14,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@MMDPlugin(addonId=NetherMetals.MODID, pluginId=ThermalExpansion.PLUGIN_MODID)
+@MMDPlugin(addonId=NetherMetals.MODID, pluginId=ThermalExpansion.PLUGIN_MODID,
+           versions = ThermalExpansion.PLUGIN_MODID+"@(,5.3.12.17];")
 public class ThermalExpansion extends ThermalExpansionBase implements IIntegration {
 	@Override
 	public void init() {
