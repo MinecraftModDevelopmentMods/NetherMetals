@@ -9,9 +9,9 @@ import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.util.Oredicts;
+import com.mcmoddev.nethermetals.NetherMetals;
 
 import net.minecraft.block.Block;
-import net.minecraftforge.fml.common.Loader;
 
 /**
  * This class initializes all blocks in Nether Metals.
@@ -24,9 +24,9 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 	 *
 	 */
 	public static void init() {
-		Materials.init();
+/*		Materials.init();
 		ItemGroups.init();
-
+*/
 		List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
 				"redstone", "antimony", "bismuth", "copper", "lead", "mercury", "nickel", "platinum",
 				"silver", "tin", "zinc", "aluminum", "cadmium", "chromium", "iridium", "magnesium",
@@ -54,6 +54,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 	
 	private static void createNetherOreWrapper(String materialName) {
 		List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
+		NetherMetals.logger.fatal("Creating NetherOre for material named %s", materialName);
 		if (vanillaMats.contains(materialName))
 			createVanillaNetherOreWrapper(materialName);
 		else
