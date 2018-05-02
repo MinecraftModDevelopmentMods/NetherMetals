@@ -5,6 +5,7 @@ import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.MMDCreativeTab;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
+import com.mcmoddev.nethermetals.NetherMetals;
 
 import net.minecraft.item.Item;
 
@@ -15,8 +16,6 @@ import net.minecraft.item.Item;
  *
  */
 public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
-	public static final MMDCreativeTab blocksTab = getTab(SharedStrings.TAB_BLOCKS);
-
 	private static boolean initDone = false;
 
 	private ItemGroups() {
@@ -38,8 +37,8 @@ public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 		if (Materials.hasMaterial(materialName)) {
 			final MMDMaterial material = Materials.getMaterialByName(materialName);
 
-			if ((blocksTab != null) && (material.hasBlock(Names.NETHERORE))) {
-				blocksTab.setTabIconItem(Item.getItemFromBlock(material.getBlock(Names.NETHERORE)));
+			if (material.hasBlock(Names.NETHERORE)) {
+				getTab(NetherMetals.MODID,SharedStrings.TAB_BLOCKS).setTabIconItem(Item.getItemFromBlock(material.getBlock(Names.NETHERORE)));
 			}
 		}
 	}
