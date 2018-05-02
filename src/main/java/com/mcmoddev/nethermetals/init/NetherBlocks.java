@@ -54,7 +54,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 	
 	private static void createNetherOreWrapper(String materialName) {
 		List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
-		NetherMetals.logger.fatal("Creating NetherOre for material named %s", materialName);
+
 		if (vanillaMats.contains(materialName))
 			createVanillaNetherOreWrapper(materialName);
 		else
