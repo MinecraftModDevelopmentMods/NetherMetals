@@ -28,6 +28,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 	private static final String NETHERORE = "Nether Ores";
 	private static final String COMPAT = "Mod Compat";
 	private static final String GENERAL = "General";
+	private static final String REQUIRE_MMD_ORE_SPAWN = "requireMMDOreSpawn";
 
 	@SubscribeEvent
 	public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
@@ -48,7 +49,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.angerPigmenRange( configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt());
 		Options.thingEnabled("smeltToIngots", configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots"));
 		Options.thingEnabled("makeDusts", configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts"));
-		
+
 		//Nether Ores
 		Options.materialEnabled("enableCoalNetherOre", configuration.getBoolean("enableCoalNetherOre", NETHERORE, true, "Enable Coal Nether Ore"));
 		Options.materialEnabled("enableDiamondNetherOre", configuration.getBoolean("enableDiamondNetherOre", NETHERORE, true, "Enable Diamond Nether Ore"));
@@ -84,7 +85,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableZirconiumNetherOre", configuration.getBoolean("enableZirconiumNetherOre", NETHERORE, true, "Enable Zirconium Nether Ore"));
 
 		//Mod Compat
-		Options.thingEnabled("requireMMDOreSpawn", configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
+		Options.thingEnabled(REQUIRE_MMD_ORE_SPAWN, configuration.getBoolean(REQUIRE_MMD_ORE_SPAWN, ORESPAWN, true, "Require MMD OreSpawn"));
 		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
 		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support"));
 
@@ -92,10 +93,10 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 			configuration.save();
 		}
 
-		if (Options.isThingEnabled("requireMMDOreSpawn")) {
+		if (Options.isThingEnabled(REQUIRE_MMD_ORE_SPAWN)) {
 			if (!Loader.isModLoaded("orespawn")) {
 				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
-				orespawnMod.add(new DefaultArtifactVersion("3.1.0"));
+				orespawnMod.add(new DefaultArtifactVersion("3.2.2"));
 				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 			}
 		}
