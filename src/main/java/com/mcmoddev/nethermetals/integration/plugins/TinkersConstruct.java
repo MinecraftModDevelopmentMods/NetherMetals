@@ -40,7 +40,7 @@ public class TinkersConstruct extends TinkersConstructBase implements IIntegrati
 	private boolean registered = false;
 	
     @SubscribeEvent
-    public void registerExtraMeltings(IntegrationInitEvent ev) {
+    public void registerExtraMeltings(final IntegrationInitEvent ev) {
 		if (registered) return;
 		registered = true;
 		Materials.getAllMaterials().stream()
@@ -54,15 +54,15 @@ public class TinkersConstruct extends TinkersConstructBase implements IIntegrati
 		});
 	}
 	
-	private boolean hasFluid(MMDMaterial mat) {
+	private boolean hasFluid(final MMDMaterial mat) {
 		return FluidRegistry.getFluid(mat.getName()) != null;
 	}
 	
-	private boolean hasNetherOre(MMDMaterial mat) {
+	private boolean hasNetherOre(final MMDMaterial mat) {
 		return mat.hasBlock(Names.NETHERORE);
 	}
 	
-	private boolean isMaterialEmpty(MMDMaterial mat) {
+	private boolean isMaterialEmpty(final MMDMaterial mat) {
 		return !mat.isEmpty();
 	}	
 }

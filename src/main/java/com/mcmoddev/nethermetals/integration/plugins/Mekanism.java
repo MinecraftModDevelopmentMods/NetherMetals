@@ -35,7 +35,7 @@ public class Mekanism extends MekanismBase implements IIntegration {
 	}
 
 	@SubscribeEvent
-	public void regCallback(RegistryEvent.Register<IRecipe> event) {
+	public void regCallback(final RegistryEvent.Register<IRecipe> event) {
 		final List<String> mekProvides = Arrays.asList(MaterialNames.IRON, MaterialNames.GOLD, 
 				com.mcmoddev.modernmetals.data.MaterialNames.OSMIUM,
 				MaterialNames.COPPER, MaterialNames.TIN, MaterialNames.SILVER, MaterialNames.LEAD);
@@ -45,11 +45,11 @@ public class Mekanism extends MekanismBase implements IIntegration {
 		.filter(mat -> !mat.isEmpty())
 		.filter(mat -> gasExists(mat.getName()))
 		.forEach( mat -> {
-			final ItemStack clump = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "clump")),
+			final ItemStack clump = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(PLUGIN_MODID, Names.CLUMP.toString())),
 					6, mekProvides.indexOf(mat.getName()));
-			final ItemStack dust = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "dust")),
+			final ItemStack dust = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(PLUGIN_MODID, "dust")),
 					4, mekProvides.indexOf(mat.getName()));
-			final ItemStack shard = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "shard")),
+			final ItemStack shard = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(PLUGIN_MODID, Names.SHARD.toString())),
 					8, mekProvides.indexOf(mat.getName()));
 			final ItemStack netherOre = mat.getBlockItemStack(Names.NETHERORE);
 

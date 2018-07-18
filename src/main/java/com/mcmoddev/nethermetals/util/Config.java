@@ -3,18 +3,13 @@ package com.mcmoddev.nethermetals.util;
 import com.mcmoddev.nethermetals.NetherMetals;
 
 import java.io.File;
-import java.util.HashSet;
 
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.versioning.ArtifactVersion;
-import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 /**
  * @author Jasmine Iwanek
@@ -30,7 +25,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 	private static final String GENERAL = "General";
 	private static final String MMDLIB = "MMD Lib";
 	private static final String REQUIRE_MMD_ORE_SPAWN = "requireMMDOreSpawn";
-	
+
 	@SubscribeEvent
 	public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID().equals(NetherMetals.MODID)) {
@@ -93,14 +88,6 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 
 		if (configuration.hasChanged()) {
 			configuration.save();
-		}
-
-		if (Options.isThingEnabled(REQUIRE_MMD_ORE_SPAWN)) {
-			if (!Loader.isModLoaded("orespawn")) {
-				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
-				orespawnMod.add(new DefaultArtifactVersion("3.0.0"));
-				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
-			}
 		}
 	}
 

@@ -31,24 +31,24 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @EventBusSubscriber
 public class EventHandler {
 	@SubscribeEvent
-	public static void mmdlibRegisterBlocks(MMDLibRegisterBlocks ev) {
+	public static void mmdlibRegisterBlocks(final MMDLibRegisterBlocks ev) {
 		ev.setActive(NetherMetals.MODID);
 		NetherBlocks.init();
 	}
 
 	@SubscribeEvent
-	public static void onRemapBlock(RegistryEvent.MissingMappings<Block> event) {
+	public static void onRemapBlock(final RegistryEvent.MissingMappings<Block> event) {
 		for (final RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getAllMappings()) {
-			if (mapping.key.getResourceDomain().equals(NetherMetals.MODID)) {
+			if (mapping.key.getNamespace().equals(NetherMetals.MODID)) {
 				// dummy
 			}
 		}
 	}
 
 	@SubscribeEvent
-	public static void onRemapItem(RegistryEvent.MissingMappings<Item> event) {
+	public static void onRemapItem(final RegistryEvent.MissingMappings<Item> event) {
 		for (final RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getAllMappings()) {
-			if (mapping.key.getResourceDomain().equals(NetherMetals.MODID)) {
+			if (mapping.key.getNamespace().equals(NetherMetals.MODID)) {
 				// dummy
 			}
 		}
@@ -56,16 +56,16 @@ public class EventHandler {
 
 	// even though no items are directly created there are ItemBlock instances that need registered as well
 	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<Item> event) {
+	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		// NetherMetals doesn't do any of its own materials, just its own blocks
 		// so it actually needs this helper :)
 		Materials.getAllMaterials().stream()
-		.forEach( mat -> {
+		.forEach( mat ->
 			mat.getItems().stream()
 			.map(itemStack -> itemStack.getItem())
 			.filter(EventHandler::itemFilterFunc)
-			.forEach(event.getRegistry()::register);
-		});
+			.forEach(event.getRegistry()::register)
+		);
 
 		Oredicts.registerItemOreDictionaryEntries();
 		Oredicts.registerBlockOreDictionaryEntries();
@@ -76,41 +76,41 @@ public class EventHandler {
 	}
 	
 	@SubscribeEvent
-	public static void registerBlocks(RegistryEvent.Register<Block> event) {
+	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
 		// NetherMetals doesn't do any of its own materials, just its own blocks
 		// so it actually needs this helper :)
 		Materials.getAllMaterials().stream()
-		.forEach( mat -> {
+		.forEach( mat ->
 			mat.getBlocks().stream()
 			.filter(EventHandler::blockFilterFunc)
-			.forEach(event.getRegistry()::register);
-		});
+			.forEach(event.getRegistry()::register)
+		);
 	}
 
-	private static boolean blockFilterFunc(Block block) {
+	private static boolean blockFilterFunc(final Block block) {
 		return matchModId(block.getRegistryName());
 	}
 	
-	private static boolean matchModId(ResourceLocation rl) {
-		return rl.getResourceDomain().equals(NetherMetals.MODID);
+	private static boolean matchModId(final ResourceLocation rl) {
+		return rl.getNamespace().equals(NetherMetals.MODID);
 	}
 	
-	public static void angerPigmen(BlockPos pos, World world, EntityPlayer player, int range) {
-		int rr = range / 2;
-		BlockPos work1 = new BlockPos(pos).add(-rr,-rr,-rr);
-		BlockPos work2 = new BlockPos(pos).add(+rr,+rr,+rr);
-		AxisAlignedBB bb = new AxisAlignedBB(work1, work2);
-		for( final EntityLivingBase entity : world.getEntitiesWithinAABB(EntityPigZombie.class, bb) ) {
+	public static void angerPigmen(final BlockPos pos, final World world, final EntityPlayer player, final int range) {
+		final int rr = range / 2;
+		final BlockPos work1 = new BlockPos(pos).add(-rr,-rr,-rr);
+		final BlockPos work2 = new BlockPos(pos).add(+rr,+rr,+rr);
+		final AxisAlignedBB bb = new AxisAlignedBB(work1, work2);
+		for (final EntityLivingBase entity : world.getEntitiesWithinAABB(EntityPigZombie.class, bb)) {
 			entity.setRevengeTarget(player);
 		}
 	}
 	
 	@SubscribeEvent
-	public static void onBlockBreak(BlockEvent.BreakEvent event) {
-		boolean silk = hasSilkTouch(event.getPlayer());
-		int currentDimension = event.getWorld().provider.getDimension();
-		Block targetBlock = event.getState().getBlock();
-		World w = event.getWorld();
+	public static void onBlockBreak(final BlockEvent.BreakEvent event) {
+		final boolean silk = hasSilkTouch(event.getPlayer());
+		final int currentDimension = event.getWorld().provider.getDimension();
+		final Block targetBlock = event.getState().getBlock();
+		final World w = event.getWorld();
 		if ((event.getPlayer() != null) && (!event.getPlayer().getHeldItemMainhand().isEmpty())) {
 			if (((!silk) && (currentDimension == -1)) && (isExplodingBlock(targetBlock))) {
 				doExplode(event.getPos(), event.getPlayer(), w);
@@ -118,8 +118,8 @@ public class EventHandler {
 		}
 	}
 
-	private static void doExplode(BlockPos pos, EntityPlayer player, World w) {
-		int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
+	private static void doExplode(final BlockPos pos, final EntityPlayer player, final World w) {
+		final int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
 		if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
 			w.createExplosion(player, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true);
 			if (Options.angerPigmenRange() > 0 )
@@ -127,7 +127,7 @@ public class EventHandler {
 		}
 	}
 
-	private static boolean isExplodingBlock(Block targetBlock) {
+	private static boolean isExplodingBlock(final Block targetBlock) {
 		if (((targetBlock instanceof BlockMMDNetherOre) && 
 				(((BlockMMDNetherOre)targetBlock).doesExplode())) ||
 				(targetBlock.equals(Blocks.QUARTZ_ORE))) {
@@ -136,9 +136,9 @@ public class EventHandler {
 		return false;
 	}
 
-	private static boolean hasSilkTouch(EntityPlayer player) {
+	private static boolean hasSilkTouch(final EntityPlayer player) {
 		if( (player == null) || (player.getHeldItemMainhand().isEmpty())) return false;
-		NBTTagList enchants = player.getHeldItemMainhand().getEnchantmentTagList();
+		final NBTTagList enchants = player.getHeldItemMainhand().getEnchantmentTagList();
 		if (enchants != null) {
 			for (int index = 0; index < enchants.tagCount(); index++) {
 				short enchantId = enchants.getCompoundTagAt(index).getShort("id");

@@ -1,19 +1,19 @@
 package com.mcmoddev.nethermetals.init;
 
 import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public final class Recipes {
 
 	private Recipes() {
-		throw new IllegalAccessError("Not a instantiable class");
+		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
 	}
 
 	public static void init() {
@@ -60,10 +60,10 @@ public final class Recipes {
 		}
 	}
 
-	private static void recipeWrapper(boolean enabled, String materialName) {
+	private static void recipeWrapper(final boolean enabled, final String materialName) {
 		if (enabled && Materials.hasMaterial(materialName)) {
-			MMDMaterial material = Materials.getMaterialByName(materialName);
-			if (material.getBlock(Names.NETHERORE) != null) {
+			final MMDMaterial material = Materials.getMaterialByName(materialName);
+			if (material.hasBlock(Names.NETHERORE)) {
 				doFurnaceSmelting(material);
 				doMakeDusts(material);
 			}
@@ -72,18 +72,18 @@ public final class Recipes {
 
 	private static void doMakeDusts(MMDMaterial material) {
 		if ((Options.isThingEnabled("makeDusts")) && (!material.getItemStack(Names.POWDER).isEmpty())) {
-			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.POWDER), 4));
+			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), material.getItemStack(Names.POWDER, 4));
 		} else if (!material.getBlockItemStack(Names.ORE).isEmpty()) {
-			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), new ItemStack(material.getBlock(Names.ORE), 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.NETHERORE), material.getBlockItemStack(Names.ORE, 2));
 		}
 	}
 
 	private static void doFurnaceSmelting(MMDMaterial material) {
 		if (Options.isThingEnabled("enableFurnaceSmelting")) {
 			if ((Options.isThingEnabled("smeltToIngots")) && (!material.getItemStack(Names.INGOT).isEmpty())) {
-				GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
+				GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), material.getItemStack(Names.INGOT, 2), 1.0f);
 			} else if (!material.getBlockItemStack(Names.ORE).isEmpty()) {
-				GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), new ItemStack(material.getBlock(Names.ORE), 2), 1.0f);
+				GameRegistry.addSmelting(material.getBlock(Names.NETHERORE), material.getBlockItemStack(Names.ORE, 2), 1.0f);
 			}
 		}
 	}

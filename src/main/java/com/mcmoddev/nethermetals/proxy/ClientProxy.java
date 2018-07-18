@@ -24,7 +24,7 @@ public class ClientProxy extends CommonProxy {
 		}
 	}
 
-	public void registerRenderOuter(Block block) {
+	public void registerRenderOuter(final Block block) {
 		if ((block instanceof BlockDoor) || (block instanceof BlockSlab))
 			return; // do not add door blocks or slabs
 
@@ -33,10 +33,10 @@ public class ClientProxy extends CommonProxy {
 		}
 	}
 
-	public void registerRender(Item item, String name) {
+	public void registerRender(final Item item, final String name) {
 		final ItemModelMesher itemModelMesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
-		if (!item.getRegistryName().getResourceDomain().equals(NetherMetals.MODID))
+		if (!item.getRegistryName().getNamespace().equals(NetherMetals.MODID))
 			return;
-		itemModelMesher.register(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), name), "inventory"));
+		itemModelMesher.register(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getNamespace(), name), "inventory"));
 	}
 }

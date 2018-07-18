@@ -2,10 +2,11 @@ package com.mcmoddev.nethermetals;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
 import com.mcmoddev.nethermetals.util.Config;
 
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -47,51 +48,33 @@ public class NetherMetals {
 	 */
 	public static final String VERSION = "1.2.0-beta3";
 
-	public static Logger logger = LogManager.getFormatterLogger(NetherMetals.MODID);
+	public static final Logger logger = LogManager.getFormatterLogger(NetherMetals.MODID);
 
 	@SidedProxy(clientSide = "com.mcmoddev.nethermetals.proxy.ClientProxy", serverSide = "com.mcmoddev.nethermetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
 
 	@EventHandler
-	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
-		logger.warn("Invalid fingerprint detected!");
+	public void onFingerprintViolation(final FMLFingerprintViolationEvent event) {
+		logger.warn(SharedStrings.INVALID_FINGERPRINT);
 	}
 
 	@EventHandler
-	public void constructing(FMLConstructionEvent ev) {
+	public void constructing(final FMLConstructionEvent ev) {
 		Config.init();
 	}
 	
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(final FMLPreInitializationEvent event) {
 		proxy.preInit(event);
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(final FMLInitializationEvent event) {
 		proxy.init(event);
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(final FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
-	
-    public static boolean hasMMDLib() {
-        return Loader.isModLoaded("mmdlib");
-    }
-        
-    public static boolean hasOreSpawn() {
-        return Loader.isModLoaded("orespawn");
-    }
-    public static boolean hasTinkers() {
-        return Loader.isModLoaded("tinkersconstruct");
-    }
-    public static boolean hasModernMetals() {
-        return Loader.isModLoaded("modernmetals");
-    }
-    public static boolean hasBaseMetals() {
-        return Loader.isModLoaded("basemetals");
-    }
-
 }

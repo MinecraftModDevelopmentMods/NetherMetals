@@ -9,7 +9,6 @@ import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.util.Oredicts;
-import com.mcmoddev.nethermetals.NetherMetals;
 
 import net.minecraft.block.Block;
 
@@ -27,7 +26,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 /*		Materials.init();
 		ItemGroups.init();
 */
-		List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
+		final List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
 				"redstone", "antimony", "bismuth", "copper", "lead", "mercury", "nickel", "platinum",
 				"silver", "tin", "zinc", "aluminum", "cadmium", "chromium", "iridium", "magnesium",
 				"manganese", "osmium", "plutonium", "rutile", "tantalum", "titanium", "tungsten",
@@ -38,7 +37,7 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 		.forEach(NetherBlocks::createNetherOreWrapper);
 	}
 
-	private static void createVanillaNetherOreWrapper(String materialName) {
+	private static void createVanillaNetherOreWrapper(final String materialName) {
 		final MMDMaterial material = Materials.getMaterialByName(materialName);
 		material.addNewBlock(Names.NETHERORE, addBlock(new BlockMMDNetherOre(material), Names.NETHERORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
 		final Block b = material.getBlock(Names.NETHERORE);
@@ -48,12 +47,12 @@ public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 		}
 	}
 
-	private static void createBasicNetherOreWrapper(String materialName ) {
+	private static void createBasicNetherOreWrapper(final String materialName) {
 		create(Names.NETHERORE, materialName);
 	}
 	
-	private static void createNetherOreWrapper(String materialName) {
-		List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
+	private static void createNetherOreWrapper(final String materialName) {
+		final List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
 
 		if (vanillaMats.contains(materialName))
 			createVanillaNetherOreWrapper(materialName);
