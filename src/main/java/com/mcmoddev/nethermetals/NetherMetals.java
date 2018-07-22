@@ -16,7 +16,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -94,10 +93,10 @@ public final class NetherMetals {
 	}
 
 	@SubscribeEvent
-	public void onBlockBreak(BlockEvent.BreakEvent event) {
+	public void onBlockBreak(final BlockEvent.BreakEvent event) {
 		boolean silk = false;
 		if (event.getPlayer() != null && event.getPlayer().getHeldItemMainhand() != null) {
-			NBTTagList var15 = event.getPlayer().getHeldItemMainhand().getEnchantmentTagList();
+			final NBTTagList var15 = event.getPlayer().getHeldItemMainhand().getEnchantmentTagList();
 			if (var15 != null) {
 				for (int nbttaglist3 = 0; nbttaglist3 < var15.tagCount(); ++nbttaglist3) {
 					short l1 = var15.getCompoundTagAt(nbttaglist3).getShort("id");
@@ -109,11 +108,11 @@ public final class NetherMetals {
 					&& ((event.getState().getBlock() instanceof BlockExplosiveOre
 							&& ((BlockExplosiveOre) event.getState().getBlock()).doesExplode())
 							|| event.getState().getBlock() == Blocks.QUARTZ_ORE)) {
-				int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
+				final int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
 				if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
 					event.getWorld().createExplosion(event.getPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), 4.0F, true);
 					//if (ConfigHandler.isAngerPigmen())
-						//ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange());
+						//ModularityApi.angerPigmen(e.getPos(), e.getWorld(), e.getPlayer(), ConfigHandler.getAngerPigmenRange())
 				}
 			}
 		}

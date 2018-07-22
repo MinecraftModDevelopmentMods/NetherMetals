@@ -2,12 +2,7 @@ package com.mcmoddev.nethermetals.util;
 
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.lib.data.SharedStrings;
-import com.mcmoddev.lib.init.Materials;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLMissingMappingsEvent;
 import net.minecraftforge.fml.common.event.FMLMissingMappingsEvent.MissingMapping;

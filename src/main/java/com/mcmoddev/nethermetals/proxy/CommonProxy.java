@@ -2,8 +2,6 @@ package com.mcmoddev.nethermetals.proxy;
 
 import java.util.HashSet;
 
-import com.mcmoddev.basemetals.data.MaterialNames;
-import com.mcmoddev.nethermetals.init.ItemGroups;
 import com.mcmoddev.nethermetals.init.NetherBlocks;
 import com.mcmoddev.nethermetals.init.Recipes;
 import com.mcmoddev.lib.data.SharedStrings;
@@ -38,16 +36,24 @@ public class CommonProxy {
 			}
 		}
 		NetherBlocks.init();
-		// IntegrationManager.INSTANCE.preInit(event);
+		// IntegrationManager.INSTANCE.preInit(event)
 	}
 
+	/**
+	 * 
+	 * @param event The Event.
+	 */
 	public void init(final FMLInitializationEvent event) {
 		Recipes.init();
 
 		// TODO: Broken currently
-		// ItemGroups.setupIcons(MaterialNames.LAPIS);
+		// ItemGroups.setupIcons(MaterialNames.LAPIS)
 	}
 
+	/**
+	 * 
+	 * @param event The Event.
+	 */
 	public void postInit(final FMLPostInitializationEvent event) {
 		CrusherRecipeRegistry.getInstance().clearCache();
 	}
