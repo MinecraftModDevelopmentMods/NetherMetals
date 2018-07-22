@@ -23,22 +23,23 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author Jasmine Iwanek
  *
  */
-@Mod(modid = NetherMetals.MODID,
-	name = NetherMetals.NAME,
-	version = NetherMetals.VERSION,
-	dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
-	certificateFingerprint = "@FINGERPRINT@",
-	acceptedMinecraftVersions = "[1.12,)",
-	updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopmentMods/NetherMetals/master/update.json")
-public class NetherMetals {
+@Mod(
+		modid = NetherMetals.MODID,
+		name = NetherMetals.NAME,
+		version = NetherMetals.VERSION,
+		dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
+		certificateFingerprint = "@FINGERPRINT@",
+		acceptedMinecraftVersions = "[1.12,)",
+		updateJSON = SharedStrings.UPDATE_JSON_URL + "NetherMetals/master/update.json")
+public final class NetherMetals {
 
-	@Instance
+	@Instance(value = NetherMetals.MODID)
 	public static NetherMetals instance;
 
-	/** ID of this Mod */
+	/** ID of this Mod. */
 	public static final String MODID = "nethermetals";
 
-	/** Display name of this Mod */
+	/** Display name of this Mod. */
 	public static final String NAME = "Nether Metals";
 
 	/**
@@ -48,21 +49,24 @@ public class NetherMetals {
 	 */
 	public static final String VERSION = "1.2.0-beta3";
 
-	public static final Logger logger = LogManager.getFormatterLogger(NetherMetals.MODID);
+	public static final Logger LOGGER = LogManager.getFormatterLogger(NetherMetals.MODID);
 
-	@SidedProxy(clientSide = "com.mcmoddev.nethermetals.proxy.ClientProxy", serverSide = "com.mcmoddev.nethermetals.proxy.ServerProxy")
+	private static final String PROXY_BASE = SharedStrings.MMD_PROXY_GROUP + MODID + SharedStrings.DOT_PROXY_DOT;
+
+	@SidedProxy(clientSide = PROXY_BASE + SharedStrings.CLIENTPROXY, serverSide = PROXY_BASE
+			+ SharedStrings.SERVERPROXY)
 	public static CommonProxy proxy;
 
 	@EventHandler
 	public void onFingerprintViolation(final FMLFingerprintViolationEvent event) {
-		logger.warn(SharedStrings.INVALID_FINGERPRINT);
+		LOGGER.warn(SharedStrings.INVALID_FINGERPRINT);
 	}
 
 	@EventHandler
-	public void constructing(final FMLConstructionEvent ev) {
+	public void constructing(final FMLConstructionEvent event) {
 		Config.init();
 	}
-	
+
 	@EventHandler
 	public void preInit(final FMLPreInitializationEvent event) {
 		proxy.preInit(event);

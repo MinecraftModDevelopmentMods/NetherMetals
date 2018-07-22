@@ -14,27 +14,37 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@MMDPlugin(addonId=NetherMetals.MODID, pluginId=ThermalExpansion.PLUGIN_MODID,
-           versions = ThermalExpansion.PLUGIN_MODID+"@(,5.3.12.17];")
-public class ThermalExpansion extends ThermalExpansionBase implements IIntegration {
+@MMDPlugin(addonId = NetherMetals.MODID, pluginId = ThermalExpansion.PLUGIN_MODID,
+           versions = ThermalExpansion.PLUGIN_MODID + "@(,5.3.12.17];")
+public final class ThermalExpansion extends ThermalExpansionBase implements IIntegration {
+
+	/**
+	 *
+	 */
 	@Override
 	public void init() {
 		if (!Options.isModEnabled(PLUGIN_MODID)) {
 			return;
 		}
+
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
-	public void regShit(final RegistryEvent.Register<IRecipe> event) {
+	public void regCallback(final RegistryEvent.Register<IRecipe> event) {
 		Materials.getAllMaterials().stream()
-		.filter(mat->mat.hasBlock(Names.NETHERORE))
-		.filter(mat->mat.hasItem(Names.POWDER))
-		.forEach(mat -> {
-			final ItemStack ore = mat.getBlockItemStack(Names.NETHERORE, 1);
-			final ItemStack powder = mat.getItemStack(Names.POWDER, 4);
-			if (!((ore.isEmpty()) || (powder.isEmpty())))
-				addPulverizerRecipe( 4000, ore, powder);
+		.filter(material -> material.hasBlock(Names.NETHERORE))
+		.filter(material -> material.hasItem(Names.POWDER))
+		.forEach(material -> {
+			final ItemStack ore = material.getBlockItemStack(Names.NETHERORE, 1);
+			final ItemStack powder = material.getItemStack(Names.POWDER, 4);
+			if (!((ore.isEmpty()) || (powder.isEmpty()))) {
+				addPulverizerRecipe(4000, ore, powder);
+			}
 		});
 	}
 }

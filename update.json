@@ -1,8 +1,11 @@
 {
   "homepage": "http://minecraft.curseforge.com/projects/nether-metals",
   "promos": {
-    "1.11.2-latest": "0.0.0",
-    "1.11-latest": "0.0.0",
+    "1.12.2-latest": "1.1.0",
+    "1.12.1-latest": "1.1.0",
+    "1.12-latest": "1.1.0",
+    "1.11.2-latest": "1.1.0",
+    "1.11-latest": "1.1.0",
     "1.10.2-latest": "1.1.0",
     "1.10-latest": "1.1.0",
     "1.9.4-latest": "1.1.0",
@@ -13,8 +16,11 @@
     "1.7.10-latest": "0.0.0",
     "1.7.2-latest": "0.0.0",
     "1.6.4-latest": "0.0.0",
-    "1.11.2-recommended": "0.0.0",
-    "1.11-recommended": "0.0.0",
+    "1.12.2-recommended": "1.1.0",
+    "1.12.1-recommended": "1.1.0",
+    "1.12-recommended": "1.1.0",
+    "1.11.2-recommended": "1.1.0",
+    "1.11-recommended": "1.1.0",
     "1.10.2-recommended": "1.1.0",
     "1.10-recommended": "1.1.0",
     "1.9.4-recommended": "1.1.0",
@@ -27,10 +33,10 @@
     "1.6.4-recommended": "0.0.0"
   },
   "1.11.2": {
-    "0.0.0": "No Release"
+    "1.1.0": "Add missing ores, Internal code refactor"
   },
   "1.11": {
-    "0.0.0": "No Release"
+    "1.1.0": "Add missing ores, Internal code refactor"
   },
   "1.10.2": {
     "1.1.0": "Add missing ores, Internal code refactor"

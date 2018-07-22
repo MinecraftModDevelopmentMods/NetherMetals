@@ -53,7 +53,7 @@ This mod can make use of Modern Metals (By: jriwanek) http://minecraft.curseforg
 Nether Ores spawn only in the Nether
 
 #### ( Github ):
-Check us on Github: https://github.com/MinecraftModDevelopment/NetherMetals
+Check us on Github: https://github.com/MinecraftModDevelopmentMods/NetherMetals
 
 #### ( Discord ):
 We have a Discord server!  You can join with the following invite link: https://discord.gg/0eXbwPGyRiqemwip

@@ -23,10 +23,10 @@ import slimeknights.mantle.util.RecipeMatch;
  * @author Jasmine Iwanek
  *
  */
-@MMDPlugin(addonId = NetherMetals.MODID, 
-pluginId = TinkersConstruct.PLUGIN_MODID, 
-versions=TinkersConstruct.PLUGIN_MODID+"@[1.12.2-2.7.4.0,);")
-public class TinkersConstruct extends TinkersConstructBase implements IIntegration {
+@MMDPlugin(addonId = NetherMetals.MODID,
+pluginId = TinkersConstruct.PLUGIN_MODID,
+versions = TinkersConstruct.PLUGIN_MODID + "@[1.12.2-2.7.4.0,);")
+public final class TinkersConstruct extends TinkersConstructBase implements IIntegration {
 
 	@Override
 	public void init() {
@@ -36,33 +36,39 @@ public class TinkersConstruct extends TinkersConstructBase implements IIntegrati
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	private boolean registered = false;
-	
-    @SubscribeEvent
-    public void registerExtraMeltings(final IntegrationInitEvent ev) {
-		if (registered) return;
-		registered = true;
+
+	/**
+	 *
+	 * @param event The Event.
+	 */
+	@SubscribeEvent
+	public void registerExtraMeltings(final IntegrationInitEvent event) {
+		if (registered) {
+			return;
+		}
 		Materials.getAllMaterials().stream()
 		.filter(this::isMaterialEmpty)
-		.filter(this::hasNetherOre)
+		.filter(this::hasOre)
 		.filter(this::hasFluid)
-		.forEach(mat -> {
-			RecipeMatch input = RecipeMatch.of(Oredicts.ORE_NETHER + mat.getCapitalizedName(), 576);
-			MeltingRecipe rec = new MeltingRecipe(input, FluidRegistry.getFluid(mat.getName()));
-			TinkerRegistry.registerMelting(rec);
+		.forEach(material -> {
+			final RecipeMatch input = RecipeMatch.of(Oredicts.ORE_NETHER + material.getCapitalizedName(), 576);
+			final MeltingRecipe recipe = new MeltingRecipe(input, FluidRegistry.getFluid(material.getName()));
+			TinkerRegistry.registerMelting(recipe);
 		});
+		registered = true;
 	}
-	
-	private boolean hasFluid(final MMDMaterial mat) {
-		return FluidRegistry.getFluid(mat.getName()) != null;
+
+	private boolean hasFluid(final MMDMaterial material) {
+		return FluidRegistry.getFluid(material.getName()) != null;
 	}
-	
-	private boolean hasNetherOre(final MMDMaterial mat) {
-		return mat.hasBlock(Names.NETHERORE);
+
+	private boolean hasOre(final MMDMaterial material) {
+		return material.hasBlock(Names.NETHERORE);
 	}
-	
+
 	private boolean isMaterialEmpty(final MMDMaterial mat) {
 		return !mat.isEmpty();
-	}	
+	}
 }

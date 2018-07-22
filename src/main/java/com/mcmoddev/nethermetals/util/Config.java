@@ -4,8 +4,6 @@ import com.mcmoddev.nethermetals.NetherMetals;
 
 import java.io.File;
 
-import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -15,38 +13,41 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author Jasmine Iwanek
  *
  */
-public class Config extends com.mcmoddev.lib.util.ConfigBase {
+public final class Config extends com.mcmoddev.lib.util.ConfigBase {
 
 	private static Configuration configuration;
 	private static final String CONFIG_FILE = "config/NetherMetals.cfg";
-	private static final String ORESPAWN = "OreSpawn";
 	private static final String NETHERORE = "Nether Ores";
-	private static final String COMPAT = "Mod Compat";
 	private static final String GENERAL = "General";
-	private static final String MMDLIB = "MMD Lib";
-	private static final String REQUIRE_MMD_ORE_SPAWN = "requireMMDOreSpawn";
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
-	public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
-		if (e.getModID().equals(NetherMetals.MODID)) {
+	public void onConfigChange(final ConfigChangedEvent.OnConfigChangedEvent event) {
+		if (event.getModID().equals(NetherMetals.MODID)) {
 			init();
 		}
 	}
 
+	/**
+	 *
+	 */
 	public static void init() {
 		if (configuration == null) {
 			configuration = new Configuration(new File(CONFIG_FILE));
 			MinecraftForge.EVENT_BUS.register(new Config());
 		}
 
-		//General
-		Options.thingEnabled("enableFurnaceSmelting", configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "EnableFurnaceSmelting"));
-		Options.explosionChance( configuration.get("mean", "OreExplosionChance", 2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt());
-		Options.angerPigmenRange( configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt());
+		// General
+		Options.thingEnabled("enableFurnaceSmelting", configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "Enable Furnace Smelting"));
+		Options.explosionChance(configuration.get("mean", "OreExplosionChance", 2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt());
+		Options.angerPigmenRange(configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt());
 		Options.thingEnabled("smeltToIngots", configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots"));
 		Options.thingEnabled("makeDusts", configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts"));
-		
-		//Nether Ores
+
+		// Nether Ores
 		Options.materialEnabled("enableCoalNetherOre", configuration.getBoolean("enableCoalNetherOre", NETHERORE, true, "Enable Coal Nether Ore"));
 		Options.materialEnabled("enableDiamondNetherOre", configuration.getBoolean("enableDiamondNetherOre", NETHERORE, true, "Enable Diamond Nether Ore"));
 		Options.materialEnabled("enableEmeraldNetherOre", configuration.getBoolean("enableEmeraldNetherOre", NETHERORE, true, "Enable Emerald Nether Ore"));
@@ -80,18 +81,8 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableUraniumNetherOre", configuration.getBoolean("enableUraniumNetherOre", NETHERORE, true, "Enable Uranium Nether Ore"));
 		Options.materialEnabled("enableZirconiumNetherOre", configuration.getBoolean("enableZirconiumNetherOre", NETHERORE, true, "Enable Zirconium Nether Ore"));
 
-		//Mod Compat
-		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
-		Options.thingEnabled(REQUIRE_MMD_ORE_SPAWN, configuration.getBoolean(REQUIRE_MMD_ORE_SPAWN, ORESPAWN, true, "Require MMD OreSpawn"));
-		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
-		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, true, "Enable Tinkers Construct Support"));
-
 		if (configuration.hasChanged()) {
 			configuration.save();
 		}
-	}
-
-	public static void postInit() {
-		CrusherRecipeRegistry.getInstance().clearCache();
 	}
 }
