@@ -77,18 +77,22 @@ public final class Recipes {
 
 	private static void doMakeDusts(final MMDMaterial material) {
 		if ((Options.isThingEnabled("makeDusts")) && (material.hasItem(Names.POWDER))) {
-			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(NAME), material.getItemStack(Names.POWDER, 4));
+			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(NAME),
+					material.getItemStack(Names.POWDER, 4));
 		} else if (material.hasBlock(Names.ORE)) {
-			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(NAME), material.getBlockItemStack(Names.ORE, 2));
+			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(NAME),
+					material.getBlockItemStack(Names.ORE, 2));
 		}
 	}
 
 	private static void doFurnaceSmelting(final MMDMaterial material) {
 		if (Options.isThingEnabled("enableFurnaceSmelting")) {
 			if ((Options.isThingEnabled("smeltToIngots")) && (material.hasItem(Names.INGOT))) {
-				GameRegistry.addSmelting(material.getBlock(NAME), material.getItemStack(Names.INGOT, 2), 1.0f);
+				GameRegistry.addSmelting(material.getBlock(NAME),
+						material.getItemStack(Names.INGOT, 2), 1.0f);
 			} else if (material.hasBlock(Names.ORE)) {
-				GameRegistry.addSmelting(material.getBlock(NAME), material.getBlockItemStack(Names.ORE, 2), 1.0f);
+				GameRegistry.addSmelting(material.getBlock(NAME),
+						material.getBlockItemStack(Names.ORE, 2), 1.0f);
 			}
 		}
 	}

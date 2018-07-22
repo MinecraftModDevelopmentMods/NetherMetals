@@ -20,14 +20,16 @@ public final class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 
 	/**
 	 *
-	 * @param materialName The name of the material.
+	 * @param materialName
+	 *            The name of the material.
 	 */
 	public static void setupIcons(final String materialName) {
 		if (Materials.hasMaterial(materialName)) {
 			final MMDMaterial material = Materials.getMaterialByName(materialName);
 
 			if (material.hasBlock(Names.NETHERORE)) {
-				getTab(NetherMetals.MODID, SharedStrings.TAB_BLOCKS).setTabIconItem(material.getBlock(Names.NETHERORE));
+				getTab(NetherMetals.MODID, SharedStrings.TAB_BLOCKS)
+						.setTabIconItem(material.getBlock(Names.NETHERORE));
 			}
 		}
 	}

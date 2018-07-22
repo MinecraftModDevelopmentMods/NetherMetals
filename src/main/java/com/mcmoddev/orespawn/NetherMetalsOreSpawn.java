@@ -11,6 +11,7 @@ public final class NetherMetalsOreSpawn implements IOreSpawnPlugin {
 
 	@Override
 	public void register(final OS3API apiInterface) {
-		// Intentionally blank - we don't have anything to do here
+		// nothing for us to do - all of our ores are in the
+		// jar and the code handles that
 	}
 }

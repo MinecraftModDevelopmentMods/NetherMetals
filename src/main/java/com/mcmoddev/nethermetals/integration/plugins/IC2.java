@@ -36,13 +36,15 @@ public final class IC2 extends IC2Base implements IIntegration {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SubscribeEvent
 	public void regCallback(final RegistryEvent.Register<IRecipe> event) {
 		final List<MMDMaterial> materials = new ArrayList<>();
 
-		Materials.getAllMaterials().stream().filter(material -> material.hasBlock(Names.NETHERORE)).forEach(materials::add);
+		Materials.getAllMaterials().stream().filter(material -> material.hasBlock(Names.NETHERORE))
+				.forEach(materials::add);
 		for (final MMDMaterial material : materials) {
 			ItemStack output;
 			if (material.hasItem(Names.CRUSHED)) {

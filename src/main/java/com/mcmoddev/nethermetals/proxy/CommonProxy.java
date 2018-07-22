@@ -23,7 +23,8 @@ public class CommonProxy {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SuppressWarnings("deprecation")
 	public void preInit(final FMLPreInitializationEvent event) {
@@ -41,7 +42,8 @@ public class CommonProxy {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	public void init(final FMLInitializationEvent event) {
 		Recipes.init();
@@ -51,7 +53,8 @@ public class CommonProxy {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	public void postInit(final FMLPostInitializationEvent event) {
 		CrusherRecipeRegistry.getInstance().clearCache();

@@ -12,7 +12,8 @@ public final class ClientProxy extends CommonProxy {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@Override
 	public void preInit(final FMLPreInitializationEvent event) {
@@ -23,7 +24,8 @@ public final class ClientProxy extends CommonProxy {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SubscribeEvent
 	public void modelRegistry(final ModelRegistryEvent event) {

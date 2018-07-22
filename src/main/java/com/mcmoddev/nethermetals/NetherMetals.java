@@ -43,15 +43,16 @@ public final class NetherMetals {
 	public static final String NAME = "Nether Metals";
 
 	/**
-	 * Version number, in Major.Minor.Build format. The minor number is
-	 * increased whenever a change is made that has the potential to break
-	 * compatibility with other mods that depend on this one.
+	 * Version number, in Major.Minor.Build format. The minor number is increased whenever a change
+	 * is made that has the potential to break compatibility with other mods that depend on this
+	 * one.
 	 */
 	public static final String VERSION = "1.2.0-beta3";
 
 	public static final Logger LOGGER = LogManager.getFormatterLogger(NetherMetals.MODID);
 
-	private static final String PROXY_BASE = SharedStrings.MMD_PROXY_GROUP + MODID + SharedStrings.DOT_PROXY_DOT;
+	private static final String PROXY_BASE = SharedStrings.MMD_PROXY_GROUP + MODID
+			+ SharedStrings.DOT_PROXY_DOT;
 
 	@SidedProxy(clientSide = PROXY_BASE + SharedStrings.CLIENTPROXY, serverSide = PROXY_BASE
 			+ SharedStrings.SERVERPROXY)

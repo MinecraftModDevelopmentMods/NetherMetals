@@ -46,7 +46,8 @@ public final class EventHandler {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SubscribeEvent
 	public static void onRemapBlock(final RegistryEvent.MissingMappings<Block> event) {
@@ -59,7 +60,8 @@ public final class EventHandler {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SubscribeEvent
 	public static void onRemapItem(final RegistryEvent.MissingMappings<Item> event) {
@@ -72,17 +74,15 @@ public final class EventHandler {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		Materials.getAllMaterials().stream()
-		.forEach(mat ->
-			mat.getItems().stream()
-			.map(itemStack -> itemStack.getItem())
-			.filter(EventHandler::itemFilterFunc)
-			.forEach(event.getRegistry()::register)
-		);
+				.forEach(mat -> mat.getItems().stream().map(itemStack -> itemStack.getItem())
+						.filter(EventHandler::itemFilterFunc)
+						.forEach(event.getRegistry()::register));
 
 		Oredicts.registerItemOreDictionaryEntries();
 		Oredicts.registerBlockOreDictionaryEntries();
@@ -94,16 +94,13 @@ public final class EventHandler {
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-		Materials.getAllMaterials().stream()
-		.forEach(mat ->
-			mat.getBlocks().stream()
-			.filter(EventHandler::blockFilterFunc)
-			.forEach(event.getRegistry()::register)
-		);
+		Materials.getAllMaterials().stream().forEach(mat -> mat.getBlocks().stream()
+				.filter(EventHandler::blockFilterFunc).forEach(event.getRegistry()::register));
 	}
 
 	private static boolean blockFilterFunc(final Block block) {
@@ -121,19 +118,22 @@ public final class EventHandler {
 	 * @param player
 	 * @param range
 	 */
-	public static void angerPigmen(final BlockPos pos, final World world, final EntityPlayer player, final int range) {
+	public static void angerPigmen(final BlockPos pos, final World world, final EntityPlayer player,
+			final int range) {
 		final int rr = range / 2;
 		final BlockPos work1 = new BlockPos(pos).add(-rr, -rr, -rr);
 		final BlockPos work2 = new BlockPos(pos).add(+rr, +rr, +rr);
 		final AxisAlignedBB bb = new AxisAlignedBB(work1, work2);
-		for (final EntityLivingBase entity : world.getEntitiesWithinAABB(EntityPigZombie.class, bb)) {
+		for (final EntityLivingBase entity : world.getEntitiesWithinAABB(EntityPigZombie.class,
+				bb)) {
 			entity.setRevengeTarget(player);
 		}
 	}
 
 	/**
 	 *
-	 * @param event The Event.
+	 * @param event
+	 *            The Event.
 	 */
 	@SubscribeEvent
 	public static void onBlockBreak(final BlockEvent.BreakEvent event) {
@@ -149,7 +149,8 @@ public final class EventHandler {
 		}
 	}
 
-	private static void doExplode(final BlockPos pos, final EntityPlayer player, final World world) {
+	private static void doExplode(final BlockPos pos, final EntityPlayer player,
+			final World world) {
 		final int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
 		if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
 			world.createExplosion(player, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true);
