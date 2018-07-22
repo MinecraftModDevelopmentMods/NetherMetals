@@ -7,7 +7,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.mcmoddev.lib.block.BlockExplosiveOre;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
+import com.mcmoddev.nethermetals.util.Config;
 import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.data.SharedStrings;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
@@ -19,6 +21,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -38,16 +41,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 		dependencies = "required-after:forge@[13.20.1.2386,);after:basemetals;after:baseminerals;after:modernmetals",
 		acceptedMinecraftVersions = "[1.11.2,)",
 		certificateFingerprint = "@FINGERPRINT@",
-		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/NetherMetals/master/update.json")
-public class NetherMetals {
+		updateJSON = SharedStrings.UPDATE_JSON_URL + "NetherMetals/master/update.json")
+public final class NetherMetals {
 
-	@Instance
+	@Instance(value = NetherMetals.MODID)
 	public static NetherMetals instance;
 
-	/** ID of this Mod */
+	/** ID of this Mod. */
 	public static final String MODID = "nethermetals";
 
-	/** Display name of this Mod */
+	/** Display name of this Mod. */
 	public static final String NAME = "Nether Metals";
 
 	/**
@@ -55,51 +58,40 @@ public class NetherMetals {
 	 * increased whenever a change is made that has the potential to break
 	 * compatibility with other mods that depend on this one.
 	 */
-	public static final String VERSION = "1.2.0-beta2";
+	public static final String VERSION = "1.2.0-beta3";
 
-	public static Logger logger;
+	public static final Logger LOGGER = LogManager.getFormatterLogger(NetherMetals.MODID);
 
-	@SidedProxy(clientSide = "com.mcmoddev.nethermetals.proxy.ClientProxy", serverSide = "com.mcmoddev.nethermetals.proxy.ServerProxy")
+	private static final String PROXY_BASE = SharedStrings.MMD_PROXY_GROUP + MODID + SharedStrings.DOT_PROXY_DOT;
+
+	@SidedProxy(clientSide = PROXY_BASE + SharedStrings.CLIENTPROXY, serverSide = PROXY_BASE
+			+ SharedStrings.SERVERPROXY)
 	public static CommonProxy proxy;
 
 	@EventHandler
-	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
-		logger.warn("Invalid fingerprint detected!");
+	public void onFingerprintViolation(final FMLFingerprintViolationEvent event) {
+		LOGGER.warn(SharedStrings.INVALID_FINGERPRINT);
 	}
 
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		logger = LogManager.getFormatterLogger(MODID);
-//		logger.setParent(FMLLog.getLogger());
+	public void constructing(final FMLConstructionEvent event) {
+		Config.init();
+	}
+
+	@EventHandler
+	public void preInit(final FMLPreInitializationEvent event) {
 		proxy.preInit(event);
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(final FMLInitializationEvent event) {
 		proxy.init(event);
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(final FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
-	
-    public static boolean hasMMDLib() {
-        return Loader.isModLoaded("mmdlib");
-    }
-        
-    public static boolean hasOreSpawn() {
-        return Loader.isModLoaded("orespawn");
-    }
-    public static boolean hasTinkers() {
-        return Loader.isModLoaded("tinkersconstruct");
-    }
-    public static boolean hasModernMetals() {
-        return Loader.isModLoaded("modernmetals");
-    }
-    public static boolean hasBaseMetals() {
-        return Loader.isModLoaded("basemetals");
-    }
 
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent event) {

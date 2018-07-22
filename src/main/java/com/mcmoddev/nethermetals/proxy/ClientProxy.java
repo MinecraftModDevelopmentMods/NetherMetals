@@ -1,41 +1,25 @@
 package com.mcmoddev.nethermetals.proxy;
 
-import com.mcmoddev.nethermetals.NetherMetals;
-import com.mcmoddev.nethermetals.init.*;
+import com.mcmoddev.lib.client.registrations.RegistrationHelper;
+import com.mcmoddev.lib.init.Blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraft.block.*;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class ClientProxy extends CommonProxy {
+public final class ClientProxy extends CommonProxy {
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@Override
-	public void init(FMLInitializationEvent event) {
-		super.init(event);
+	public void preInit(final FMLPreInitializationEvent event) {
+		super.preInit(event);
 
-		for (final String name : NetherBlocks.getBlockRegistry().keySet()) {
-			registerRenderOuter(NetherBlocks.getBlockByName(name));
+		for (final String name : Blocks.getBlockRegistry().keySet()) {
+			RegistrationHelper.registerBlockRender(name);
 		}
-	}
-
-	public void registerRenderOuter(Block block) {
-		if ((block instanceof BlockDoor) || (block instanceof BlockSlab))
-			return; // do not add door blocks or slabs
-
-		if (block != null) {
-			registerRender(Item.getItemFromBlock(block), NetherBlocks.getNameOfBlock(block));
-		}
-	}
-
-	public void registerRender(Item item, String name) {
-		final ItemModelMesher itemModelMesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
-		if (!item.getRegistryName().getResourceDomain().equals(NetherMetals.MODID))
-			return;
-		itemModelMesher.register(item, 0, new ModelResourceLocation(new ResourceLocation(item.getRegistryName().getResourceDomain(), name), "inventory"));
 	}
 }

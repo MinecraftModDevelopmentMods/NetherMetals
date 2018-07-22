@@ -1,12 +1,10 @@
 package com.mcmoddev.nethermetals.init;
 
+import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
-import com.mcmoddev.lib.init.MMDCreativeTab;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
-
-import net.minecraft.item.Item;
 
 /**
  * This class initializes all item groups in Nether Metals.
@@ -14,32 +12,22 @@ import net.minecraft.item.Item;
  * @author Jasmine Iwanek
  *
  */
-public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
-	public static final MMDCreativeTab blocksTab = getTab(SharedStrings.TAB_BLOCKS);
-
-	private static boolean initDone = false;
+public final class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 
 	private ItemGroups() {
-		throw new IllegalAccessError("Not a instantiable class");
+		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
 	}
 
 	/**
 	 *
+	 * @param materialName The name of the material.
 	 */
-	public static void init() {
-		if (initDone) {
-			return;
-		}
-
-		initDone = true;
-	}
-	
-	public static void setupIcons(String materialName) {
+	public static void setupIcons(final String materialName) {
 		if (Materials.hasMaterial(materialName)) {
 			final MMDMaterial material = Materials.getMaterialByName(materialName);
 
-			if ((blocksTab != null) && (material.hasBlock(Names.NETHERORE))) {
-				blocksTab.setTabIconItem(Item.getItemFromBlock(material.getBlock(Names.NETHERORE)));
+			if (material.hasBlock(Names.NETHERORE)) {
+				getTab(NetherMetals.MODID, SharedStrings.TAB_BLOCKS).setTabIconItem(material.getBlock(Names.NETHERORE));
 			}
 		}
 	}

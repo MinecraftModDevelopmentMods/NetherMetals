@@ -1,12 +1,16 @@
 package com.mcmoddev.nethermetals.init;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.mcmoddev.lib.block.BlockMMDNetherOre;
 import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
-import com.mcmoddev.nethermetals.NetherMetals;
-import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.util.Oredicts;
 
-import net.minecraftforge.fml.common.Loader;
+import net.minecraft.block.Block;
 
 /**
  * This class initializes all blocks in Nether Metals.
@@ -14,68 +18,41 @@ import net.minecraftforge.fml.common.Loader;
  * @author Jasmine Iwanek
  *
  */
-public class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
-
-	private static boolean initDone = false;
+public final class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 
 	/**
 	 *
 	 */
 	public static void init() {
-		if (initDone) {
-			return;
-		}
-
-		Materials.init();
-		ItemGroups.init();
-		
-		createNetherOreWrapper(Options.isMaterialEnabled("enableCoalNetherOre"), Materials.getMaterialByName("coal"));
-		createNetherOreWrapper(Options.isMaterialEnabled("enableDiamondNetherOre"), Materials.getMaterialByName("diamond"));
-		createNetherOreWrapper(Options.isMaterialEnabled("enableEmeraldNetherOre"), Materials.getMaterialByName("emerald"));
-		createNetherOreWrapper(Options.isMaterialEnabled("enableGoldNetherOre"), Materials.getMaterialByName("gold"));
-		createNetherOreWrapper(Options.isMaterialEnabled("enableIronNetherOre"), Materials.getMaterialByName("iron"));
-		createNetherOreWrapper(Options.isMaterialEnabled("enableLapisNetherOre"), Materials.getMaterialByName("lapis"));
-		createNetherOreWrapper(Options.isMaterialEnabled("enableRedstoneNetherOre"), Materials.getMaterialByName("redstone"));
-
-		if (Loader.isModLoaded("basemetals")) {
-			createNetherOreWrapper(Options.isMaterialEnabled("enableAntimonyNetherOre"), Materials.getMaterialByName("antimony"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableBismuthNetherOre"), Materials.getMaterialByName("bismuth"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableCopperNetherOre"), Materials.getMaterialByName("copper"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableLeadNetherOre"), Materials.getMaterialByName("lead"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableMercuryNetherOre"), Materials.getMaterialByName("mercury"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableNickelNetherOre"), Materials.getMaterialByName("nickel"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enablePlatinumNetherOre"), Materials.getMaterialByName("platinum"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableSilverNetherOre"), Materials.getMaterialByName("silver"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTinNetherOre"), Materials.getMaterialByName("tin"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableZincNetherOre"), Materials.getMaterialByName("zinc"));
-		}
-		
-		if (Loader.isModLoaded("modernmetals")) {
-			createNetherOreWrapper(Options.isMaterialEnabled("enableAluminumNetherOre"), Materials.getMaterialByName("aluminum"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableCadmiumNetherOre"), Materials.getMaterialByName("cadmium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableChromiumNetherOre"), Materials.getMaterialByName("chromium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableIridiumNetherOre"), Materials.getMaterialByName("iridium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableMagnesiumNetherOre"), Materials.getMaterialByName("magnesium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableManganeseNetherOre"), Materials.getMaterialByName("manganese"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableOsmiumNetherOre"), Materials.getMaterialByName("osmium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enablePlutoniumNetherOre"), Materials.getMaterialByName("plutonium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableRutileNetherOre"), Materials.getMaterialByName("rutile"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTantalumNetherOre"), Materials.getMaterialByName("tantalum"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTitaniumNetherOre"), Materials.getMaterialByName("titanium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableTungstenNetherOre"), Materials.getMaterialByName("tungsten"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableUraniumNetherOre"), Materials.getMaterialByName("uranium"));
-			createNetherOreWrapper(Options.isMaterialEnabled("enableZirconiumNetherOre"), Materials.getMaterialByName("zirconium"));
-		}
-		initDone = true;
+		final List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
+				"redstone", "antimony", "bismuth", "copper", "lead", "mercury", "nickel", "platinum",
+				"silver", "tin", "zinc", "aluminum", "cadmium", "chromium", "iridium", "magnesium",
+				"manganese", "osmium", "plutonium", "rutile", "tantalum", "titanium", "tungsten",
+				"uranium", "zirconium");
+		Materials.getAllMaterials().stream()
+		.map(material -> material.getName())
+		.filter(knownMaterials::contains)
+		.filter(Materials::hasMaterial)
+		.forEach(NetherBlocks::createOreWrapper);
 	}
 
-	private static void createNetherOreWrapper(boolean enabled, MMDMaterial material) {
-		if (enabled) {
-			if (material != null) {
-				create(Names.NETHERORE, material, ItemGroups.blocksTab);				
-			} else {
-				NetherMetals.logger.error("material was null!");
-			}
+	private static void createOreWrapper(final String materialName) {
+		final List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
+
+		if (vanillaMats.contains(materialName)) {
+			createVanillaOreWrapper(materialName);
+		} else {
+			create(Names.ENDORE, materialName);
+		}
+	}
+
+	private static void createVanillaOreWrapper(final String materialName) {
+		final MMDMaterial material = Materials.getMaterialByName(materialName);
+		material.addNewBlock(Names.NETHERORE, addBlock(new BlockMMDNetherOre(material), Names.NETHERORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
+		final Block block = material.getBlock(Names.NETHERORE);
+		final String oredict = getOredictFromName(Names.NETHERORE);
+		if ((oredict != null) && (block != null)) {
+			Oredicts.registerOre(oredict + material.getCapitalizedName(), block);
 		}
 	}
 }
