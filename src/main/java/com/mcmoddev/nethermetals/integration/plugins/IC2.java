@@ -3,8 +3,8 @@ package com.mcmoddev.nethermetals.integration.plugins;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mcmoddev.basemetals.init.Materials;
 import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
 import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.integration.plugins.IC2Base;
@@ -55,7 +55,7 @@ public final class IC2 extends IC2Base implements IIntegration {
 				continue;
 			}
 
-			addMaceratorRecipe(Oredicts.ORE_NETHER + material.getCapitalizedName(), output);
+			this.addMaceratorRecipe(Oredicts.ORE_NETHER + material.getCapitalizedName(), output);
 		}
 	}
 }

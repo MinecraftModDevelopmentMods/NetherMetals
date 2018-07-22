@@ -152,7 +152,7 @@ public final class EventHandler {
 	private static void doExplode(final BlockPos pos, final EntityPlayer player,
 			final World world) {
 		final int randomNum = new Random().nextInt((100 - 1) + 1) + 1;
-		if (randomNum <= Options.explosionChance() || Options.explosionChance() > 100) {
+		if ((randomNum <= Options.explosionChance()) || (Options.explosionChance() > 100)) {
 			world.createExplosion(player, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true);
 			if (Options.angerPigmenRange() > 0) {
 				angerPigmen(pos, world, player, Options.angerPigmenRange());
@@ -174,8 +174,8 @@ public final class EventHandler {
 		if (enchants != null) {
 			for (int index = 0; index < enchants.tagCount(); index++) {
 				final short enchantId = enchants.getCompoundTagAt(index).getShort("id");
-				if (Enchantment.getEnchantmentByID(enchantId) != null
-						&& Enchantment.getEnchantmentByID(enchantId) == Enchantments.SILK_TOUCH) {
+				if ((Enchantment.getEnchantmentByID(enchantId) != null)
+						&& (Enchantment.getEnchantmentByID(enchantId) == Enchantments.SILK_TOUCH)) {
 					return true;
 				}
 			}

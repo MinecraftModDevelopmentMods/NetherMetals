@@ -29,7 +29,7 @@ public final class TinkersConstruct extends TinkersConstructBase implements IInt
 
 	@Override
 	public void init() {
-		if (!Options.isModEnabled(TinkersConstruct.PLUGIN_MODID)) {
+		if (!Options.isModEnabled(PLUGIN_MODID)) {
 			return;
 		}
 
@@ -45,7 +45,7 @@ public final class TinkersConstruct extends TinkersConstructBase implements IInt
 	 */
 	@SubscribeEvent
 	public void registerExtraMeltings(final IntegrationInitEvent event) {
-		if (registered) {
+		if (this.registered) {
 			return;
 		}
 		Materials.getAllMaterials().stream().filter(this::isMaterialEmpty).filter(this::hasOre)
@@ -56,7 +56,7 @@ public final class TinkersConstruct extends TinkersConstructBase implements IInt
 							FluidRegistry.getFluid(material.getName()));
 					TinkerRegistry.registerMelting(recipe);
 				});
-		registered = true;
+		this.registered = true;
 	}
 
 	private boolean hasFluid(final MMDMaterial material) {
