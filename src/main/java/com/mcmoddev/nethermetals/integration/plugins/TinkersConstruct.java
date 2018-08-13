@@ -10,6 +10,7 @@ import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 import com.mcmoddev.lib.util.Oredicts;
 import com.mcmoddev.lib.integration.plugins.TinkersConstructBase;
+import com.mcmoddev.lib.integration.plugins.tinkers.events.TinkersExtraMeltingsEvent;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -26,10 +27,17 @@ import slimeknights.mantle.util.RecipeMatch;
 @MMDPlugin(addonId = NetherMetals.MODID,
 pluginId = TinkersConstruct.PLUGIN_MODID,
 versions = TinkersConstruct.PLUGIN_MODID + "@[1.12.2-2.7.4.0,);")
-public final class TinkersConstruct extends TinkersConstructBase implements IIntegration {
+public final class TinkersConstruct implements IIntegration {
+
+	public static final String PLUGIN_MODID = TinkersConstructBase.PLUGIN_MODID;
+
+	public TinkersConstruct() {
+		// do nothing
+	}
 
 	@Override
 	public void init() {
+		TinkersConstructBase.INSTANCE.init();
 		if (!Options.isModEnabled(TinkersConstruct.PLUGIN_MODID)) {
 			return;
 		}
@@ -44,7 +52,7 @@ public final class TinkersConstruct extends TinkersConstructBase implements IInt
 	 * @param event The Event.
 	 */
 	@SubscribeEvent
-	public void registerExtraMeltings(final IntegrationInitEvent event) {
+	public void registerMeltings(TinkersExtraMeltingsEvent ev) {
 		if (registered) {
 			return;
 		}
