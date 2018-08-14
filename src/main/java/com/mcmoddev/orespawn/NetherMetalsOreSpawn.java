@@ -6,7 +6,9 @@ import com.mcmoddev.orespawn.api.os3.OS3API;
 import com.mcmoddev.orespawn.api.plugin.IOreSpawnPlugin;
 import com.mcmoddev.orespawn.api.plugin.OreSpawnPlugin;
 
-@OreSpawnPlugin(modid = NetherMetals.MODID, resourcePath = SharedStrings.ORESPAWN_MODID)
+@OreSpawnPlugin(
+		modid = NetherMetals.MODID,
+		resourcePath = SharedStrings.ORESPAWN_MODID)
 public final class NetherMetalsOreSpawn implements IOreSpawnPlugin {
 
 	@Override

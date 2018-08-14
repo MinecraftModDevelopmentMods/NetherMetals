@@ -31,12 +31,10 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@EventBusSubscriber(value = { Side.CLIENT, Side.SERVER }, modid = NetherMetals.MODID)
+@EventBusSubscriber(
+		value = { Side.CLIENT, Side.SERVER },
+		modid = NetherMetals.MODID)
 public final class EventHandler {
-
-	private EventHandler() {
-		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
-	}
 
 	@SubscribeEvent
 	public static void mmdlibRegisterBlocks(final MMDLibRegisterBlocks event) {
@@ -107,8 +105,8 @@ public final class EventHandler {
 		return matchModId(block.getRegistryName());
 	}
 
-	private static boolean matchModId(final ResourceLocation rl) {
-		return rl.getNamespace().equals(NetherMetals.MODID);
+	private static boolean matchModId(final ResourceLocation resourceLocation) {
+		return resourceLocation.getNamespace().equals(NetherMetals.MODID);
 	}
 
 	/**
@@ -181,5 +179,9 @@ public final class EventHandler {
 			}
 		}
 		return false;
+	}
+
+	private EventHandler() {
+		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
 	}
 }

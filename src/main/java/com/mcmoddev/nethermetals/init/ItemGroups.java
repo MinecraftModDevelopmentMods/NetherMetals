@@ -14,10 +14,6 @@ import com.mcmoddev.nethermetals.NetherMetals;
  */
 public final class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 
-	private ItemGroups() {
-		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
-	}
-
 	/**
 	 *
 	 * @param materialName
@@ -32,5 +28,9 @@ public final class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 						.setTabIconItem(material.getBlock(Names.NETHERORE));
 			}
 		}
+	}
+
+	private ItemGroups() {
+		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
 	}
 }

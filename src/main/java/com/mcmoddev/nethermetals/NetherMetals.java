@@ -54,8 +54,9 @@ public final class NetherMetals {
 	private static final String PROXY_BASE = SharedStrings.MMD_PROXY_GROUP + MODID
 			+ SharedStrings.DOT_PROXY_DOT;
 
-	@SidedProxy(clientSide = PROXY_BASE + SharedStrings.CLIENTPROXY, serverSide = PROXY_BASE
-			+ SharedStrings.SERVERPROXY)
+	@SidedProxy(
+			clientSide = PROXY_BASE + SharedStrings.CLIENTPROXY,
+			serverSide = PROXY_BASE + SharedStrings.SERVERPROXY)
 	public static CommonProxy proxy;
 
 	@EventHandler

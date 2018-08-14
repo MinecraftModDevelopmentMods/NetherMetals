@@ -1,5 +1,6 @@
 package com.mcmoddev.nethermetals.init;
 
+import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
@@ -14,36 +15,32 @@ public final class Recipes {
 
 	private static final Names NAME = Names.NETHERORE;
 
-	private Recipes() {
-		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
-	}
-
 	/**
 	 *
 	 */
 	public static void init() {
 
 		// Vanilla
-		recipeWrapper("coal");
-		recipeWrapper("diamond");
-		recipeWrapper("emerald");
-		recipeWrapper("gold");
-		recipeWrapper("iron");
-		recipeWrapper("lapis");
-		recipeWrapper("redstone");
+		recipeWrapper(MaterialNames.COAL);
+		recipeWrapper(MaterialNames.DIAMOND);
+		recipeWrapper(MaterialNames.EMERALD);
+		recipeWrapper(MaterialNames.GOLD);
+		recipeWrapper(MaterialNames.IRON);
+		recipeWrapper(MaterialNames.LAPIS);
+		recipeWrapper(MaterialNames.REDSTONE);
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
-			recipeWrapper("antimony");
-			recipeWrapper("bismuth");
-			recipeWrapper("copper");
-			recipeWrapper("lead");
-			recipeWrapper("mercury");
-			recipeWrapper("nickel");
-			recipeWrapper("platinum");
-			recipeWrapper("silver");
-			recipeWrapper("tin");
-			recipeWrapper("zinc");
+			recipeWrapper(MaterialNames.ANTIMONY);
+			recipeWrapper(MaterialNames.BISMUTH);
+			recipeWrapper(MaterialNames.COPPER);
+			recipeWrapper(MaterialNames.LEAD);
+			recipeWrapper(MaterialNames.MERCURY);
+			recipeWrapper(MaterialNames.NICKEL);
+			recipeWrapper(MaterialNames.PLATINUM);
+			recipeWrapper(MaterialNames.SILVER);
+			recipeWrapper(MaterialNames.TIN);
+			recipeWrapper(MaterialNames.ZINC);
 		}
 
 		// Modern Metals
@@ -86,14 +83,20 @@ public final class Recipes {
 	}
 
 	private static void doFurnaceSmelting(final MMDMaterial material) {
+		final int outputQty = 2;
+		final float xp = 1.0f;
 		if (Options.isThingEnabled("enableFurnaceSmelting")) {
 			if ((Options.isThingEnabled("smeltToIngots")) && (material.hasItem(Names.INGOT))) {
 				GameRegistry.addSmelting(material.getBlock(NAME),
-						material.getItemStack(Names.INGOT, 2), 1.0f);
+						material.getItemStack(Names.INGOT, outputQty), xp);
 			} else if (material.hasBlock(Names.ORE)) {
 				GameRegistry.addSmelting(material.getBlock(NAME),
-						material.getBlockItemStack(Names.ORE, 2), 1.0f);
+						material.getBlockItemStack(Names.ORE, outputQty), xp);
 			}
 		}
+	}
+
+	private Recipes() {
+		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
 	}
 }

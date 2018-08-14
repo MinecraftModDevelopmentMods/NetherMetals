@@ -23,7 +23,9 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-@MMDPlugin(addonId = NetherMetals.MODID, pluginId = Mekanism.PLUGIN_MODID)
+@MMDPlugin(
+		addonId = NetherMetals.MODID,
+		pluginId = Mekanism.PLUGIN_MODID)
 public final class Mekanism extends MekanismBase implements IIntegration {
 
 	/**
@@ -51,19 +53,19 @@ public final class Mekanism extends MekanismBase implements IIntegration {
 
 		mekProvides.stream().map(Materials::getMaterialByName).filter(mat -> !mat.isEmpty())
 				.filter(mat -> gasExists(mat.getName())).forEach(mat -> {
-					final ItemStack clump = new ItemStack(
-							ForgeRegistries.ITEMS.getValue(
-									new ResourceLocation(PLUGIN_MODID, Names.CLUMP.toString())),
-							6, mekProvides.indexOf(mat.getName()));
+					final ItemStack ore = mat.getBlockItemStack(Names.NETHERORE);
 					final ItemStack dust = new ItemStack(
 							ForgeRegistries.ITEMS
 									.getValue(new ResourceLocation(PLUGIN_MODID, "dust")),
 							4, mekProvides.indexOf(mat.getName()));
+					final ItemStack clump = new ItemStack(
+							ForgeRegistries.ITEMS.getValue(
+									new ResourceLocation(PLUGIN_MODID, Names.CLUMP.toString())),
+							6, mekProvides.indexOf(mat.getName()));
 					final ItemStack shard = new ItemStack(
 							ForgeRegistries.ITEMS.getValue(
 									new ResourceLocation(PLUGIN_MODID, Names.SHARD.toString())),
 							8, mekProvides.indexOf(mat.getName()));
-					final ItemStack ore = mat.getBlockItemStack(Names.NETHERORE);
 
 					addEnrichmentChamberRecipe(ore, dust);
 					addPurificationChamberRecipe(ore, clump);
@@ -99,6 +101,7 @@ public final class Mekanism extends MekanismBase implements IIntegration {
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
 					new ItemStack(net.minecraft.init.Items.DIAMOND, 4));
 		}
+
 		if (Materials.hasMaterial(MaterialNames.EMERALD)) {
 			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.EMERALD);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),

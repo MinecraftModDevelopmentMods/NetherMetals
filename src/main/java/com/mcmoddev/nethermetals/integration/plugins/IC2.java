@@ -19,7 +19,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@MMDPlugin(addonId = NetherMetals.MODID, pluginId = IC2.PLUGIN_MODID)
+@MMDPlugin(
+		addonId = NetherMetals.MODID,
+		pluginId = IC2.PLUGIN_MODID)
 public final class IC2 extends IC2Base implements IIntegration {
 
 	/**
