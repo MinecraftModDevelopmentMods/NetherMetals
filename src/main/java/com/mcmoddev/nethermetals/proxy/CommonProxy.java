@@ -6,7 +6,7 @@ import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.oregen.FallbackGenerator;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
-import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.util.Config.Options;
 import com.mcmoddev.nethermetals.init.ItemGroups;
 import com.mcmoddev.nethermetals.init.Recipes;
 

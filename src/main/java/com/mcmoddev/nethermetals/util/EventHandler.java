@@ -7,7 +7,7 @@ import com.mcmoddev.lib.block.BlockMMDNetherOre;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.events.MMDLibRegisterBlocks;
 import com.mcmoddev.lib.init.Materials;
-import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.util.Config.Options;
 import com.mcmoddev.lib.util.Oredicts;
 import com.mcmoddev.nethermetals.NetherMetals;
 import com.mcmoddev.nethermetals.init.NetherBlocks;

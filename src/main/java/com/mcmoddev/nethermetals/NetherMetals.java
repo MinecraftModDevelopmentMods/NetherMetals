@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.nethermetals.proxy.CommonProxy;
-import com.mcmoddev.nethermetals.util.Config;
+import com.mcmoddev.nethermetals.util.NMeConfig;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -66,7 +66,7 @@ public final class NetherMetals {
 
 	@EventHandler
 	public void constructing(final FMLConstructionEvent event) {
-		Config.init();
+		NMeConfig.init();
 	}
 
 	@EventHandler
