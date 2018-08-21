@@ -7,26 +7,23 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
-		maven {
+        maven {
+            name = 'gradle'
+            url 'https://plugins.gradle.org/m2/'
+        }
+ 		maven {
 			name = "sonatype"
 			url = 'https://oss.sonatype.org/content/groups/public'
 		}
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-		classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT'
+		classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.11'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'com.matthewprenger.cursegradle'
-
-/*
-// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
-plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
-}
-*/
 
 allprojects {
     apply plugin: 'java'
@@ -36,25 +33,25 @@ allprojects {
 
 version = "1.2"
 group= "com.knoxhack.nethermetals" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "NetherMetals-1.10.2"
+archivesBaseName = "NetherMetals-1.11"
 
 minecraft {
-    version = "1.11-13.19.0.2153"
+    version = "1.11-13.19.1.2189"
     runDir = "run"
     
-    mappings = "snapshot_20161111"
+    mappings = "stable_32"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 repositories {
     maven {
-        name "ilexiconn"
-        url "http://maven.ilexiconn.net/"
+        name "MMD"
+        url "http://maven.mcmoddev.com/"
     }
 }
 
 dependencies {
-    compile "mmd:orespawn:2.0.0.4-1.10.2:dev"
+    compile "mmd:orespawn:2.0.0.15-1.10.2:dev"
     compile files(
         'libs/BaseMetals_1.10.2-2.4.0.11.jar',
         'libs/ModernMetals-0.11.0.jar',
