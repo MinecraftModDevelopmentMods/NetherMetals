@@ -219,13 +219,14 @@ dependencies {
   deobfProvided "com.mcmoddev:AdditionalLootTables:${mc_version}-${alt_version}"
   runtime "com.mcmoddev:AdditionalLootTables:${mc_version}-${alt_version}"
   deobfProvided "com.mcmoddev:OreSpawn:${mc_version}-${orespawn_version}"
-  runtime "com.mcmoddev:OreSpawn:${mc_version}-${orespawn_version}"
+  runtime "com.mcmoddev:OreSpawn:${mc_version}-${orespawn_version}"/*
   deobfProvided "com.mcmoddev:BaseMetals:${mc_version}-${bme_version}"
   runtime "com.mcmoddev:BaseMetals:${mc_version}-${bme_version}"
   deobfProvided "com.mcmoddev:BaseMinerals:${mc_version}-${bmi_version}"
   runtime "com.mcmoddev:BaseMinerals:${mc_version}-${bmi_version}"
   deobfProvided "com.mcmoddev:ModernMetals:${mc_version}-${mme_version}"
-  runtime "com.mcmoddev:ModernMetals:${mc_version}-${mme_version}"
+     runtime "com.mcmoddev:ModernMetals:${mc_version}-${mme_version}"*/
+  deobfProvided "com.mcmoddev:MMDLib:${mc_version}-${mmdlib_version}"
 
 //runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
 //deobfProvided "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
