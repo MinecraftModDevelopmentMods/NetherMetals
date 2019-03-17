@@ -2,7 +2,7 @@ package com.mcmoddev.nethermetals.proxy;
 
 import java.util.HashSet;
 
-import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.VanillaMaterialNames;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.oregen.FallbackGenerator;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
@@ -48,7 +48,7 @@ public class CommonProxy {
 	public void init(final FMLInitializationEvent event) {
 		Recipes.init();
 
-		ItemGroups.setupIcons(MaterialNames.LAPIS);
+		ItemGroups.setupIcons(VanillaMaterialNames.LAPIS);
 	}
 
 	/**

@@ -1,6 +1,6 @@
 package com.mcmoddev.nethermetals.init;
 
-import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.VanillaMaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
@@ -21,47 +21,34 @@ public final class Recipes {
 	public static void init() {
 
 		// Vanilla
-		recipeWrapper(MaterialNames.COAL);
-		recipeWrapper(MaterialNames.DIAMOND);
-		recipeWrapper(MaterialNames.EMERALD);
-		recipeWrapper(MaterialNames.GOLD);
-		recipeWrapper(MaterialNames.IRON);
-		recipeWrapper(MaterialNames.LAPIS);
-		recipeWrapper(MaterialNames.REDSTONE);
+		recipeWrapper(VanillaMaterialNames.COAL);
+		recipeWrapper(VanillaMaterialNames.DIAMOND);
+		recipeWrapper(VanillaMaterialNames.EMERALD);
+		recipeWrapper(VanillaMaterialNames.GOLD);
+		recipeWrapper(VanillaMaterialNames.IRON);
+		recipeWrapper(VanillaMaterialNames.LAPIS);
+		recipeWrapper(VanillaMaterialNames.REDSTONE);
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
-			recipeWrapper(MaterialNames.ANTIMONY);
-			recipeWrapper(MaterialNames.BISMUTH);
-			recipeWrapper(MaterialNames.COPPER);
-			recipeWrapper(MaterialNames.LEAD);
-			recipeWrapper(MaterialNames.MERCURY);
-			recipeWrapper(MaterialNames.NICKEL);
-			recipeWrapper(MaterialNames.PLATINUM);
-			recipeWrapper(MaterialNames.SILVER);
-			recipeWrapper(MaterialNames.TIN);
-			recipeWrapper(MaterialNames.ZINC);
+			Materials.getMaterialsByMod("basemetals").parallelStream()
+			.forEach(mat -> recipeWrapper(mat));
 		}
 
 		// Modern Metals
 		if (Loader.isModLoaded("modernmetals")) {
-			recipeWrapper("aluminum");
-			recipeWrapper("cadmium");
-			recipeWrapper("chromium");
-			recipeWrapper("iridium");
-			recipeWrapper("magnesium");
-			recipeWrapper("manganese");
-			recipeWrapper("osmium");
-			recipeWrapper("plutonium");
-			recipeWrapper("rutile");
-			recipeWrapper("tantalum");
-			recipeWrapper("titanium");
-			recipeWrapper("tungsten");
-			recipeWrapper("uranium");
-			recipeWrapper("zirconium");
+			Materials.getMaterialsByMod("modernmetals").parallelStream()
+			.forEach(mat -> recipeWrapper(mat));
 		}
 	}
 
+	private static void recipeWrapper(final MMDMaterial material) {
+		if ((!material.isEmpty()) && (material.hasBlock(NAME))) {
+			doFurnaceSmelting(material);
+			doMakeDusts(material);
+		}
+	}
+	
 	private static void recipeWrapper(final String materialName) {
 		if (Materials.hasMaterial(materialName)) {
 			final MMDMaterial material = Materials.getMaterialByName(materialName);

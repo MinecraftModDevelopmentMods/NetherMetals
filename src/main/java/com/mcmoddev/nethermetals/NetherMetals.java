@@ -27,7 +27,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		modid = NetherMetals.MODID,
 		name = NetherMetals.NAME,
 		version = NetherMetals.VERSION,
-		dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
+		dependencies = "required-after:forge@[14.21.0.2327,);after:mmdlib;after:baseminerals;after:modernmetals",
 		certificateFingerprint = "@FINGERPRINT@",
 		acceptedMinecraftVersions = "[1.12,)",
 		updateJSON = SharedStrings.UPDATE_JSON_URL + "NetherMetals/master/update.json")
@@ -47,7 +47,7 @@ public final class NetherMetals {
 	 * is made that has the potential to break compatibility with other mods that depend on this
 	 * one.
 	 */
-	public static final String VERSION = "1.2.0-beta5";
+	public static final String VERSION = "1.2.0-beta6";
 
 	public static final Logger LOGGER = LogManager.getFormatterLogger(NetherMetals.MODID);
 
