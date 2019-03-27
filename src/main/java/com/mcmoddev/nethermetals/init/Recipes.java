@@ -31,13 +31,13 @@ public final class Recipes {
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
-			Materials.getMaterialsByMod("basemetals").parallelStream()
+			Materials.getMaterialsByMod("basemetals").stream()
 			.forEach(mat -> recipeWrapper(mat));
 		}
 
 		// Modern Metals
 		if (Loader.isModLoaded("modernmetals")) {
-			Materials.getMaterialsByMod("modernmetals").parallelStream()
+			Materials.getMaterialsByMod("modernmetals").stream()
 			.forEach(mat -> recipeWrapper(mat));
 		}
 	}
