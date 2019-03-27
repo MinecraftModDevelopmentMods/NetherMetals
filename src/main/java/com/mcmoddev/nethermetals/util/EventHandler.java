@@ -38,7 +38,7 @@ public final class EventHandler {
 
 	@SubscribeEvent
 	public static void mmdlibRegisterBlocks(final MMDLibRegisterBlocks event) {
-		event.setActive(NetherMetals.MODID);
+//		event.setActive(NetherMetals.MODID);
 		NetherBlocks.init();
 	}
 
