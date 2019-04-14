@@ -1,1 +1,1 @@
-Fixed a silly bug in the last release causing nether ores for vanilla mats not to generate
+*Metals family wide bug-fixes and updates. No longer requires BaseMetals - only MMDLib and MMD OreSpawn.
