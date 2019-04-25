@@ -1,1 +1,3 @@
+Addendum: Merge shared configs options with EndMetals and move them to the central MMDLib config.
+
 *Metals family wide bug-fixes and updates. No longer requires BaseMetals - only MMDLib and MMD OreSpawn.

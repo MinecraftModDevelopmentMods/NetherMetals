@@ -18,7 +18,6 @@ public final class NMeConfig extends com.mcmoddev.lib.util.Config {
 	private static Configuration configuration;
 	private static final String CONFIG_FILE = "config/NetherMetals.cfg";
 	private static final String NETHERORE = "Nether Ores";
-	private static final String GENERAL = "General";
 
 	/**
 	 *
@@ -42,18 +41,11 @@ public final class NMeConfig extends com.mcmoddev.lib.util.Config {
 		}
 
 		// General
-		Options.thingEnabled("enableFurnaceSmelting", configuration
-				.getBoolean("enableFurnaceSmelting", GENERAL, true, "Enable Furnace Smelting"));
 		Options.explosionChance(configuration.get("mean", "OreExplosionChance", 2,
 				"Explosion Percentage Chance\nSet to 0 to not explode").getInt());
 		Options.angerPigmenRange(configuration
 				.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger")
 				.getInt());
-		Options.thingEnabled("smeltToIngots", configuration.getBoolean("smeltToIngots", GENERAL,
-				false,
-				"By default nether ores smelt to 2 standard ores - with this option you get 2 ingots"));
-		Options.thingEnabled("makeDusts", configuration.getBoolean("makeDusts", GENERAL, false,
-				"Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts"));
 
 		// Nether Ores
 		Options.materialEnabled("enableCoalNetherOre", configuration
