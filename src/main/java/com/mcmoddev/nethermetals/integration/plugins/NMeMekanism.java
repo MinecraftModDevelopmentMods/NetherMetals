@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import com.mcmoddev.lib.data.VanillaMaterialNames;
+import com.mcmoddev.lib.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
@@ -47,7 +47,7 @@ public final class NMeMekanism extends Mekanism implements IIntegration {
 	 */
 	@SubscribeEvent
 	public void regCallback(final RegistryEvent.Register<IRecipe> event) {
-		final List<String> mekProvides = Arrays.asList(VanillaMaterialNames.IRON, VanillaMaterialNames.GOLD,
+		final List<String> mekProvides = Arrays.asList(MaterialNames.IRON, MaterialNames.GOLD,
 				"osmium", "copper", "tin", "silver", "lead");
 
 		mekProvides.stream().map(Materials::getMaterialByName).filter(mat -> !mat.isEmpty())
@@ -77,32 +77,32 @@ public final class NMeMekanism extends Mekanism implements IIntegration {
 				.filter(material -> !mekProvides.contains(material.getName()))
 				.forEach(this::addMultRecipe);
 
-		if (Materials.hasMaterial(VanillaMaterialNames.LAPIS)) {
-			final MMDMaterial material = Materials.getMaterialByName(VanillaMaterialNames.LAPIS);
+		if (Materials.hasMaterial(MaterialNames.LAPIS)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.LAPIS);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
 					new ItemStack(net.minecraft.init.Items.DYE, 24, 4));
 		}
 
-		if (Materials.hasMaterial(VanillaMaterialNames.REDSTONE)) {
-			final MMDMaterial material = Materials.getMaterialByName(VanillaMaterialNames.REDSTONE);
+		if (Materials.hasMaterial(MaterialNames.REDSTONE)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.REDSTONE);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
 					new ItemStack(net.minecraft.init.Items.REDSTONE, 24));
 		}
 
-		if (Materials.hasMaterial(VanillaMaterialNames.COAL)) {
-			final MMDMaterial material = Materials.getMaterialByName(VanillaMaterialNames.COAL);
+		if (Materials.hasMaterial(MaterialNames.COAL)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.COAL);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
 					new ItemStack(net.minecraft.init.Items.COAL, 4, 0));
 		}
 
-		if (Materials.hasMaterial(VanillaMaterialNames.DIAMOND)) {
-			final MMDMaterial material = Materials.getMaterialByName(VanillaMaterialNames.DIAMOND);
+		if (Materials.hasMaterial(MaterialNames.DIAMOND)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.DIAMOND);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
 					new ItemStack(net.minecraft.init.Items.DIAMOND, 4));
 		}
 
-		if (Materials.hasMaterial(VanillaMaterialNames.EMERALD)) {
-			final MMDMaterial material = Materials.getMaterialByName(VanillaMaterialNames.EMERALD);
+		if (Materials.hasMaterial(MaterialNames.EMERALD)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.EMERALD);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.NETHERORE),
 					new ItemStack(net.minecraft.init.Items.EMERALD, 4));
 		}
