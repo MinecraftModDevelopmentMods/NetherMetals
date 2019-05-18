@@ -1,6 +1,6 @@
 package com.mcmoddev.nethermetals.init;
 
-import com.mcmoddev.lib.data.VanillaMaterialNames;
+import com.mcmoddev.lib.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
@@ -21,13 +21,13 @@ public final class Recipes {
 	public static void init() {
 
 		// Vanilla
-		recipeWrapper(VanillaMaterialNames.COAL);
-		recipeWrapper(VanillaMaterialNames.DIAMOND);
-		recipeWrapper(VanillaMaterialNames.EMERALD);
-		recipeWrapper(VanillaMaterialNames.GOLD);
-		recipeWrapper(VanillaMaterialNames.IRON);
-		recipeWrapper(VanillaMaterialNames.LAPIS);
-		recipeWrapper(VanillaMaterialNames.REDSTONE);
+		recipeWrapper(MaterialNames.COAL);
+		recipeWrapper(MaterialNames.DIAMOND);
+		recipeWrapper(MaterialNames.EMERALD);
+		recipeWrapper(MaterialNames.GOLD);
+		recipeWrapper(MaterialNames.IRON);
+		recipeWrapper(MaterialNames.LAPIS);
+		recipeWrapper(MaterialNames.REDSTONE);
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
