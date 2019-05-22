@@ -9,6 +9,7 @@ import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.util.Oredicts;
+import com.mcmoddev.nethermetals.NetherMetals;
 
 import net.minecraft.block.Block;
 
@@ -29,15 +30,21 @@ public final class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 				"nickel", "platinum", "silver", "tin", "zinc", "aluminum", "cadmium", "chromium",
 				"iridium", "magnesium", "manganese", "osmium", "plutonium", "rutile", "tantalum",
 				"titanium", "tungsten", "uranium", "zirconium");
-		Materials.getAllMaterials().stream().map(material -> material.getName())
-				.filter(knownMaterials::contains).filter(Materials::hasMaterial)
-				.forEach(NetherBlocks::createOreWrapper);
+		
+		Materials.getAllMaterials().stream().filter(MMDMaterial::isVanilla)
+				.map(material -> material.getName())
+				.filter(knownMaterials::contains)
+				.forEach(NetherBlocks::createVanillaOreWrapper);
+		Materials.getAllMaterials().stream().filter(mat -> !mat.isVanilla())
+		.map(material -> material.getName())
+		.filter(knownMaterials::contains).filter(Materials::hasMaterial)
+		.forEach(NetherBlocks::createOreWrapper);
 	}
 
 	private static void createOreWrapper(final String materialName) {
 		final List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron",
 				"lapis", "redstone");
-
+		NetherMetals.LOGGER.fatal("createOreWrapper(%s)", materialName);
 		if (vanillaMats.contains(materialName)) {
 			createVanillaOreWrapper(materialName);
 		} else {
@@ -46,6 +53,7 @@ public final class NetherBlocks extends com.mcmoddev.lib.init.Blocks {
 	}
 
 	private static void createVanillaOreWrapper(final String materialName) {
+		NetherMetals.LOGGER.fatal("createVanillaOreWrapper(%s)", materialName);
 		final MMDMaterial material = Materials.getMaterialByName(materialName);
 		material.addNewBlock(Names.NETHERORE, addBlock(new BlockMMDNetherOre(material),
 				Names.NETHERORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
