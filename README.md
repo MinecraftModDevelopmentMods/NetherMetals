@@ -1,6 +1,6 @@
 [![](https://img.shields.io/badge/Discord-MMD-green.svg?style=flat&logo=Discord)](https://discord.mcmoddev.com)
-[![](https://cf.way2muchnoise.eu/full_mmd-orespawn_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/nether-metals)
-[![](https://cf.way2muchnoise.eu/versions/Minecraft_mmd-orespawn_all.svg)](https://www.curseforge.com/minecraft/mc-mods/nether-metals)
+[![](http://cf.way2muchnoise.eu/full_nether-metals_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/nether-metals)
+[![](http://cf.way2muchnoise.eu/versions/Minecraft_nether-metals_all.svg)](https://www.curseforge.com/minecraft/mc-mods/nether-metals)
 [![Build Status](https://travis-ci.org/nfinit-gaming/Nether-Metals.svg?branch=master)](https://travis-ci.org/nfinit-gaming/Nether-Metals)
 
 ### Nether Metals
